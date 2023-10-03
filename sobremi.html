@@ -27,6 +27,7 @@
 
 </head>
 
+<!-- BODY -->
 <body>
 
      <!-- Menú de navegación -->
@@ -40,109 +41,134 @@
         <a title="Juegos" accesskey="J" tabindex="7" href="juegos.html">Juegos</a> 
     </nav>
 
-    <!-- Datos con el contenidos que aparece en el navegador -->
-    <h1>Escritorio Virtual</h1>
-    <h2>Sobre mi</h2>
-
-    <p>Nombre: Natalia Fernandez Riego</p> 
-    <p>UO: UO277516</p> 
-    <p>Correo electronico: UO277516@uniovi.es</p> 
-
-    <p>
-        Me llamo Natalia, tengo 22 años y soy estudiante del Grado de Ingeniería Informática del Software
-        en la Escuela de Ingeniería Informática (Oviedo). Soy de Tineo, un concejo situado al suroccidente de Asturias. 
-    </p>
-
-    <picture>
-        <source media="(max-width: 465px)" srcset="multimedia/imagenes/orla_natalia_465px.jpeg">
-        <!-- Ruta a la imagen pequeña para móviles -->
-        <source media="(max-width: 799px)" srcset="multimedia/imagenes/orla_natalia_799px.jpeg">
-        <!-- Ruta a la imagen de tamaño mediano para tablets -->
-        <img src="multimedia/imagenes/orla_natalia_grande.jpeg" alt="Mi Foto Personal">
-        <!-- Ruta a la imagen grande para otros dispositivos -->
-    </picture>
-
-    <p>
-        En este vídeo, se muestra "La Descarga" de la Fiestas del Carmen en Cangas del Narcea, municipio al cual pertenecen
-        mis abuelos paternos. 
-    </p>
-
-    <video controls preload="auto">
-        <source src="multimedia/videos/descarga_mp4.mp4" 
-        type="video/mp4" />
-        <source src="multimedia/videos/descarga_mp4.webm" 
-        type="video/webm" /> 
-    </video>
-
+    <!-- HEADER-->    
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <h2>Sobre mi</h2>
+    </header>
     
 
-    <!-- Lista de aficiones 
-        **DUDA AQUI SI TIENE QUE SER TODOS LOS ELEMENTOS DE LA LISTA CON ANIDADOS**
-    -->
-    
-    <p>Mis aficiones:</p>
-    <ol>
-        <li> Deporte 
+    <!-- Elemento Main para contenido principal -->
+    <main>
+
+        <!-- Section de informacion personal -->
+        <section>
+            <h3>Información personal</h3>
+            <p>Nombre: Natalia Fernandez Riego</p> 
+            <p>UO: UO277516</p> 
+            <p>Correo electronico: UO277516@uniovi.es</p> 
+            <p>
+                Me llamo Natalia, tengo 22 años y soy estudiante del Grado de Ingeniería Informática del Software
+                en la Escuela de Ingeniería Informática (Oviedo). Soy de Tineo, un concejo situado al suroccidente de Asturias. 
+            </p>
+        </section>
+
+        <!-- Mi Foto Personal (Article) -->
+        <article>
+            <h3>Mi foto personal</h3>
+            <picture>
+                <source media="(max-width: 465px)" srcset="multimedia/imagenes/orla_natalia_465px.jpeg">
+                <!-- Ruta a la imagen pequeña para móviles -->
+                <source media="(max-width: 799px)" srcset="multimedia/imagenes/orla_natalia_799px.jpeg">
+                <!-- Ruta a la imagen de tamaño mediano para tablets -->
+                <img src="multimedia/imagenes/orla_natalia_grande.jpeg" alt="Mi Foto Personal">
+                <!-- Ruta a la imagen grande para otros dispositivos -->
+            </picture>
+        </article>
+
+        <!-- Video y descripción adicional (Aside) -->
+        <aside>
+            <p>
+                En este vídeo, se muestra "La Descarga" de la Fiestas del Carmen en Cangas del Narcea, municipio al cual pertenecen
+                mis abuelos paternos. 
+            </p>
+            <video controls preload="auto">
+                <source src="multimedia/videos/descarga_mp4.mp4" 
+                type="video/mp4" />
+                <source src="multimedia/videos/descarga_mp4.webm" 
+                type="video/webm" /> 
+            </video>
+        </aside>
+        
+
+        <!-- Lista de aficiones 
+            **DUDA AQUI SI TIENE QUE SER TODOS LOS ELEMENTOS DE LA LISTA CON ANIDADOS**
+        -->
+        
+        <section>
+            <h3>Mis Aficiones</h3>
             <ul>
-                <li>Fútbol</li>
-                <li>
-                    Bolo celta. Para más información, puede visitar 
-                    <a href="https://es.wikipedia.org/wiki/Bolos_celtas" 
-                    title="bolo_celta_wiki">la entrada</a> 
-                    sobre esta modalidad de bolo en la Wikipedia.
+                <li> Deporte 
+                    <ul>
+                        <li>Fútbol</li>
+                        <li>
+                            Bolo celta. Para más información, puede visitar 
+                            <a href="https://es.wikipedia.org/wiki/Bolos_celtas" title="bolo_celta_wiki">la entrada</a> 
+                            sobre esta modalidad de bolo en la Wikipedia.
+                        </li>
+                    </ul>
                 </li>
-            </ul>
-        </li>
-        <li> Cine </li>
-        <li> Música 
-            <ul>
-                <li>Tambor</li>
-                <li>Baile regional.
-                    Esta 
-                    <a href="https://verasturies.com/top-4-bailes-tradicionales-en-asturies/" 
-                    title="video_xota">página</a> 
-                    incluye una lista de los bailes regionales más característicos de Asturias.
+                <li> Cine </li>
+                <li> Música 
+                    <ul>
+                        <li>Tambor</li>
+                        <li>Baile regional.
+                            Esta 
+                            <a href="https://verasturies.com/top-4-bailes-tradicionales-en-asturies/" title="video_xota">página</a> 
+                            incluye una lista de los bailes regionales más característicos de Asturias.
+                        </li>
+                    </ul>
                 </li>
+                <li> Lectura </li>
+                <li> Cocina</li>
             </ul>
-        </li>
-        <li> Lectura </li>
-        <li> Cocina</li>
-    </ol>
+        </section>
 
-    <!-- Lista de grupos o cantantes favoritos -->
-    <p>Mis grupos y cantantes favoritos:</p>
-    <ul>
-        <li> Taylor Swift</li>
-        <li> Lana Del Rey</li>
-        <li> Rosalía</li>
-        <li> Red Hot Chili Peppers</li>
-        <li> Arctic Monkeys</li>
-    </ul>
-    
-    <!-- Lista 5 asignaturas favoritas -->
-    <p>Mis asignaturas favoritas:</p>
-    <dl>
-        <dt>Repositorios de Información</dt>
-        <dd>Asignatura obligatoria que se enmarca dentro de la materia de “Sistemas de información y persistencia”.
-            Es una asignatura que temporalmente se enclava en el tercer año de la titulación, y que está relacionada especialmente 
-            con la asignatura anterior de Bases de Datos de segundo.</dd>
-        <dt>Tecnología y Paradigmas de Programación</dt>
-        <dd>Esta asignatura describe los paradigmas de programación más utilizados en la actualidad y los elementos
-            principales de cada uno de ellos. Se enmarca en la materia de Programación.
-        </dd>
-        <dt>Diseño de Lenguajes de Programación</dt>
-        <dd>Asignatura centrada en el diseño e implementación de lenguajes de programación. En ella el alumno debe diseñar y 
-            construir un procesador de lenguaje.
-        </dd>
-        <dt>Realidad y Accesibilidad Aumentadas</dt>
-        <dd>Esta asignatura se enmarca dentro de la materia de Interacción y Multimedia y de forma transversal al módulo de 
-            Tecnología Complementaria. A esta materia corresponden también las asignaturas de Comunicación Persona Máquina, Software y Estándares para la Web, e Informática Audiovisual.
-        </dd>
-        <dt>Comunicación Persona-Máquina</dt>
-        <dd>Se enmarca dentro de la materia de Interacción y Multimedia, y en el módulo Común de Informática.
-            Los contenidos generales de la materia son: Fundamentos de la comunicación persona máquina. Usabilidad. Accesibilidad. Diseño e implantación de interfaces de usuario. Evaluación de interfaces de usuario.
-        </dd>
-    </dl>
+        <!-- Lista de grupos o cantantes favoritos (Section) -->
+        <section>
+            <h3>Mis grupos y cantantes favoritos</h3>
+            <ul>
+                <li> Taylor Swift</li>
+                <li> Lana Del Rey</li>
+                <li> Rosalía</li>
+                <li> Red Hot Chili Peppers </li>
+                <li> Arctic Monkeys</li>
+            </ul>
+        </section>
+
+        <!-- Audio (Section) -->
+        <aside>
+            <p>Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers:</p>
+            <audio controls title="Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers"> 
+                <source src="multimedia/audios/otherside_rhcp.mp3" 
+                type="audio/mpeg" />
+                <source src="multimedia/audios/otherside_rhcp.wav" 
+                type="audio/wav" />
+            </audio>
+        </aside>
+        
+        <!-- Lista 5 asignaturas favoritas (Section) -->
+        <section>
+            <h3>Mis asignaturas favoritas</h3>
+            <dl>
+                <dt>Repositorios de Información</dt>
+                <dd>Asignatura obligatoria que se enmarca dentro de la materia de “Sistemas de información y persistencia”. Es una asignatura que temporalmente se enclava en el tercer año de la titulación, y que está relacionada especialmente con la asignatura anterior de Bases de Datos de segundo.</dd>
+                <dt>Tecnología y Paradigmas de Programación</dt>
+                <dd>Esta asignatura describe los paradigmas de programación más utilizados en la actualidad y los elementos principales de cada uno de ellos. Se enmarca en la materia de Programación.</dd>
+                <dt>Diseño de Lenguajes de Programación</dt>
+                <dd>Asignatura centrada en el diseño e implementación de lenguajes de programación. En ella el alumno debe diseñar y construir un procesador de lenguaje.</dd>
+                <dt>Realidad y Accesibilidad Aumentadas</dt>
+                <dd>Esta asignatura se enmarca dentro de la materia de Interacción y Multimedia y de forma transversal al módulo de Tecnología Complementaria. A esta materia corresponden también las asignaturas de Comunicación Persona Máquina, Software y Estándares para la Web, e Informática Audiovisual.</dd>
+                <dt>Comunicación Persona-Máquina</dt>
+                <dd>Se enmarca dentro de la materia de Interacción y Multimedia, y en el módulo Común de Informática. Los contenidos generales de la materia son: Fundamentos de la comunicación persona máquina. Usabilidad. Accesibilidad. Diseño e implantación de interfaces de usuario. Evaluación de interfaces de usuario.</dd>
+            </dl>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Copyright @2023 Natalia Fernández Riego</p>
+    </footer>
 
 </body>
 </html>
