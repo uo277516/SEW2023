@@ -48,159 +48,155 @@
     </header>
     
 
-    <!-- Elemento Main para contenido principal -->
-    <main>
+    <!-- Section de informacion personal -->
+    <section>
+        <h3>Información personal</h3>
+        <p>Nombre: Natalia Fernandez Riego</p> 
+        <p>UO: UO277516</p> 
+        <p>Correo electronico: UO277516@uniovi.es</p> 
+        <p>
+            Me llamo Natalia, tengo 22 años y soy estudiante del Grado de Ingeniería Informática del Software
+            en la Escuela de Ingeniería Informática (Oviedo). Soy de Tineo, un concejo situado al suroccidente de Asturias. 
+        </p>
+    </section>
 
-        <!-- Section de informacion personal -->
-        <section>
-            <h3>Información personal</h3>
-            <p>Nombre: Natalia Fernandez Riego</p> 
-            <p>UO: UO277516</p> 
-            <p>Correo electronico: UO277516@uniovi.es</p> 
-            <p>
-                Me llamo Natalia, tengo 22 años y soy estudiante del Grado de Ingeniería Informática del Software
-                en la Escuela de Ingeniería Informática (Oviedo). Soy de Tineo, un concejo situado al suroccidente de Asturias. 
-            </p>
-        </section>
+    <!-- Mi Foto Personal -->
+    <section>
+        <h3>Mi foto personal</h3>
+        <picture>
+            <source media="(max-width: 465px)" srcset="multimedia/imagenes/orla_natalia_465px.jpeg">
+            <!-- Ruta a la imagen pequeña para móviles -->
+            <source media="(max-width: 799px)" srcset="multimedia/imagenes/orla_natalia_799px.jpeg">
+            <!-- Ruta a la imagen de tamaño mediano para tablets -->
+            <img src="multimedia/imagenes/orla_natalia_grande.jpeg" alt="Mi Foto Personal">
+            <!-- Ruta a la imagen grande para otros dispositivos -->
+        </picture>
+    </section>
 
-        <!-- Mi Foto Personal -->
-        <section>
-            <h3>Mi foto personal</h3>
-            <picture>
-                <source media="(max-width: 465px)" srcset="multimedia/imagenes/orla_natalia_465px.jpeg">
-                <!-- Ruta a la imagen pequeña para móviles -->
-                <source media="(max-width: 799px)" srcset="multimedia/imagenes/orla_natalia_799px.jpeg">
-                <!-- Ruta a la imagen de tamaño mediano para tablets -->
-                <img src="multimedia/imagenes/orla_natalia_grande.jpeg" alt="Mi Foto Personal">
-                <!-- Ruta a la imagen grande para otros dispositivos -->
-            </picture>
-        </section>
+    <!-- Video y descripción adicional  -->
+    <section>
+        <p>
+            En este vídeo, se muestra "La Descarga" de la Fiestas del Carmen en Cangas del Narcea, municipio al cual pertenecen
+            mis abuelos paternos. 
+        </p>
+        <video controls preload="auto">
+            <source src="multimedia/videos/descarga_mp4.mp4" 
+            type="video/mp4" />
+            <source src="multimedia/videos/descarga_mp4.webm" 
+            type="video/webm" /> 
+        </video>
+    </section>
+    
 
-        <!-- Video y descripción adicional  -->
-        <section>
-            <p>
-                En este vídeo, se muestra "La Descarga" de la Fiestas del Carmen en Cangas del Narcea, municipio al cual pertenecen
-                mis abuelos paternos. 
-            </p>
-            <video controls preload="auto">
-                <source src="multimedia/videos/descarga_mp4.mp4" 
-                type="video/mp4" />
-                <source src="multimedia/videos/descarga_mp4.webm" 
-                type="video/webm" /> 
-            </video>
-        </section>
-        
+    <!-- Lista de aficiones -->
+    
+    <section>
+        <h3>Mis Aficiones</h3>
+        <ul>
+            <li> Deporte 
+                <ul>
+                    <li>Fútbol</li>
+                    <li>
+                        Bolo celta. Para más información, puede visitar 
+                        <a href="https://es.wikipedia.org/wiki/Bolos_celtas" title="bolo_celta_wiki">la entrada</a> 
+                        sobre esta modalidad de bolo en la Wikipedia.
+                    </li>
+                </ul>
+            </li>
+            <li> Cine </li>
+            <li> Música 
+                <ul>
+                    <li>Tambor</li>
+                    <li>Baile regional.
+                        Esta 
+                        <a href="https://verasturies.com/top-4-bailes-tradicionales-en-asturies/" title="video_xota">página</a> 
+                        incluye una lista de los bailes regionales más característicos de Asturias.
+                    </li>
+                </ul>
+            </li>
+            <li> Lectura </li>
+            <li> Cocina</li>
+        </ul>
+    </section>
 
-        <!-- Lista de aficiones -->
-        
-        <section>
-            <h3>Mis Aficiones</h3>
-            <ul>
-                <li> Deporte 
-                    <ul>
-                        <li>Fútbol</li>
-                        <li>
-                            Bolo celta. Para más información, puede visitar 
-                            <a href="https://es.wikipedia.org/wiki/Bolos_celtas" title="bolo_celta_wiki">la entrada</a> 
-                            sobre esta modalidad de bolo en la Wikipedia.
-                        </li>
-                    </ul>
-                </li>
-                <li> Cine </li>
-                <li> Música 
-                    <ul>
-                        <li>Tambor</li>
-                        <li>Baile regional.
-                            Esta 
-                            <a href="https://verasturies.com/top-4-bailes-tradicionales-en-asturies/" title="video_xota">página</a> 
-                            incluye una lista de los bailes regionales más característicos de Asturias.
-                        </li>
-                    </ul>
-                </li>
-                <li> Lectura </li>
-                <li> Cocina</li>
-            </ul>
-        </section>
+    <!-- Lista de grupos o cantantes favoritos (Section) -->
+    <section>
+        <h3>Mis grupos y cantantes favoritos</h3>
+        <ul>
+            <li> Taylor Swift</li>
+            <li> Lana Del Rey</li>
+            <li> Rosalía</li>
+            <li> Red Hot Chili Peppers </li>
+            <li> Arctic Monkeys</li>
+        </ul>
+    </section>
 
-        <!-- Lista de grupos o cantantes favoritos (Section) -->
-        <section>
-            <h3>Mis grupos y cantantes favoritos</h3>
-            <ul>
-                <li> Taylor Swift</li>
-                <li> Lana Del Rey</li>
-                <li> Rosalía</li>
-                <li> Red Hot Chili Peppers </li>
-                <li> Arctic Monkeys</li>
-            </ul>
-        </section>
+    <!-- Audio (Section) -->
+    <section>
+        <p>Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers:</p>
+        <audio controls title="Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers"> 
+            <source src="multimedia/audios/otherside_rhcp.mp3" 
+            type="audio/mpeg" />
+            <source src="multimedia/audios/otherside_rhcp.wav" 
+            type="audio/wav" />
+        </audio>
+    </section>
+    
+    <!-- Lista 5 asignaturas favoritas (Section) -->
+    <section>
+        <h3>Mis asignaturas favoritas</h3>
+        <dl>
+            <dt>Repositorios de Información</dt>
+            <dd>Asignatura obligatoria que se enmarca dentro de la materia de “Sistemas de información y persistencia”. Es una asignatura que temporalmente se enclava en el tercer año de la titulación, y que está relacionada especialmente con la asignatura anterior de Bases de Datos de segundo.</dd>
+            <dt>Tecnología y Paradigmas de Programación</dt>
+            <dd>Esta asignatura describe los paradigmas de programación más utilizados en la actualidad y los elementos principales de cada uno de ellos. Se enmarca en la materia de Programación.</dd>
+            <dt>Diseño de Lenguajes de Programación</dt>
+            <dd>Asignatura centrada en el diseño e implementación de lenguajes de programación. En ella el alumno debe diseñar y construir un procesador de lenguaje.</dd>
+            <dt>Realidad y Accesibilidad Aumentadas</dt>
+            <dd>Esta asignatura se enmarca dentro de la materia de Interacción y Multimedia y de forma transversal al módulo de Tecnología Complementaria. A esta materia corresponden también las asignaturas de Comunicación Persona Máquina, Software y Estándares para la Web, e Informática Audiovisual.</dd>
+            <dt>Comunicación Persona-Máquina</dt>
+            <dd>Se enmarca dentro de la materia de Interacción y Multimedia, y en el módulo Común de Informática. Los contenidos generales de la materia son: Fundamentos de la comunicación persona máquina. Usabilidad. Accesibilidad. Diseño e implantación de interfaces de usuario. Evaluación de interfaces de usuario.</dd>
+        </dl>
+    </section>
 
-        <!-- Audio (Section) -->
-        <section>
-            <p>Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers:</p>
-            <audio controls title="Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers"> 
-                <source src="multimedia/audios/otherside_rhcp.mp3" 
-                type="audio/mpeg" />
-                <source src="multimedia/audios/otherside_rhcp.wav" 
-                type="audio/wav" />
-            </audio>
-        </section>
-        
-        <!-- Lista 5 asignaturas favoritas (Section) -->
-        <section>
-            <h3>Mis asignaturas favoritas</h3>
-            <dl>
-                <dt>Repositorios de Información</dt>
-                <dd>Asignatura obligatoria que se enmarca dentro de la materia de “Sistemas de información y persistencia”. Es una asignatura que temporalmente se enclava en el tercer año de la titulación, y que está relacionada especialmente con la asignatura anterior de Bases de Datos de segundo.</dd>
-                <dt>Tecnología y Paradigmas de Programación</dt>
-                <dd>Esta asignatura describe los paradigmas de programación más utilizados en la actualidad y los elementos principales de cada uno de ellos. Se enmarca en la materia de Programación.</dd>
-                <dt>Diseño de Lenguajes de Programación</dt>
-                <dd>Asignatura centrada en el diseño e implementación de lenguajes de programación. En ella el alumno debe diseñar y construir un procesador de lenguaje.</dd>
-                <dt>Realidad y Accesibilidad Aumentadas</dt>
-                <dd>Esta asignatura se enmarca dentro de la materia de Interacción y Multimedia y de forma transversal al módulo de Tecnología Complementaria. A esta materia corresponden también las asignaturas de Comunicación Persona Máquina, Software y Estándares para la Web, e Informática Audiovisual.</dd>
-                <dt>Comunicación Persona-Máquina</dt>
-                <dd>Se enmarca dentro de la materia de Interacción y Multimedia, y en el módulo Común de Informática. Los contenidos generales de la materia son: Fundamentos de la comunicación persona máquina. Usabilidad. Accesibilidad. Diseño e implantación de interfaces de usuario. Evaluación de interfaces de usuario.</dd>
-            </dl>
-        </section>
-
-        <!-- Tabla de temperasturas -->
-        <section>
-            <h3>Clima en mi lugar de nacimiento</h3>
-            <table>
-                <caption> Temperaturas medias anuales Cangas del Narcea (últimos 10 años) </caption>
-                <tr>
-                    <td>fila/columna</td>
-                        <th>Enero</th>
-                        <th>Febrero</th>
-                        <th>Marzo</th>
-                        <th>Abril</th>
-                        <th>Mayo</th>
-                        <th>Junio</th>
-                        <th>Julio</th>
-                        <th>Agosto</th>
-                        <th>Septiembre</th>
-                        <th>Octubre</th>
-                        <th>Noviembre</th>
-                        <th>Diciembre</th>
-                </tr>
-                <tr>
-                    <th> Temperatura media (°C) </th>
-                    <td>4.1 </td>
-                    <td>4</td>
-                    <td>6.4 </td>
-                    <td>8.3 </td>
-                    <td>11.2 </td>
-                    <td>14.7 </td>
-                    <td>16.4 </td>
-                    <td>16.7 </td>
-                    <td>14.8 </td>
-                    <td>11.7 </td>
-                    <td>6.7 </td>
-                    <td>4.8 </td>
-                </tr>
-            </table>
-        </section>
-
-    </main>
+    <!-- Tabla de temperasturas -->
+    <section>
+        <h3>Clima en mi lugar de nacimiento</h3>
+        <table>
+            <caption> Temperaturas medias anuales Cangas del Narcea (últimos 10 años) </caption>
+            <tr>
+                <th scope="col" id="fila/columna">fila/columna</th>
+                <th scope="col" id="enero">Enero</th>
+                <th scope="col" id="febrero">Febrero</th>
+                <th scope="col" id="marzo">Marzo</th>
+                <th scope="col" id="abril">Abril</th>
+                <th scope="col" id="mayo">Mayo</th>
+                <th scope="col" id="junio">Junio</th>
+                <th scope="col" id="julio">Julio</th>
+                <th scope="col" id="agosto">Agosto</th>
+                <th scope="col" id="septiembre">Septiembre</th>
+                <th scope="col" id="octubre">Octubre</th>
+                <th scope="col" id="noviembre">Noviembre</th>
+                <th scope="col" id="diciembre">Diciembre</th>
+            </tr>
+            
+            <tr>
+                <th scope="row" id="temperatura" headers="horas">Temperatura media (°C)</th>
+                <td headers="temperatura enero">4.1</td>
+                <td headers="temperatura febrero">4.0</td>
+                <td headers="temperatura marzo">6.4</td>
+                <td headers="temperatura abril">8.3</td>
+                <td headers="temperatura mayo">11.2</td>
+                <td headers="temperatura junio">14.7</td>
+                <td headers="temperatura julio">16.4</td>
+                <td headers="temperatura agosto">16.7</td>
+                <td headers="temperatura septiembre">14.8</td>
+                <td headers="temperatura octubre">11.7</td>
+                <td headers="temperatura noviembre">6.7</td>
+                <td headers="temperatura diciembre">4.8</td>
+            </tr>
+    </table>
+</section>
 
 </body>
 </html>
