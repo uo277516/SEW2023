@@ -30,23 +30,21 @@
 <!-- BODY -->
 <body>
 
-     <!-- Menú de navegación -->
-     <nav>
-        <a title="Indice" accesskey="I" tabindex="1" href="index.html">Indice</a> 
-        <a title="Sobre mi" accesskey="S" tabindex="2" href="sobremi.html">Sobre mi</a> 
-        <a title="Noticias" accesskey="N" tabindex="3" href="noticias.html">Noticias</a> 
-        <a title="Agenda" accesskey="A" tabindex="4" href="agenda.html">Agenda</a> 
-        <a title="Meteorologia" accesskey="M" tabindex="5" href="meteorologia.html">Meteorología</a> 
-        <a title="Viajes" accesskey="V" tabindex="6" href="viajes.html">Viajes</a> 
-        <a title="Juegos" accesskey="J" tabindex="7" href="juegos.html">Juegos</a> 
-    </nav>
-
-    <!-- HEADER-->    
     <header>
+        <!-- Menú de navegación -->
+        <nav>
+            <a title="Indice" accesskey="I" tabindex="1" href="index.html">Indice</a> 
+            <a title="Sobre mi" accesskey="S" tabindex="2" href="sobremi.html">Sobre mi</a> 
+            <a title="Noticias" accesskey="N" tabindex="3" href="noticias.html">Noticias</a> 
+            <a title="Agenda" accesskey="A" tabindex="4" href="agenda.html">Agenda</a> 
+            <a title="Meteorologia" accesskey="M" tabindex="5" href="meteorologia.html">Meteorología</a> 
+            <a title="Viajes" accesskey="V" tabindex="6" href="viajes.html">Viajes</a> 
+            <a title="Juegos" accesskey="J" tabindex="7" href="juegos.html">Juegos</a> 
+        </nav>
         <h1>Escritorio Virtual</h1>
-        <h2>Sobre mi</h2>
     </header>
     
+    <h2>Sobre mi</h2>
 
     <!-- Section de informacion personal -->
     <section>
@@ -58,38 +56,29 @@
             Me llamo Natalia, tengo 22 años y soy estudiante del Grado de Ingeniería Informática del Software
             en la Escuela de Ingeniería Informática (Oviedo). Soy de Tineo, un concejo situado al suroccidente de Asturias. 
         </p>
-    </section>
 
-    <!-- Mi Foto Personal -->
-    <section>
-        <h3>Mi foto personal</h3>
         <picture>
             <source media="(max-width: 465px)" srcset="multimedia/imagenes/orla_natalia_465px.jpeg">
-            <!-- Ruta a la imagen pequeña para móviles -->
             <source media="(max-width: 799px)" srcset="multimedia/imagenes/orla_natalia_799px.jpeg">
-            <!-- Ruta a la imagen de tamaño mediano para tablets -->
+            <!--<source media="(min-width: 800px)" srcset="multimedia/imagenes/orla_natalia_grande">-->
             <img src="multimedia/imagenes/orla_natalia_grande.jpeg" alt="Mi Foto Personal">
-            <!-- Ruta a la imagen grande para otros dispositivos -->
         </picture>
+
     </section>
 
-    <!-- Video y descripción adicional  -->
-    <section>
-        <p>
-            En este vídeo, se muestra "La Descarga" de la Fiestas del Carmen en Cangas del Narcea, municipio al cual pertenecen
-            mis abuelos paternos. 
-        </p>
-        <video controls preload="auto">
-            <source src="multimedia/videos/descarga_mp4.mp4" 
-            type="video/mp4" />
-            <source src="multimedia/videos/descarga_mp4.webm" 
-            type="video/webm" /> 
-        </video>
-    </section>
+
+    <h3>El lugar donde nací</h3>
+    <p>
+        En este vídeo, se muestra un fragmento del vídeo realizado por el Ayuntamiento de Tineo como promoción turística para el año 2020.
+    </p>
+    <video controls preload="auto">
+        <source src="multimedia/videos/tineomp4.mp4" type="video/mp4" />
+        <source src="multimedia/videos/tineowebm.webm" type="video/webm" /> 
+    </video>
+  
     
 
     <!-- Lista de aficiones -->
-    
     <section>
         <h3>Mis Aficiones</h3>
         <ul>
@@ -97,9 +86,7 @@
                 <ul>
                     <li>Fútbol</li>
                     <li>
-                        Bolo celta. Para más información, puede visitar 
-                        <a href="https://es.wikipedia.org/wiki/Bolos_celtas" title="bolo_celta_wiki">la entrada</a> 
-                        sobre esta modalidad de bolo en la Wikipedia.
+                        <a href="https://es.wikipedia.org/wiki/Bolos_celtas" title="bolo_celta_wiki">Bolo celta</a> 
                     </li>
                 </ul>
             </li>
@@ -107,10 +94,8 @@
             <li> Música 
                 <ul>
                     <li>Tambor</li>
-                    <li>Baile regional.
-                        Esta 
-                        <a href="https://verasturies.com/top-4-bailes-tradicionales-en-asturies/" title="video_xota">página</a> 
-                        incluye una lista de los bailes regionales más característicos de Asturias.
+                    <li>
+                        <a href="https://verasturies.com/top-4-bailes-tradicionales-en-asturies/" title="video_xota">Baile regional</a> 
                     </li>
                 </ul>
             </li>
@@ -126,21 +111,16 @@
             <li> Taylor Swift</li>
             <li> Lana Del Rey</li>
             <li> Rosalía</li>
-            <li> Red Hot Chili Peppers </li>
             <li> Arctic Monkeys</li>
+            <li> Red Hot Chili Peppers </li>
         </ul>
-    </section>
-
-    <!-- Audio (Section) -->
-    <section>
         <p>Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers:</p>
         <audio controls title="Escucha un fragmento de la canción 'Otherside' de Red Hot Chili Peppers"> 
-            <source src="multimedia/audios/otherside_rhcp.mp3" 
-            type="audio/mpeg" />
-            <source src="multimedia/audios/otherside_rhcp.wav" 
-            type="audio/wav" />
+            <source src="multimedia/audios/otherside_rhcp.mp3" type="audio/mpeg" />
+            <source src="multimedia/audios/otherside_rhcp.wav" type="audio/wav" />
         </audio>
     </section>
+
     
     <!-- Lista 5 asignaturas favoritas (Section) -->
     <section>
@@ -161,41 +141,57 @@
 
     <!-- Tabla de temperasturas -->
     <section>
-        <h3>Clima en mi lugar de nacimiento</h3>
+        <h3>Clima donde nací </h3>
         <table>
-            <caption> Temperaturas medias anuales Cangas del Narcea (últimos 10 años) </caption>
+            <caption>Temperaturas Medias Anuales en Tineo (últimos 10 años)</caption>
             <tr>
-                <th scope="col" id="fila/columna">fila/columna</th>
-                <th scope="col" id="enero">Enero</th>
-                <th scope="col" id="febrero">Febrero</th>
-                <th scope="col" id="marzo">Marzo</th>
-                <th scope="col" id="abril">Abril</th>
-                <th scope="col" id="mayo">Mayo</th>
-                <th scope="col" id="junio">Junio</th>
-                <th scope="col" id="julio">Julio</th>
-                <th scope="col" id="agosto">Agosto</th>
-                <th scope="col" id="septiembre">Septiembre</th>
-                <th scope="col" id="octubre">Octubre</th>
-                <th scope="col" id="noviembre">Noviembre</th>
-                <th scope="col" id="diciembre">Diciembre</th>
+                <th scope="col" id="año">Año</th>
+                <th scope="col" id="temperaturas">Temperatura Media (°C)</th>
             </tr>
-            
             <tr>
-                <th scope="row" id="temperatura" headers="horas">Temperatura media (°C)</th>
-                <td headers="temperatura enero">4.1</td>
-                <td headers="temperatura febrero">4.0</td>
-                <td headers="temperatura marzo">6.4</td>
-                <td headers="temperatura abril">8.3</td>
-                <td headers="temperatura mayo">11.2</td>
-                <td headers="temperatura junio">14.7</td>
-                <td headers="temperatura julio">16.4</td>
-                <td headers="temperatura agosto">16.7</td>
-                <td headers="temperatura septiembre">14.8</td>
-                <td headers="temperatura octubre">11.7</td>
-                <td headers="temperatura noviembre">6.7</td>
-                <td headers="temperatura diciembre">4.8</td>
+                <th scope="row" headers="año" id="temperatura-2013">2013</th>
+                <td headers="temperatura-2013">12.5°C</td>
             </tr>
-    </table>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2014">2014</th>
+                <td headers="temperatura-2014">13.0°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2015">2015</th>
+                <td headers="temperatura-2015">11.8°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2016">2016</th>
+                <td headers="temperatura-2016">12.2°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2017">2017</th>
+                <td headers="temperatura-2017">13.5°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2018">2018</th>
+                <td headers="temperatura-2018">12.9°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2019">2019</th>
+                <td headers="temperatura-2019">12.7°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2020">2020</th>
+                <td headers="temperatura-2020">13.3°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2021">2021</th>
+                <td headers="temperatura-2021">12.8°C</td>
+            </tr>
+            <tr>
+                <th scope="row" headers="año" id="temperatura-2022">2022</th>
+                <td headers="temperatura-2022">13.1°C</td>
+            </tr>
+        </table>
+        
+        
+        
 </section>
 
 </body>
