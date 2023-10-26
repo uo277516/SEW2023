@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas>
+    <ruta>
+        <nombre>Ruta de los Molinos</nombre>
+        <tipo>Arquitectura y Monumentos</tipo>
+        <medio>Bicicleta</medio>
+        <fecha_inicio>2023-11-15</fecha_inicio>
+        <hora_inicio>09:00 AM</hora_inicio>
+        <duracion>2 horas</duracion>
+        <agencia>NaturaMundo</agencia>
+        <descripcion>Recorre los molinos históricos de la región y disfruta de su arquitectura única.</descripcion>
+        <personas_adecuadas>Personas en buena forma física</personas_adecuadas>
+        <inicio>
+            <lugar>Plaza del Ayuntamiento</lugar>
+            <direccion>Calle Principal número 7</direccion>
+            <coordenadas>
+              <longitud>45.12345</longitud>
+              <latitud>7.54321</latitud>
+              <altitud>100</altitud>
+            </coordenadas>
+        </inicio>
+        <referencias>
+          <referencia>
+            <titulo>Foncalada Wikipedia</titulo>
+            <bibliografia>https://es.wikipedia.org/wiki/Foncalada</bibliografia>
+          </referencia>
+        </referencias>
+        <recomendacion>7</recomendacion>
+        <hitos>
+          <hito>
+            <nombre>Molino A</nombre>
+            <descripcion>Antiguo molino restaurado con rueda de agua.</descripcion>
+            <coordenadas>
+              <longitud>45.12456</longitud>
+              <latitud>7.54123</latitud>
+              <altitud>110</altitud>
+            </coordenadas>
+            <distancia unidades="km">0.5</distancia>
+            <galeria_fotos>
+              <foto>Monumento.jpg</foto>
+            </galeria_fotos>
+            <galeria_videos>
+                <video>Video.mp4</video>
+            </galeria_videos>
+          </hito>
+        </hitos>
+    </ruta>
+</rutas>
