@@ -1,49 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas>
+
+  <!-- PRIMERA RUTA -->
     <ruta>
-        <nombre>Ruta de los Molinos</nombre>
-        <tipo>Arquitectura y Monumentos</tipo>
-        <medio>Bicicleta</medio>
-        <fecha_inicio>2023-11-15</fecha_inicio>
+        <nombre>Koh Rong Sanloem playas</nombre>
+        <tipo>Senderismo</tipo>
+        <medio>A pie</medio>
+        <fecha_inicio>22/11/2014</fecha_inicio>
         <hora_inicio>09:00 AM</hora_inicio>
-        <duracion>2 horas</duracion>
-        <agencia>NaturaMundo</agencia>
-        <descripcion>Recorre los molinos históricos de la región y disfruta de su arquitectura única.</descripcion>
+        <duracion>2 días 6 horas 20 minutos</duracion>
+        <agencia>Wikiloc</agencia>
+        <descripcion>Recorre los principales faros son sus espectaculares vistas y las playas de Cambodia. </descripcion>
         <personas_adecuadas>Personas en buena forma física</personas_adecuadas>
         <inicio>
-            <lugar>Plaza del Ayuntamiento</lugar>
-            <direccion>Calle Principal número 7</direccion>
+            <lugar>Koh Rong Samloem</lugar>
+            <direccion>Koh Rong Samloem, Preah Sihanouk 18205, Camboya</direccion>
             <coordenadas>
-              <longitud>45.12345</longitud>
-              <latitud>7.54321</latitud>
-              <altitud>100</altitud>
+              <longitud>10°34'54"N</longitud>
+              <latitud>103°18'20"E</latitud>
+              <altitud>13</altitud>
             </coordenadas>
         </inicio>
         <referencias>
           <referencia>
-            <titulo>Foncalada Wikipedia</titulo>
-            <bibliografia>https://es.wikipedia.org/wiki/Foncalada</bibliografia>
+            <titulo>¿Qué hacer en Koh Rong Samloem?</titulo>
+            <bibliografia>https://mochilerosentailandia.com/2016/05/que-hacer-en-koh-rong-samloem/</bibliografia>
+          </referencia>
+          <referencia>
+            <titulo>Ruta en Wikiloc</titulo>
+            <bibliografia>https://es.wikiloc.com/rutas-senderismo/koh-rong-sanloem-playas-cambodia-camboya-8309043</bibliografia>
           </referencia>
         </referencias>
-        <recomendacion>7</recomendacion>
+        <recomendacion>8</recomendacion>
         <hitos>
+          <!--Primer hito-->
           <hito>
-            <nombre>Molino A</nombre>
-            <descripcion>Antiguo molino restaurado con rueda de agua.</descripcion>
+            <nombre>Saracen Beach</nombre>
+            <descripcion>Popular playa turística de Koh Rong Samloem. Esta playa es impresionante. Está bastante ocupado con resorts y restaurantes que bordean la playa, pero no hay ciudad. </descripcion>
             <coordenadas>
-              <longitud>45.12456</longitud>
-              <latitud>7.54123</latitud>
-              <altitud>110</altitud>
+              <longitud>10°34'19"N</longitud>
+              <latitud>103°19'20"E</latitud>
+              <altitud>8</altitud>
             </coordenadas>
-            <distancia unidades="km">0.5</distancia>
+            <distancia unidades="km">15.5</distancia>
             <galeria_fotos>
-              <foto>Monumento.jpg</foto>
+              <foto>SaracenBeachjpg.jpg</foto>
             </galeria_fotos>
-            <galeria_videos>
-                <video>Video.mp4</video>
-            </galeria_videos>
+          </hito>
+          <!--Segundo hito-->
+          <hito>
+            <nombre>Onederz Koh Rong Sanloem</nombre>
+            <descripcion>Bungalows en primera linea de playa, en los que puedes descansar entre días </descripcion>
+            <coordenadas>
+              <longitud>10°34'38"N</longitud>
+              <latitud>103°18'36"E</latitud>
+              <altitud>5</altitud>
+            </coordenadas>
+            <distancia unidades="km">6.7</distancia>
+            <galeria_fotos>
+              <foto>OrchidBungalows.jpg</foto>
+            </galeria_fotos>
+          </hito>
+          <!--Tercer hito-->
+          <hito>
+            <nombre>Sunset Beach</nombre>
+            <descripcion>Playa semmidesierta muy bonita, pero con acceso complicado. Atardeceres espectaculares. </descripcion>
+            <coordenadas>
+              <longitud>10°34'34"N</longitud>
+              <latitud>103°17'47"E</latitud>
+              <altitud>14</altitud>
+            </coordenadas>
+            <distancia unidades="km">2.3</distancia>
+            <galeria_fotos>
+              <foto>SunsetBeach.jpg</foto>
+            </galeria_fotos>
           </hito>
         </hitos>
     </ruta>
+
+    <!-- SEGUNDA RUTA -->
+    <ruta>
+      <nombre>Templo Angkor Wat Recorrido circular desde Riem Siep</nombre>
+      <tipo>Monumentos/Ciudad</tipo>
+      <medio>Mountain Bike</medio>
+      <fecha_inicio>01/05/2017</fecha_inicio>
+      <hora_inicio>07:00 AM</hora_inicio>
+      <duracion>2 horas 25 minutos</duracion>
+      <agencia>Wikiloc</agencia>
+      <descripcion>Paseo en bici moderado. Se necesita buena forma física. Pistas pavimentadas en su mayoría. El punto de inicio de la Ruta es accesible en transporte público. </descripcion>
+      <personas_adecuadas>Personas en buena forma física</personas_adecuadas>
+      <inicio>
+          <lugar>Riem Siep</lugar>
+          <direccion>9V34+5PR, 7 Makara St, Krong Siem Reap, Camboya</direccion>
+          <coordenadas>
+            <longitud>13°21'10"N</longitud>
+            <latitud>103°51'24"E</latitud>
+            <altitud>15.03</altitud>
+          </coordenadas>
+      </inicio>
+      <referencias>
+        <referencia>
+          <titulo>Templo Angkor Wat</titulo>
+          <bibliografia>https://es.wikipedia.org/wiki/Angkor_Wat</bibliografia>
+        </referencia>
+      </referencias>
+      <recomendacion>6</recomendacion>
+      <!--Primer hito-->
+      <hitos>
+        <hito>
+          <nombre>Baksei Chamkrong</nombre>
+          <descripcion>Pequeño templo hinduista ubicado en el complejo de Angkor. Está dedicado a Shiva y solía albergar una imagen de él. Este templo se puede ver en la parte izquierda, cuando se entra a Angkor Thom por la puerta sur. </descripcion>
+          <coordenadas>
+            <longitud>13°25'31"N</longitud>
+            <latitud>103°51'30"E</latitud>
+            <altitud>22</altitud>
+          </coordenadas>
+          <distancia unidades="km">12</distancia>
+          <galeria_fotos>
+            <foto>Baksei.jpg</foto>
+            <foto>BakseiInterior.jpg</foto>
+          </galeria_fotos>
+        </hito>
+        <!--Segundo hito-->
+        <hito>
+          <nombre>Templo de Bayón</nombre>
+          <descripcion>El templo de Bayón es un complejo de culto en el centro de la antigua ciudad de Angkor Thom, que se encuentra en la región de Angkor, Camboya. El complejo de Angkor, incluido Angkor Thom, fue declarado Patrimonio de la Humanidad por la Unesco en 1992.​ </descripcion>
+          <coordenadas>
+            <longitud>13°26'28"N</longitud>
+            <latitud>103°51'35"E</latitud>
+            <altitud>40</altitud>
+          </coordenadas>
+          <distancia unidades="km">2.1</distancia>
+          <galeria_fotos>
+            <foto>Bayon.jpg</foto>
+          </galeria_fotos>
+        </hito>
+        <!--Tercer hito-->
+        <hito>
+          <nombre>Khamosh Gate (gate of the dead)</nombre>
+          <descripcion>La "Gran Ciudad" de Jayavarman VII (el significado de Angkor Thom) abarcaba un área de unos 9 kilómetros cuadrados y sólo se podía entrar a través de cinco puertas. En el norte, sur y oeste, solo una puerta proporcionaba acceso, mientras que el lado este tenía una puerta que conducía al palacio real (la llamada Puerta de la Victoria) y otra puerta al sur ahora conocida como la Puerta de los Muertos. </descripcion>
+          <coordenadas>
+            <longitud>13°26'29"N</longitud>
+            <latitud>103°52'24"E</latitud>
+            <altitud>30</altitud>
+          </coordenadas>
+          <distancia unidades="km">7.2</distancia>
+          <galeria_fotos>
+            <foto>GateOfTheDead.jpg</foto>
+          </galeria_fotos>
+        </hito>
+      </hitos>
+  </ruta>
+
+
+  <!-- TERCERA RUTA -->
+  <ruta>
+    <nombre>Recorrido en coche por la Costa Sur de Camboya</nombre>
+    <tipo>Turismo</tipo>
+    <medio>Coche</medio>
+    <fecha_inicio>15/07/2019</fecha_inicio>
+    <hora_inicio>09:00 AM</hora_inicio>
+    <duracion>2 días</duracion>
+    <agencia>Sin agencia</agencia>
+    <descripcion>Explora la impresionante costa sur de Camboya en un emocionante recorrido en coche. Descubre playas, parques nacionales y encantadores pueblos costeros. Salida desde la ciudad de Sihanoukville.</descripcion>
+    <personas_adecuadas>Para amantes de la naturaleza y la aventura</personas_adecuadas>
+    <inicio>
+      <lugar>Sihanoukville</lugar>
+      <direccion>Sihanoukville, Camboya</direccion>
+      <coordenadas>
+        <longitud>10°37'09"N</longitud>
+        <latitud>103°29'36"E</latitud>
+        <altitud>31</altitud>
+      </coordenadas>
+    </inicio>
+    <referencias>
+      <referencia>
+        <titulo>Ciudad ded Kep</titulo>
+        <bibliografia>https://www.mochileandoporasia.com/mochileando-por-camboya/kep/</bibliografia>
+      </referencia>
+      <referencia>
+        <titulo>¿Qué ver en Kampot?</titulo>
+        <bibliografia>https://www.descubrir.com/que-ver-en-kampot-un-oasis-al-sur-camboya/</bibliografia>
+      </referencia>
+    </referencias>
+    <recomendacion>10</recomendacion>
+    <!-- Primer hito -->
+    <hitos>
+      <hito>
+        <nombre>Playa Otres</nombre>
+        <descripcion>Una hermosa playa de arena blanca en Sihanoukville, ideal para nadar y relajarse bajo el sol.</descripcion>
+        <coordenadas>
+          <longitud>10°34'18"N</longitud>
+          <latitud>103°33'05"E</latitud>
+          <altitud>0</altitud>
+        </coordenadas>
+        <distancia unidades="km">9.7</distancia>
+        <galeria_fotos>
+          <foto>otres.jpg</foto>
+        </galeria_fotos>
+      </hito>
+      <!-- Segundo hito -->
+      <hito>
+        <nombre>Parque Nacional de Ream</nombre>
+        <descripcion>Explora la biodiversidad del Parque Nacional de Ream, hogar de una variedad de especies de aves y vida silvestre.</descripcion>
+        <coordenadas>
+          <longitud>10°31'57"N</longitud>
+          <latitud>103°41'39"E</latitud>
+          <altitud>28</altitud>
+        </coordenadas>
+        <distancia unidades="km">25.7</distancia>
+        <galeria_fotos>
+          <foto>Ream.jpeg</foto>
+        </galeria_fotos>
+      </hito>
+      <!-- Tercer hito -->
+      <hito>
+        <nombre>Kampot</nombre>
+        <descripcion>Descubre la encantadora ciudad de Kampot, conocida por su arquitectura colonial y su deliciosa comida local.</descripcion>
+        <coordenadas>
+          <longitud>10°35'38"N</longitud>
+          <latitud>104°09'50"E</latitud>
+          <altitud>5</altitud>
+        </coordenadas>
+        <distancia unidades="km">91.6</distancia>
+        <galeria_fotos>
+          <foto>Kampot.jpg</foto>
+        </galeria_fotos>
+      </hito>
+      <!-- Cuarto hito -->
+      <hito>
+        <nombre>Kep</nombre>
+        <descripcion>Visita la tranquila ciudad costera de Kep, conocida por su marisco fresco y hermosos atardeceres.</descripcion>
+        <coordenadas>
+          <longitud>10°32'35"N</longitud>
+          <latitud>104°19'08"E</latitud>
+          <altitud>18</altitud>
+        </coordenadas>
+        <distancia unidades="km">30</distancia>
+        <galeria_fotos>
+          <foto>kep.jpg</foto>
+        </galeria_fotos>
+      </hito>
+    </hitos>
+
+  </ruta>
+
+
 </rutas>

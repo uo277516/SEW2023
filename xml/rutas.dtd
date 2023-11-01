@@ -29,7 +29,7 @@
 <!ELEMENT recomendacion (#PCDATA)>
 <!ELEMENT hitos (hito+)>
 <!ELEMENT hito (nombre, descripcion, coordenadas, distancia, galeria_fotos,
-    galeria_videos)>
+    galeria_videos?)>
 <!ELEMENT distancia (#PCDATA)>
 
 <!ATTLIST distancia unidades CDATA #REQUIRED>
