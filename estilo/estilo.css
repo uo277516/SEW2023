@@ -11,7 +11,7 @@ body {
 
 /* especificidad {0,0,1} */
 header {
-    background-color: #ddd0d0;
+    background-color: #ddd0d0;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
     padding:0.01em;
 }
 
@@ -20,34 +20,31 @@ header {
 h1 {
     font-size: 2em; 
     font-weight: bold;
-    
 }
 
 /* especificidad {0,0,1} */
 h2 {
     font-size: 1.8em; 
     font-weight: bold;
-    background-color: #c0c0c0;
+    background-color: #c0c0c0;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
 }
 
 /* especificidad {0,0,1} */
 h3 {
     font-size: 1.5em; 
     font-weight: bold;
-    background-color: #dcc7c7;
+    background-color: #dcc7c7;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
 }
 
 
 /* especificidad {0,0,1} */
 a{
-    color: #2d0ee0;
-    
+    color: #2d0ee0;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   
 }
 
 /* especificidad {0,1,1} */
-a:visited{
-    color: #7400aa;
-    
+a:visited{ 
+    color: #7400aa;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   
 }
 
 /* Estilo lista no ordenada */
@@ -74,7 +71,7 @@ ul ul {
 /* Destacar el tercer elemento de la lista no ordenada de aficiones */
 /* especificidad {0,2,2} */
 ul li:nth-child(3) {
-    color: #ac5454;
+    color: #ac5454;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #f4f4f4; de body*/   
     font-weight: bold; 
 }
 
@@ -91,7 +88,7 @@ ul li, ol li {
 /* especificidad {0,0,1} */
 dt {
     font-weight: bold; 
-    color: #ac5454;
+    color: #ac5454;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #f4f4f4; de body*/   
 }
 
 
@@ -112,7 +109,7 @@ caption {
 /* Estilo para las celdas de encabezado */
 /* especificidad {0,0,1} */
 th {
-    background-color: #c58a8a; 
+    background-color: #c58a8a;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
     font-weight: bold; 
     text-align: center; 
     padding: 0.8em; 
@@ -121,7 +118,7 @@ th {
 /* Estilo para las celdas de datos */
 /* especificidad {0,0,1} */
 td {
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
     text-align: center; 
     padding: 0.2em; 
 }

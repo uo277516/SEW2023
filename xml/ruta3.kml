@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+<name>Recorrido en coche por la Costa Sur de Camboya</name>
+<LineString>
+<extrude>1</extrude>
+<tessellate>1</tessellate><coordinates>
+103.55138888888888,10.5716667,0
+103.69416666666667,10.5325,28
+104.16388888888889,10.5938889,5
+104.31888888888888,10.5430556,18
+</coordinates>
+<altitudeMode>relativeToGround</altitudeMode>
+</LineString><Style> id='lineaRoja'>
+<LineStyle>
+<color>#ff0000ff
+</color>
+<width>5</width>
+</LineStyle>
+</Style>
+</Placemark>
+</Document>
+</kml>

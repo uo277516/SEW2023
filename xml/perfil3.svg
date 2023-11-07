@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="1700" width="1500">
+<polyline points="
+10,180
+10,149.0
+39.4,168.0
+130.2,68.0
+443.59999999999997,160.0
+947.1999999999999,108.0
+947.1999999999999,180
+10,180
+"
+style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Inicio
+</text>
+<text x="39.4" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Playa Otres
+</text>
+<text x="130.2" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Parque Nacional de Ream
+</text>
+<text x="443.59999999999997" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Kampot
+</text>
+<text x="947.1999999999999" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Kep
+</text>
+</svg>

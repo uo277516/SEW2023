@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="1700" width="1500">
+<polyline points="
+10,180
+10,167.0
+51.0,148.0
+115.4,160.0
+235.4,124.0
+235.4,180
+10,180
+"
+style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Inicio
+</text>
+<text x="51.0" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Saracen Beach
+</text>
+<text x="115.4" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Onederz Koh Rong Sanloem
+</text>
+<text x="235.4" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Sunset Beach
+</text>
+</svg>

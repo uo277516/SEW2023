@@ -5,48 +5,21 @@ header {
     display: flex; 
     justify-content: space-between; 
     align-items: baseline; 
-    padding-right: 0.5em;
-}
-
-  
-nav {
-    order: 1; 
-}
-  
-h1 {
-    order: 0; 
 }
 
 
 
-
-/* Estilos para pantallas de escritorio (ancho igual o mayor a 1024px) */
-@media screen and (min-width: 1024px) {
-    header {
-        display: flex; 
-        justify-content: space-between; 
-        align-items: baseline; 
-        padding-right: 0.5em;
-    }
-  }
-  
-  /* Estilos para pantallas de tableta (ancho igual o mayor a 768px y menor a 1024px) */
-  @media screen and (min-width: 768px) {
-    header {
-        display: flex; 
-        justify-content: space-between; 
-        align-items: baseline; 
-        padding-right: 0.5em;
-    }
-  }
-  
-  /* Estilos para pantallas móviles (ancho menor a 768px) */
-  @media screen and (max-width: 767px) {
+/* Estilos para pantallas móviles (ancho menor a 768px) */
+@media screen and (max-width: 767px) {
     header {
         flex-flow: column wrap;
-        justify-content: space-around; 
-        align-items: stretch; 
+        justify-content: space-around;  /*Redefinicion de justify-content de header */ 
+        align-items: stretch;           /*Redefinicion de align-items; de header */ 
         align-content: flex-start;
-        padding-bottom: 1em;
+    } 
+    nav {
+        display: flex;
+        flex-direction: column;
     }
-  }
+
+}

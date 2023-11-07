@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+<name>Templo Angkor Wat Recorrido circular desde Riem Siep</name>
+<LineString>
+<extrude>1</extrude>
+<tessellate>1</tessellate><coordinates>
+103.85833333333333,13.4252778,22
+103.85972222222222,13.4411111,40
+103.87333333333332,13.4413889,30
+</coordinates>
+<altitudeMode>relativeToGround</altitudeMode>
+</LineString><Style> id='lineaRoja'>
+<LineStyle>
+<color>#ff0000ff
+</color>
+<width>5</width>
+</LineStyle>
+</Style>
+</Placemark>
+</Document>
+</kml>

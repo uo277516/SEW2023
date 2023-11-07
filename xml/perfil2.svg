@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="1700" width="1500">
+<polyline points="
+10,180
+10,164.97
+44.0,92.0
+92.2,20.0
+198.8,60.0
+198.8,180
+10,180
+"
+style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Inicio
+</text>
+<text x="44.0" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Baksei Chamkrong
+</text>
+<text x="92.2" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Templo de Bayón
+</text>
+<text x="198.8" y="190" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Khamosh Gate (gate of the dead)
+</text>
+</svg>

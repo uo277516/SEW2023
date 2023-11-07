@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+<name>Koh Rong Sanloem playas</name>
+<LineString>
+<extrude>1</extrude>
+<tessellate>1</tessellate><coordinates>
+103.32257500556706,10.572066273717155,8
+103.31051034974506,10.577285867332305,5
+103.29592152142439,10.576130272598032,14
+</coordinates>
+<altitudeMode>relativeToGround</altitudeMode>
+</LineString><Style> id='lineaRoja'>
+<LineStyle>
+<color>#ff0000ff
+</color>
+<width>5</width>
+</LineStyle>
+</Style>
+</Placemark>
+</Document>
+</kml>
