@@ -32,8 +32,9 @@ def verXPath(archivoXML):
             print(altitud_inicio)
 
             #Linea vertical inicial
-            kml_file.write(f'{distacia_acumulada},{base_altitud}\n') #para el inicio
-            kml_file.write(f'{distacia_acumulada},{base_altitud-float(altitud_inicio)}\n') #para el inicio
+            kml_file.write(f'{distacia_acumulada},{base_altitud}\n') 
+            #Primer punto (inicio de la ruta)
+            kml_file.write(f'{distacia_acumulada},{base_altitud-float(altitud_inicio)}\n') 
             
             
             # Para el grafico de cada hito
