@@ -1,0 +1,146 @@
+------------------------------------------------------PRACTICA 2---------------------------------------------------
+-- Ejercicio 1
+    sacamos el pais  -> 
+        creamos la clase
+        valores y metodos
+
+
+    Los metodos
+        -> devuelven cadenas : "España"
+            - si solo devuelve una cadena pues seria   en el html  :   <h1> <script> doc.write( pais.get---() )  </script> </h1>
+
+
+        -> devuelven lista: "<ul> <li>---</li> <li>---</li> </ul>"
+            -> si devuelven ya con etiquetas : <script> doc.write( pais.get---() )  </script>
+
+
+
+        -> escribem en el doc directamente :  document.write("<p> ------ </p>")
+
+
+-- Ejercicio 2 juego de las cartas
+
+    12 tarjetas -> 
+        flexbox 4x4 -> igual que en el menu
+            cada carta ->  wid= 25% del tamaño del contenedor
+
+        cada targeta:   
+            <article> <h3> --- </> <img/> <alt> </>
+            usamos atributo data: 
+                "data-xxxx"  -> "data-state"  
+                    - flip
+                    - revealed
+                para saber como esta la targeta en cada momento
+
+                en css-> article[ data-state = flip] {  --  }
+
+        tenemos una class memoria :
+             con un array de json -> elements = [    ,    ]  -> cada elemento 2 veces
+             barajeamos  -> shuffle o algo asi en js
+             y recorremos para ir creando los articles 
+
+
+    al levantar la 2 carta -> settimeout( () => { // añadimos el estado flip // ; } , 2500 );
+
+    si copiamos el ejemplo de jaime -> los margenes puede que sobren -> transiciones si valen
+
+memoria.html
+</head>
+<body>
+    <section> con el menu de losjuegos
+    <main> con el juego
+
+--Ejercicio 3
+Matriz de 9 filas y 9 columnas y cada celda una casilla. Si el valor es el punto
+pongo un 0. 
+Por cada casilla son 3 comprobaciones: no mismo numero en la fila, ni en la column,
+ni en la cuadricula de 3x3 que hay. Hay que calcular de mas arriba a la izquierda y contar de 3 en 3.
+Para saber la casilla inicial de la casilla, hacemos el modulo de 3 (fila 1 columna 2) modulo de 3 de 1 y 2 (0,0).
+De ahi contamos 3 pa un lao y 3 pal otro
+Para representar el sudoku utilizamos un grid layout. Cuadricula de 9 elementos en horizontal y 9 en vertical.
+Cada casilla es un parrafo. En el css divide el width entre 3 en su ejemplo. Yo tengo que multiplicarlo todo por 3
+Yo en repeat tengo que poner 9. Cada parrafo tiene un data-state: init, blocked, correct
+Blocked es las q yo pongo q no se pueden tocar. EL resto de las casillas son las q pone el usuario
+Puede ser esas init o correct, correct es cuando lo pone y esta correcta siguiendo las indicaciones
+Si lo pone y no es correct alerta tipo el numero no es correcto o algo asi. Las q estan correctas si puedo cambiarlo
+si me da la gana. PUlsacion de telclado + casilla seleccionada , si pulsacion de teclado sin casilla 
+lo digo , si pongo un numero llamo al metodo q me mira si el numero esta correcto. casilla=correct, num en el parrafo
+evento keydown es lo del teclado
+
+Importante poner los nombres de los metodos y todo eso en naranja
+Validar los ficheros html haciendo lo de copy element en el inspector
+
+------------------------------------------------------PRACTICA 2---------------------------------------------------
+--IMPORTANTE ESTO EN LOS HTML QUE UTILICE JQUERY---
+
+<head>
+<script src="JQUERY" />  lo de jquery es una url tocha que esta en el guion
+<script src="pais.js"/>
+</head>
+
+jquery se invoca de la siguiente manera: $('selector').
+por ejemplo , si quisiera coger los articles de body pondria donde selector body article despues del punto, van los metodos de jquery (añadir atributo, borrar atributo, 
+poner/quitar css cambiar codigo...)
+
+contraseña flickr ukB_aF7XHSqSPiK
+
+---Ejercicio 1
+$.getJson(url, {}).done(function(data) {
+	//seleccion foto
+	$('body').CSS('background image', 'foto')
+	} 
+yo le paso una url como parametro (la api de flicker en el ejercicio 1), entre {} los parametros que necesite
+y me devuelve a un metodo que se llama .done y en data es donde me devuelve lo q le pedi, en data recibe la respuesta de la llamada que he hecho
+flickr.photos.search   tengo que registrarme y me da un apikey y despues tengo que ponerlo por ahi. podria hacerlo con las coordenadas que las tengo en pais
+me devuelve parametros asociados a la foto, tengo q abrir la docu sobre url q m pone debajo. tengo q sacar los datos y formar la url segun me dice en ese sitio
+de esas me quedo con la q me de la gana (la primera) y hago lo de antes de ponerla de abajo
+en el fichero fondo.js hago un metodo con la llamada json esta. puedo o dentro de la clase fondo invocacion a clase pais, o en clase fondo tener directamente las coordenadas
+como unos atributos. clase fondo 2 metodos (constructor y este)
+.CSS('background-size','cover') paq me ocupe todo, si no me sale repetida tipo como el escritorio de windows
+el metodo css si le paso un unico parametro me devuelve el valor de ese parametro, y si le paso dos, me pone el valor del 2 parametro en ese atributo
+
+---Ejercicio 2
+en la api de weather el metodo q pone al final call 5 da / 3 hour forecast data. le paso longitud y latityud y altitud y apikey y para cada dia me devuelve el tiempo cada 3 horas.
+pero yo solo quiero 5 elementos, entonces para cada dia cojo una hora la q yo quiera. hay mas params opcionales (modo funcionamento-json, sistema-metrico, idioma...)
+me devuelve un json que es una lista de elementos. cada elemento es el tiempo de una hora concreto un dia concreto. icon en el weather es el icono q tenemos q poner
+en ese json viene toda la informacion q pide el ejercicio (como minimo, si queremos poner mas lo queremos). la franja horaria la pone al principio en formato timestamp pero al final
+me la pone normal. no puedo coger en plan del json el 1,2,3... porqe depende de cuando lo mire me pone a partir de la hora q es. tengo q mirar la cadena y tal...
+en base al css no nos dice como lo tenemos que hacer. se valora q este bien pero tp hace falta q no este muy elaborado. podemos hacer para cada dia como una tarjetita con el icono 
+en un lado y el texto en el otro lao, con articles o algo asi. no hacer un ul li con texto plano pa ya. podemos hacer una css de meteorologia
+$.ajax({url, DataType, method (siempre es el get), succes: function(datos) {}} 
+la consulta esparecida a la de el ejemplo per nosotros tenemos lon y lan en vez del sitio, la metrica, el idioma.. per lo demas es por el estilo
+tb puedo crear ekementis y poner atributos:
+$('<img/>').attr('src',..)  -> $(..).append( esto que puse antes )
+
+---Ejercicio 3
+aplicacion que consume datos de las carreras de formula 1 y guardarlo en agenda.html. Esta api no requiere registro pero tiene limitaciones (rojo en el guion). Pa solucionar esto,
+en el html agenda poner un boton 'obtener'  o algo asi, y cada vez q lo pulse se 'intenta' hacer la peticion. con los atributos last_api_call, last_api_result. al principio
+a null, y despues cuando le da la 1 vez a obtener last_api_call le pongo el Date (tipo date de javascript).y  poner un intervlo por mi (5 min o mirar). y si no lo pase
+vuelvo a llamar y pongo last_api_result. y si no estoy en el intervalo pongo last_api_result. last_api_result es la q tengo q recorrer para ir dibujando las cosas
+race schedule y en el 1 enlace me apunra a la url q tengo q consultar (f1current). me contesta x defecto en xml
+pintar lo q me manda en el guion, viene mas informacion pero solo poner eso (nombre carrera, nombre circuito, coordenadas, fecha/hora carrera). Presentacion libre igual
+que en el ejercicio 2
+para recorrer el xml , voy a por citcuito, voy a por carrera...utilizando jquery
+
+---Ejercicio 4
+otro puto juego. crucigrama de numeros, pinta de crucigrama de letras pero con numeros. es lo q voy a utilizar pa las pruebas de usabilidad de los seminarios de cueva
+hay q calcular cuanto tiempo tarda el usuario en completarlo. dos variables de tipo fecha en la clase crucigrama. una la inicializo cuando pinto y otra cuando lo complete
+diferencia entre dos fechas, me da segundos, y lo convierto en minutos y a horas (tipo 0:12:25). lo muestro en las pruebas de usabilidad. siempre son las mismas las casillas negras
+y las blancas, las relleno como en el sudoku. tengo 3 strings difs (facil,, intermedio, dificil). la idea de q esten los 3 ene l codigo y voy comentando, easy. 9x11 es adaptar el
+tamaño del grid, lo demas es lo mismo supuestamente. array [11][9]. si numeros o operadores o =, vuelco al array tal cual lo q pillo. si tengo un punto, al aray vuelvo un 0.
+si tengo una almohad¡dilla, al array vuelco a un -1 (son las negras). pa eso añado data-state = empty y no se puede pulsar (igual q las q estan ya rellenadas).
+cuando en el array no haya ningun 0, ya se que esta el crucigrama rellenado
+diferencia con el sudoku? (ademas de lo del tiempo). El facil y el intermedio solo requierre meter numeros de un solo digito. pero el dificil ademas de meter numeros hayc
+casillas de operadores. hay q cambiar evento de teclado para q tb responda a por,menos,mas,dividir. La otra diferencia esq tengo q comprobar me refiero a si el numero es valido
+es decir, que la expresion cuadre, en pkan si pongo 12+3=15 y ponho ese 3 tengjo q mirar q este bien.
+Cuando pulse en la casilla, puede ser casilla de ecuacion horizontal o vertical (introduceElement metodo). Lo primero q hace es sacar la casilla pulsada y escribir en el array
+el valor. Despues dos booleanos (la expresion horizontal ) y la vertical , inicializadas a verdadero. Despue sya hago la comprobacion pa ver si es ais
+Para comprobarlo. Busco en la mism fila del array donde tengo el igual para saber a q lao tengo resultado y al otro lao todo. tengo  3 cosas (dosn umeros y expresion) y 
+un igual y eso, entonces del igual cojo expresion, y los numeros restando. con el metodo join de javascript los uno on una cadena de texto, y con el eval de javascriptcalculo 
+el resultado de esa expresion. lo que me devuelva, lo miro si es lo que es (la casilla a la derecha del igual). me devuelve false o true, si me devuelve false..
+si hay   2 huecos en una expresion (2 numeros o 1 u n numero y una expresion ) tengo q mirar primernunero distinto de 0, segundo distinto de cro y lo otro distinto de cero para 
+hacer el eval.
+para la horizontal lo mismo pero pa bajo. si pasa las dos comprobaciones, lo dejo escrito. si no , lo borro del aray (lo pongo a 0) y alerta. cuando busco horizontal si ya encuentro un -1 nada mas
+lo siguiente no sigo por eso, lo doy por valido. lo mismo horizontal. las expresiones van de zquierda a derecha y de arriba a abahjo. si toy en la de la derecha del todo es -1 
+o esta fuera del array. el resultado siempre viene relleno. crucigrama.css,html.js y menu de juegos
+n usar la apikey del ej q es la de cueva, q igual la bloqueamos, l¡hacr uno nos (la de weather)

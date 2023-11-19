@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>Escritorio Virtual</title>
+
+    <!-- Autor -->
+    <meta name ="author" content ="Natalia Fernández Riego" />
+    
+    <!-- Descripción del contenido -->
+    <meta name ="description" content ="Página para jugar al juego del Sudoku, con una cuadricula de 9x9" />
+
+    <!-- Palabras claves -->
+    <meta name ="keywords" content ="sudoku, juego, memoria" />
+
+    <!-- Ventana gráfica -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" type="text/css" href="estilo/sudoku.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+    
+
+</head>
+
+<body>
+    <main></main>
+</body>
+
+<script src="js/sudoku.js"></script>
+<script>
+    sudoku.paintSudoku();
+    //Tratamiento de teclado
+
+    document.addEventListener('keydown', function (event) {
+        const key = event.key;
+
+        let array = [0,1,2,3,4,5,6,7,8,9];
+
+        if (array.includes(parseInt(key))) {
+
+            // Obtener la celda seleccionada
+            const selectedCell = document.querySelector("[data-state='clicked']");
+
+            if (selectedCell) {
+                // Llamar al método introduceNumber con el número pulsado
+                sudoku.introduceNumber(parseInt(key));
+            } else {
+                // Informar al usuario que debe seleccionar una celda antes de pulsar un número
+                alert('Debes seleccionar una celda antes de pulsar un número.');
+            }
+        }
+      });
+
+</script>
+
+</html>
