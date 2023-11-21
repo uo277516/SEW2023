@@ -1,0 +1,40 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+article {
+    width: calc(33.33% - 20px);
+    background-color: #fff;
+    border: 1px solid #000000;
+    padding: 15px;
+    border-radius: 2ex;
+    box-sizing: border-box;
+    box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
+}
+
+
+button {
+    background-color: rgb(178, 156, 220);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h3 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
