@@ -1,6 +1,7 @@
 /* layout.css */
 
 /* Aplicar Flexbox al encabezado */
+/* Especificidad: (0,0,1) */
 header {
     display: flex; 
     justify-content: space-between; 
@@ -11,17 +12,19 @@ header {
 
 /* Estilos para pantallas móviles (ancho menor a 768px) */
 @media screen and (max-width: 767px) {
+    /* Especificidad: (0,0,1) */
     header {
         flex-flow: column wrap;
         justify-content: space-around;  /*Redefinicion de justify-content de header */ 
         align-items: stretch;           /*Redefinicion de align-items; de header */ 
         align-content: flex-start;
     } 
+    /* Especificidad: (0,0,1) */
     nav {
         display: flex;
         flex-direction: column;
     }
-
+    /* Especificidad: (0,0,2) */
     nav a {    
         padding: 1ex;
     }

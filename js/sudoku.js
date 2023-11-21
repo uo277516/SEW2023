@@ -86,10 +86,10 @@ class Sudoku {
                         selectedCell.dataset.state = 'correct';
                         this.tableroArray[fila][columna]=numero;
                        
-                        selectedCell.removeEventListener('click', this.clickHandler);        // Remove event listener click                
+                        selectedCell.removeEventListener('click', this.clickHandler);                      
 
                         // Comprobar si el sudoku se ha completado
-                        if (this.sudokuCompletado(allCells))                         // Comprobar si el sudoku se ha completado
+                        if (this.sudokuCompletado(allCells))                         
                             alert('¡Felicidades! Sudoku completado.');
                 } else  {
                     selectedCell.dataset.state='';

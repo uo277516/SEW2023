@@ -122,12 +122,6 @@ class Pais {
             }
 
 
-
-            // const pElement = $("<p>").text(JSON.stringify(datos.list, null, 2));
-
-            //sectionElement.append(pElement);
-            //$("body").append(sectionElement);
-
             },
             error:function(){
                 $("h3").html("¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>");
