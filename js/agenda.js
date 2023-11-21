@@ -15,6 +15,9 @@ class Agenda {
             url: this.url,
             method: 'GET',
             dataType: "xml",
+            data: {
+                lang: "es"
+            },
             success: (datos) => {
 
                 this.last_api_result = datos;
@@ -31,7 +34,7 @@ class Agenda {
 
     escribirEnHtml(datos) {
 
-        const section = $("body section");
+        const main = $("body main");
 
         console.log( $(datos).find('Race'));
 
@@ -55,7 +58,7 @@ class Agenda {
             const article = $("<article></article>")
 
             article.append(h3, p_circuito, p_coor, p_fecha, p_hora);
-            section.append(article);
+            main.append(article);
 
         });
         

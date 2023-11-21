@@ -1,40 +1,45 @@
-section {
+/* especificidad: (0,0,1) */
+main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
-    padding-top: 10px;
+    gap: 2ex;
+    padding-top: 2ex;
 }
 
+/* especificidad: (0,0,1) */
 article {
-    width: calc(33.33% - 20px);
-    background-color: #fff;
-    border: 1px solid #000000;
-    padding: 15px;
+    width: calc(33.33% - 2ex);
+    background-color: #fff;         /*Advertencia color de fondo y no de primer plano*/
+    border: 0.2ex solid #000000;            
+    padding: 1ex;
     border-radius: 2ex;
     box-sizing: border-box;
     box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
 }
 
-
+/* especificidad: (0,0,1) */
 button {
     background-color: rgb(178, 156, 220);
     color: rgb(0, 0, 0);
-    padding: 10px 20px;
+    padding: 2ex;
     border-color: #000000;
-    border-radius: 5px;
+    border-radius: 2ex;
     cursor: pointer;
 
 }
 
+/* especificidad: (0,1,1) */
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049;      /*Advertencia color de fondo y no de primer plano*/
 }
 
+/* especificidad: (0,0,1) */
 h3 {
-    color: #333;
+    color: #333;                    /*Advertencia color de primer plano y no de fondo*/
 }
 
+/* especificidad: (0,0,1) */
 p {
-    color: #555;
+    color: #000;                    /*Advertencia color de primer plano y no de fondo*/
 }
