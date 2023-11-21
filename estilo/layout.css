@@ -22,4 +22,8 @@ header {
         flex-direction: column;
     }
 
+    nav a {    
+        padding: 0.6ex;
+    }
+
 }
