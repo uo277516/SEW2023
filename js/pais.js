@@ -106,7 +106,7 @@ class Pais {
 
                             const articleElement = $("<article>");
                             var h4 = $("<h4></h4>").text(fecha[2]+"-"+fecha[1]+"-"+fecha[0]);
-                            var ul = $("<ul><ul>")
+                            var ul = $("<ul></ul>")
                             var tempMax = $("<li></li>").text("Temperatura máxima: " + dia[j].main.temp_max + "°C");
                             var tempMin = $("<li></li>").text("Temperatura mínima: " + dia[j].main.temp_min + "°C");
                             var humedad = $("<li></li>").text("Humedad: " + dia[j].main.humidity + "%");
