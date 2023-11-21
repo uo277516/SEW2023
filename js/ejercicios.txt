@@ -83,6 +83,8 @@ por ejemplo , si quisiera coger los articles de body pondria donde selector body
 poner/quitar css cambiar codigo...)
 
 contraseña flickr ukB_aF7XHSqSPiK
+7ea9c232e677033d7c7fe0fbc5f8887b
+f6cdeab2eabe93dc
 
 ---Ejercicio 1
 $.getJson(url, {}).done(function(data) {
@@ -100,6 +102,8 @@ como unos atributos. clase fondo 2 metodos (constructor y este)
 el metodo css si le paso un unico parametro me devuelve el valor de ese parametro, y si le paso dos, me pone el valor del 2 parametro en ese atributo
 
 ---Ejercicio 2
+R67riMexT3-XWNh
+6049eddf2521839fe5a2fdf60aaf706f
 en la api de weather el metodo q pone al final call 5 da / 3 hour forecast data. le paso longitud y latityud y altitud y apikey y para cada dia me devuelve el tiempo cada 3 horas.
 pero yo solo quiero 5 elementos, entonces para cada dia cojo una hora la q yo quiera. hay mas params opcionales (modo funcionamento-json, sistema-metrico, idioma...)
 me devuelve un json que es una lista de elementos. cada elemento es el tiempo de una hora concreto un dia concreto. icon en el weather es el icono q tenemos q poner
