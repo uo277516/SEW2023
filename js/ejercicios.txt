@@ -4,7 +4,7 @@
         creamos la clase
         valores y metodos
 
-
+s
     Los metodos
         -> devuelven cadenas : "España"
             - si solo devuelve una cadena pues seria   en el html  :   <h1> <script> doc.write( pais.get---() )  </script> </h1>
