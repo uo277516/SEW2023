@@ -1,0 +1,35 @@
+/* Especificidad: (0,0,1) */
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Especificidad: (0,0,1) */
+main {
+    display: grid;
+    grid-template-columns: repeat(9, auto); 
+    justify-items: center; 
+    align-items: center;  
+}
+ 
+/* Especificidad: (0,0,1) */
+ p {
+    border: 0.1ex solid #000; 
+    width: 10ex;
+    height: 100%;
+    cursor: pointer; 
+    display: grid;
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Especificidad: (0,1,1) */
+p[data-state="empty"] {
+    background-color: #000;
+}
+
+/* Especificidad: (0,1,1) */
+p[data-state="blocked"], main p[data-state="empty"] {
+    cursor: default; 
+}

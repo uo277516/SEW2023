@@ -12,7 +12,7 @@ class Sudoku {
 
         //Variable para el handle
         this.clickHandler = (event) => {
-        this.handleClick(event.target);
+            this.handleClick(event.target);
         };
     }
     
