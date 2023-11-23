@@ -44,7 +44,7 @@ class Sudoku {
             for (let j = 0; j < this.numColumnas; j++) {
                 const p = document.createElement('p');
                 if (this.tableroArray[i][j]===0) {                    
-               
+                    
                     p.addEventListener('click', this.clickHandler);
 
                 } else {
@@ -58,6 +58,11 @@ class Sudoku {
 
 
     handleClick(p) {
+        //Comprobar q no haya ninguna clickada
+        const selected = document.querySelectorAll("[data-state='clicked']")[0];
+        if (selected) {
+            selected.dataset.state='';
+        }
         p.dataset.state='clicked';
     }
 
@@ -70,6 +75,7 @@ class Sudoku {
     introduceNumber(numero) {
 
         const selectedCell = document.querySelectorAll("[data-state='clicked']")[0];
+        console.log(selectedCell);
         const allCells = document.querySelectorAll('main p');
 
         // Verificar si al menos una celda está seleccionada

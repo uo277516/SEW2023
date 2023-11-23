@@ -26,7 +26,7 @@ class Fondo {
         .done(function (data) {
             if (data.photos && data.photos.photo.length > 0) {
                 const photo = data.photos.photo[5];
-                const imageUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+                const imageUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`;
                 console.log(photo);
                 $("body").css("background-image", "url(" + imageUrl+ ")") 
                     .css("background-size","cover")

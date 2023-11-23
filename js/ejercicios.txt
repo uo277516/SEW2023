@@ -148,3 +148,36 @@ para la horizontal lo mismo pero pa bajo. si pasa las dos comprobaciones, lo dej
 lo siguiente no sigo por eso, lo doy por valido. lo mismo horizontal. las expresiones van de zquierda a derecha y de arriba a abahjo. si toy en la de la derecha del todo es -1 
 o esta fuera del array. el resultado siempre viene relleno. crucigrama.css,html.js y menu de juegos
 n usar la apikey del ej q es la de cueva, q igual la bloqueamos, l¡hacr uno nos (la de weather)
+
+
+------------------------------------------------------PRACTICA 3---------------------------------------------------
+los mapas q vamos a hacer ni son accesibles ni podemos hacer nada. viajes.html no va a pasar accesibilidad, pero solo el mapa, lo demas 
+si lo tiene q pasar. puede ser tb q el html no valide xq el mapa me mete cosas. documentarlo en bitacora, o en el codigo con comentarios,
+o donde sea
+
+---Ejercicio 1
+noticias.txt-> 3 noticias. cada noticia tiene titulo _ subtitulo _ texto _ autor. cada trozo esta separado por un "_", y al final de 
+cada noticia un salto d linea \n. Para hacer eso apifile de html5. tenemos un input de tipo fichero qnos permite abrir el noticias
+depsues con esto leemos el contenido , y creamos bloques de informacion con cada noticia (tipo cartas). debajo de donde pintemos
+las noticias ponemos campos de texto (4) con un boton q nos permita añadir nuevas noticias. y cuando rellena y pulsa añadir se añade
+arriba una noticia mas. podemos utilizar jquery con esto. todas noticias juntas y todos campos de texto. no mezclar. no tenemos q 
+guardar en ningun lao esas noticias ni nada. el metodo onload dentro ye donde se hace lo q realmente se hace. o sea ahi dentro ye donde
+tenemos q coger el body y meter un articulo con cada noticia etc. y añadimos cada articulo al body con jquery. siempre va a ser esearchivo
+de noticias. podemos comprobar si queremos q el archivo sea .txt, solo si queremos. al final notcicias.js, noticias.css, y el html noticias
+
+---Ejercicio 2
+diferenciar la api de geo de html5 de la otra (mapbox o googlemaps). importante sobre la api de geolozalizacion, hay q añadir con https
+y localhost quiere acceder a tu ubicacion y le damos a permintir. si pulsamos bloquear despues no se rellena y cuado lo vayamos a utilizar
+no podemos hacer nada. una vez tenemos la ubicacion del usuario , mapa estatico con la posicion del usuario. devuelve url de una
+imagen y la metmeos en el src del img y pista. en funcion del tipo d operadora la posicion esta bien o mal, pero con lat y lon si tiene
+que coincidir. apikey de google maps , peticion aa google maps. igual es mejor mapbox porq google maps habia q pagar
+tarea 5-> mapa dinamico en vez de estatico. vaya no es una imagen, tengo un mapa q puedo acercar otra vez. este es el mapa que no es accesible.
+necesito ficheros de xml. los puedo dejar ahi no moverlos.
+tarea 7-> atributo multiple en el p de seleccionar archivo. svgs ahi y los pintamos sobre el mapa dinamico.
+tarea 8-> teoria buscar mostrar svg en html. da igual la manera (canvas o de otra manera), pero q se vea. consultar teoria
+
+---Ejercicio 3
+ejercicio libre con 3 apis de html5. una sola aplicacion. WebRTC ni mirarla, no merece la pena. Drag and drop, web storage, canvas, index db..
+esas no son dificiles de combinar . leeo de un fichero lo meto a indexdb hago unas queries mep inta nosequey hago no se cuanto.
+minimo 3 apis si quiero mas.., canvas y fullscreen no funcinan juntas. apifile subir archivis (musica, video...) especie de reproductor
+multimedia, drag an drop, apifile, fullscreen. 

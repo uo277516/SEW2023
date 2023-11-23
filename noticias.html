@@ -23,9 +23,14 @@
     <!-- Hoja de estilo -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/noticias.css" />
+
 
     <!-- Favicon -->
     <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+
+    <!-- Referencia a JQuery (opción minificada) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -47,7 +52,18 @@
     </header>
     
     <h2>Noticias</h2>
-    <p>En desarrollo</p>
+    <script src="js/noticias.js"></script>
+
+    <p>Seleccione un archivo de texto: </p>
+      
+    <p>
+        <input type="file" id="archivoTexto" onchange="noticias.readInputFile(this.files);">
+    </p>
+
+    <section>
+
+    </section>
+    
 
 </body>
 </html>
