@@ -36,20 +36,16 @@ class Noticias {
 
                     const article = $("<article></article>");
 
-                    const p_titulo = $("<p></p>").text(info[0]);
-                    const p_subtitulo = $("<p></p>").text(info[1]);
+                    const h3_titulo = $("<h3></h3>").text(info[0]);
+                    const h4_subtitulo = $("<h4></h4>").text(info[1]);
                     const p_texto = $("<p></p>").text(info[2]);
                     const p_autor = $("<p></p>").text("Autor: "+info[3]);
 
-                    article.append(p_titulo, p_subtitulo, p_texto, p_autor);
+                    article.append(h3_titulo, h4_subtitulo, p_texto, p_autor);
                     section.append(article);
 
                 });
 
-                //El evento "onload" se lleva a cabo cada vez que se completa con éxito una operación de lectura
-                //La propiedad "result" es donde se almacena el contenido del archivo
-                //Esta propiedad solamente es válida cuando se termina la operación de lectura
-                //areaVisualizacion.innerText = lector.result;
                 }      
             lector.readAsText(archivo);
             }

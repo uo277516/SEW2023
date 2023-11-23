@@ -17,3 +17,37 @@ article {
     box-sizing: border-box;
     box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
 }
+
+/* especificidad: (0,0,1) */
+aside {
+    display: flex;
+    flex-direction: column;
+    border: 0.2ex solid #000000;            
+    padding: 1ex;
+    border-radius: 2ex;
+    box-sizing: border-box;
+    box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
+}
+
+/* especificidad: (0,0,1) */
+input {
+    margin-bottom: 1ex;
+}
+
+/* especificidad: (0,0,1) */
+textarea {
+    margin-right: 1ex; 
+    margin-bottom: 1ex;
+}
+
+/* especificidad: (0,0,1) */
+button {
+    background-color: rgb(178, 156, 220);
+    color: rgb(0, 0, 0);
+    padding: 1ex;
+    border-color: #000000;
+    border-radius: 2ex;
+    cursor: pointer;
+    align-self: center; /
+}
+
