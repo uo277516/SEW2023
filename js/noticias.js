@@ -19,7 +19,7 @@ class Noticias {
     readInputFile(files) {
         var archivo = files[0];
         
-        const section = $("body section");
+        const main = $("body main");
         
         //Solamente admite archivos de tipo texto
         var tipoTexto = /text.*/;
@@ -29,7 +29,6 @@ class Noticias {
             lector.onload = function (evento) {
 
                 var noticias_array = lector.result.split("\n");
-                console.log(noticias_array);
 
                 noticias_array.forEach(element => { //Para cada noticia creo un articulo con parrafos
                     const info = element.split("_");
@@ -42,7 +41,7 @@ class Noticias {
                     const p_autor = $("<p></p>").text("Autor: "+info[3]);
 
                     article.append(h3_titulo, h4_subtitulo, p_texto, p_autor);
-                    section.append(article);
+                    main.append(article);
 
                 });
 
@@ -53,6 +52,26 @@ class Noticias {
             alert("Error : ¡¡¡ Archivo no válido !!!");
 
             }   
+    }
+
+
+    agregarNoticia() {
+        const titulo = $("input#tituloInput").val();
+        const subtitulo = $("input#subtituloInput").val();
+        const cont = $("textarea#contenidoInput").val();
+        const autor = $("input#autorInput").val();
+
+        const main_noticias = $("body main");
+
+        const article = $("<article></article>");
+
+        const h3_titulo = $("<h3></h3>").text(titulo);
+        const h4_subtitulo = $("<h4></h4>").text(subtitulo);
+        const p_texto = $("<p></p>").text(cont);
+        const p_autor = $("<p></p>").text("Autor: "+autor);
+
+        article.append(h3_titulo, h4_subtitulo, p_texto, p_autor);
+        main_noticias.append(article);
     }
 
 
