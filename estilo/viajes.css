@@ -1,0 +1,15 @@
+/* especificidad: (0,0,1) */
+button {
+    background-color: rgb(178, 156, 220);
+    color: rgb(0, 0, 0);
+    padding: 1ex;
+    border-color: #000000;
+    border-radius: 2ex;
+    cursor: pointer;
+    align-self: center; 
+}
+
+#map {
+    width: 100%;
+    height: 85ex;
+}

@@ -23,9 +23,20 @@
     <!-- Hoja de estilo -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/viajes.css" />
+
     
     <!-- Favicon -->
     <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+
+    <!-- Referencia a JQuery (opción minificada) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/viajes.js"></script>
+
+    <!-- Mapa dinámico MapBox-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
 
 </head>
 
@@ -48,7 +59,25 @@
     <h2>Viajes</h2>
     
     <section>
-        <p>En desarrollo </p>
+        <h3> Mapas basados en tu ubicación </h3>
+        <article>
+            <h4> Mapa estático </h4>
+            <script> viaje.getMapaEstatico();</script>
+        </article>
+        <article>
+            <h4> Mapa dinámico </h4>
+            <div id="map"></div>
+            <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
+                const map = new mapboxgl.Map({
+                    container: 'map', // container ID
+                    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+                    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+                    center: [viaje.getLongitud(), viaje.getLatitud()], // starting position [lng, lat]
+                    zoom: 9 // starting zoom
+                });
+            </script>
+        </article>
     </section>
 
     
