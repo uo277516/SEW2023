@@ -51,7 +51,7 @@
                 console.log(key);
                 if (array.includes(parseInt(key)) || key==='+' || key==='-' || key==='*' || key ==='/') {
                     cruci.introduceElement(key);
-                } else {
+                } else if (key ===! 'Shift'){
                     alert('Debes introducir un número o un operador aritmetico');
                 }
             } else {
