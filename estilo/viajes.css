@@ -9,15 +9,12 @@ button {
     align-self: center; 
 }
 
-#map {
+aside {
     width: 100%;
     height: 85ex;
 }
 
-#map_kml {
-    width: 100%;
-    height: 85ex;
-}
+
 
 
 

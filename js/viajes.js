@@ -293,11 +293,39 @@ class Viajes {
 
     //SVG
     leerSVG(files) {
-        
+
+        const section = $("body section:last");
+
+
+        Array.from(files).forEach(file => {
+
+            var reader = new FileReader();
+
+            //Cargo las coordenadas en un array
+            reader.onload = function (e) {
+
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(e.target.result, 'application/xml');
+           
+                var element_svg = xmlDoc.querySelectorAll('svg')[0];
+
+                var svgString = new XMLSerializer().serializeToString(element_svg);
+
+                console.log(svgString);
+
+                var svg_html = $(svgString);
+
+                section.append(svg_html);
+
+
+            };
+            reader.readAsText(file);
+        });
     }
 
 }
 
 var viaje = new Viajes();
+
 
 
