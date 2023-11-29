@@ -181,7 +181,7 @@ class Viajes {
             article.append('<p>Inicio: Lugar: ' + inicioLugar + ', Dirección: ' + inicioDireccion + ', Coordenadas: (' + inicioAltitud + ', ' + inicioLongitud + ', ' + inicioLatitud + ')</p>');
 
             //Referencias en una lista
-            var referenciasHtml = '<p>Referencias:</p><ul>';
+            var referenciasHtml = '<h5>Referencias:</h5><ul>';
             referencias.forEach(function (referencia) {
                 referenciasHtml += '<li>' + referencia.titulo + ' - ' + referencia.bibliografia + '</li>';
             });
@@ -189,28 +189,29 @@ class Viajes {
             article.append(referenciasHtml);
 
             //Hitos en otra lista
-            var hitosHtml = '<p>Hitos:</p><ul>';
+            var hitosHtml = '<h5>Hitos:</h5>';
             hitos.forEach(function (hito) {
-                hitosHtml += '<li>' + hito.nombre + ': ' + hito.descripcion +
+                hitosHtml += '<h6>' + hito.nombre + '</h6>'
+                hitosHtml += '<p>' + hito.nombre + ': ' + hito.descripcion +
                     ', Coordenadas: (' + hito.coordenadas.latitud + ', ' + hito.coordenadas.longitud + ', ' + hito.coordenadas.altitud + ')' +
-                    ', Distancia: ' + hito.distancia + ' km</li>';
+                    ', Distancia: ' + hito.distancia + ' km</p>';
                 
+
+                hitosHtml+= '<p> Fotos y videos (si los hubiera) </p>';
                 hitosHtml += '<ul>';
                 hito.galeriaFotos.forEach(function (foto) {
                     hitosHtml += '<li>Foto: ' + foto.foto + '</li>';
                 });
-                hitosHtml += '</ul>';
                 
 
                 if (hito.galeriaVideos.length > 0) {
-                    hitosHtml += '<ul>';
                     hito.galeriaVideos.forEach(function (video) {
                         hitosHtml += '<li>Video: ' + video.video + '</li>';
                     });
-                    hitosHtml += '</ul>';
                 }
+                hitosHtml += '</ul>';
+
             });
-            hitosHtml += '</ul>';
             article.append(hitosHtml);
 
 

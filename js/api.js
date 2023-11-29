@@ -2,6 +2,7 @@
 class API {
 
     constructor (){
+        //API GEOLOCATION
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this));
     }
 
@@ -50,21 +51,23 @@ class API {
 
 
     metodo() {
-        mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA'; // Reemplaza con tu propio token de Mapbox
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
 
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v12',
-            center: [this.longitud, this.altitud],
-            zoom: 2
+            center: [-3.667, 40.500], //coordenadas para q aparezca "centrado" en españa
+            zoom: 4
         });
         const marker = new mapboxgl.Marker().setLngLat([this.longitud, this.latitud]).addTo(map);
 
         var markers = [];
         markers.push(marker);
 
-        var areaSoltarArchivos = $("body aside");
+        var areaSoltarArchivos = $("body section aside");
         
+
+        //API DRAG AND DROP
 
         areaSoltarArchivos.on("drop", function(e) {
             e.preventDefault();
@@ -80,12 +83,21 @@ class API {
                     markers.push(marker);
                 });
                 console.log(markers);
+
+                var p_aside = $("body section aside p");
+
+                var mensaje = `Nombre del archivo: ${archivo.name} --`;
+                mensaje += `Tamaño: ${archivo.size} bytes -- `;
+                mensaje += `Tipo: ${archivo.type}`;
+
+                p_aside.text(mensaje);
             };
             lector.readAsText(archivo);
         });
 
         areaSoltarArchivos.on("dragover", function(e) {
             e.preventDefault();
+            
         });
 
         var button = $("button");
@@ -109,8 +121,9 @@ class API {
                 }
             }.bind(this));
 
-            informacionTexto+=`Distancia total entre los puntos recorriendolos en orden: ${distancias}`;
+            informacionTexto+=`Distancia total entre los puntos recorriendolos en orden: ${distancias} km`;
 
+            //API FILE
             var file = new File([informacionTexto], 'informacion_distancia.txt', { type: 'text/plain' });
 
             var enlace = document.createElement('a');

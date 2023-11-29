@@ -51,14 +51,12 @@ a:visited{
 /* especificidad {0,0,1} */
 ul {
     list-style-type: disc; 
-    font-size: 1.1em; 
 }
 
 /* Estilo lista ordenada */
 /* especificidad {0,0,1} */
 ol {
     list-style-type: lower-roman; 
-    font-size: 1.1em; 
 }
 
 /* Estilo los elementos anidados */

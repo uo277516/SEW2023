@@ -38,16 +38,32 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 </head>
 <body>
-    <h1>Mi Aplicación con APIs de HTML5</h1>
+    <header>
+        <h1>Aplicación para calcular distancias con marcadores</h1>
+    </header>
 
-    <!-- Mapa para mostrar los marcadores -->
-    <article id="map"></article>
+    <h2>Mapa</h2>
+    
+    <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
+    <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
+    <main id="map"></main>  
+    
 
-    <!-- Área de soltar archivos -->
-    <aside>Arrastra y suelta un archivo con coordenadas aquí</aside>
+    <section>
+        <h2>Introducir marcadores</h2>
+        <p>En el siguiente bloque puedes arrastrar un archivo con coordenadas. A partir de ellas, se crearán diferentes marcadores
+            en el mapa anterior, y con el botón "Generar Información" podrás descargar un archivo .txt el cual te informara
+            de las distancias entre los marcadores.
+        </p>
+        <aside>
+            <p>
+                Arrastra y suelta un archivo con coordenadas aquí
+            </p>
+        </aside>
+        <button>Generar Información</button>
+    </section>
 
-    <!-- Botón para generar información -->
-    <button>Generar Información</button>
+    
 
     <script>api.metodo();</script>
 
