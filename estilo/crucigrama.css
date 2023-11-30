@@ -17,7 +17,7 @@ form {
     color: black;
 }
  
-/* Especificidad: (0,0,1) */
+/* Especificidad: (0,0,2) */
 main > p {
     border: 0.1ex solid #000; 
     width: 10ex;
@@ -28,12 +28,12 @@ main > p {
     justify-content: center; 
 }
 
-/* Especificidad: (0,1,1) */
+/* Especificidad: (0,1,2) */
 main > p[data-state="empty"] {
     background-color: #000;
 }
 
-/* Especificidad: (0,1,1) */
+/* Especificidad: (0,1,2) */
 main > p[data-state="blocked"], main p[data-state="empty"] {
     cursor: default; 
 }
