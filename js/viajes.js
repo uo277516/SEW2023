@@ -225,6 +225,11 @@ class Viajes {
     //KML
     leerKML(files) {
 
+        const section = $("body section:eq(1)");
+        const aside = $("<aside></aside>");
+        aside.attr("id", "map_kml");
+        section.append(aside);
+
         mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
         const map = new mapboxgl.Map({
             container: 'map_kml', // container ID
@@ -288,6 +293,7 @@ class Viajes {
             reader.readAsText(file);
             
         });
+        
         
     }
 

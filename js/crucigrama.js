@@ -2,17 +2,24 @@
 class Crucigrama {
     constructor() {
         //Nivel fácil
-       // this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+        this.nivel="Fácil";
+        this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+        
         //Nivel medio
+        //this.nivel="Medio";
         //this.board = "12,*,.,=,36,#,#,#,15,#,#,*,#,/,#,#,#,*,.,-,.,=,.,#,55,#,.,*,#,=,#,=,#,/,#,=,.,#,15,#,9,*,.,=,45,=,#,#,#,#,#,=,#,#,72,#,20,-,.,=,11,#,.,#,#,-,#,+,#,#,#,*,56,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,12,#,16,*,.,=,32"
+        
         //Nivel díficil
-        this.board = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72"
+        //this.nivel="Difícil";
+        //this.board = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72"
         
         this.num_columnas=9;
         this.num_filas=11;
         this.init_time = null;
         this.end_time = null;
         this.tablero_array = null;
+
+        this.seconds_completado=0;
         
     }
 
@@ -108,6 +115,9 @@ class Crucigrama {
         let tiempo_resolver = this.end_time-this.init_time; //en milisegundos
 
         let seconds = Math.floor(tiempo_resolver / 1000);
+
+        this.seconds_completado = seconds;
+
         let minutes = Math.floor(seconds / 60);
         let hours = Math.floor(minutes / 60);
 
@@ -186,11 +196,65 @@ class Crucigrama {
         if (this.check_win_condition()) {
             this.end_time = new Date();
             alert("Enhorabuena, haz finalizado el crucigrama en un tiempo de: " + this.calculate_date_difference());
+            this.createRecordForm(); //formulario
         }
 
 
 
     }
+
+    createRecordForm() {
+        const form = $("<form></form>");
+        form.attr("action", "#");
+        form.attr("method", "post");
+        form.attr("name", "formulario");
+
+        const p_nombre = $("<p></p>");
+        p_nombre.text("Nombre: ");
+        const input_nombre = $("<input>");
+        input_nombre.attr("type", "text");
+        input_nombre.attr("name", "nombre");
+        input_nombre.attr("value", "");
+        p_nombre.append(input_nombre);
+        form.append(p_nombre);
+
+        const p_apellidos = $("<p></p>");
+        p_apellidos.text("Apellidos: ");
+        const input_apellidos = $("<input>");
+        input_apellidos.attr("type", "text");
+        input_apellidos.attr("name", "apellidos");
+        input_apellidos.attr("value", "");
+        p_apellidos.append(input_apellidos);
+        form.append(p_apellidos);
+
+        const p_nivel = $("<p></p>");
+        p_nivel.text("Nivel: ");
+        const input_nivel = $("<input>");
+        input_nivel.attr("type", "text");
+        input_nivel.attr("name", "nivel");
+        input_nivel.attr("value", this.nivel);
+        input_nivel.attr("readonly", "readonly");
+        p_nivel.append(input_nivel);
+        form.append(p_nivel);
+
+        const p_tiempo = $("<p></p>");
+        p_tiempo.text("Tiempo en segundos: ");
+        const input_tiempo = $("<input>");
+        input_tiempo.attr("type", "text");
+        input_tiempo.attr("name", "tiempo");
+        input_tiempo.attr("value", this.seconds_completado);
+        input_tiempo.attr("readonly", "readonly");
+        p_tiempo.append(input_tiempo);
+        form.append(p_tiempo);
+
+        const aside = $("<aside></aside>");
+        const body = $("body");
+        
+        aside.append(form);
+        body.append(aside);
+
+    }
+
 
 
     

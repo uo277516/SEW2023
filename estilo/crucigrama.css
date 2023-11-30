@@ -12,9 +12,13 @@ main {
     justify-items: center; 
     align-items: center;  
 }
+
+form {
+    color: black;
+}
  
 /* Especificidad: (0,0,1) */
- p {
+main > p {
     border: 0.1ex solid #000; 
     width: 10ex;
     height: 100%;
@@ -25,11 +29,14 @@ main {
 }
 
 /* Especificidad: (0,1,1) */
-p[data-state="empty"] {
+main > p[data-state="empty"] {
     background-color: #000;
 }
 
 /* Especificidad: (0,1,1) */
-p[data-state="blocked"], main p[data-state="empty"] {
+main > p[data-state="blocked"], main p[data-state="empty"] {
     cursor: default; 
 }
+
+
+

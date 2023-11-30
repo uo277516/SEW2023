@@ -32,6 +32,23 @@
 
 <body>
     
+    <?php
+    
+        class Record {
+
+            protected $server;
+            protected $user;
+            protected $pass;
+            protected $dbname;
+
+            public function __construct() {
+                $this->server = "localhost";
+                $this->user = "DBUSER2023";
+                $this->pass = "DBPSWD2023";
+                $this->dbname = "records";
+            }
+        }
+    ?>
 
     <main>
         
@@ -55,8 +72,6 @@
                 } else if (key ===! 'Shift'){
                     alert('Debes introducir un número o un operador aritmetico');
                 }
-            } else {
-                alert('Debes seleccionar una celda antes de pulsar un número o un operador.');
             }
 
       });

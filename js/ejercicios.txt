@@ -181,3 +181,18 @@ ejercicio libre con 3 apis de html5. una sola aplicacion. WebRTC ni mirarla, no 
 esas no son dificiles de combinar . leeo de un fichero lo meto a indexdb hago unas queries mep inta nosequey hago no se cuanto.
 minimo 3 apis si quiero mas.., canvas y fullscreen no funcinan juntas. apifile subir archivis (musica, video...) especie de reproductor
 multimedia, drag an drop, apifile, fullscreen. 
+
+
+
+--------------------SESION PHP-----------------------
+xamp para php 100/100
+se enciende el mysql
+-creamos ahi bd para hacer las consultas
+-creamos DBUSER2023
+FORMULARIO LOS QU EYO TENGO QUE PONER SOLO LECTURA
+boton enviar , se crea instancia record lo mando a la db y pido la clasificacion actualizada. calculadora diabetica FORMULARIO
+bastante parecido a lo que tenemos que hacer cpn el formulario del crucigrama. el formulario lo generamos con jquery, method="post" y 
+action="#" -> envia la info a si mismo. me vuelve a ejecutar todo el codigo. el count de dolarpost se rellena de info cuando el 
+formularoi se envia. primero clase record con mrotods y eso y en un punto dado el if pa mirar si me llega algo en el post (guardar). en 
+ese momento creo record, guardo info, y hago llamada a otro metodo que coje la clasificcion actualizad una vez lo anterior se guardde
+meter php en html: <?php ...... ?> <ul><li> <?= #registro['name]`.' '.$reg... </li>. esto dentro de lo de php
