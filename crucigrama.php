@@ -79,7 +79,7 @@
             }
 
             public function createList($conn) {
-                $sql = "SELECT * FROM registro ORDER BY tiempo ASC";
+                $sql = "SELECT * FROM registro ORDER BY tiempo ASC LIMIT 10";
                 $stmt = $conn->query($sql);
 
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
