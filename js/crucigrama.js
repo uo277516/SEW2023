@@ -92,6 +92,8 @@ class Crucigrama {
             }
         }
 
+        
+
     }
 
 
@@ -192,6 +194,7 @@ class Crucigrama {
             alert("El valor que has introducido no es correcto para la casilla seleccionada");
         }
 
+        
 
         if (this.check_win_condition()) {
             this.end_time = new Date();
@@ -246,6 +249,12 @@ class Crucigrama {
         input_tiempo.attr("readonly", "readonly");
         p_tiempo.append(input_tiempo);
         form.append(p_tiempo);
+
+        const input_enviar = $("<input>");
+        input_enviar.attr("type", "submit");
+        input_enviar.attr("value", "Enviar");
+        console.log(input_enviar);
+        form.append(input_enviar);
 
         const aside = $("<aside></aside>");
         const body = $("body");
