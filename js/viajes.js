@@ -312,7 +312,7 @@ class Viajes {
             reader.onload = function (e) {
 
 
-                var svg_completo = e.target.result;
+                var svg_completo = e.target.result; 
                 var svg_completo_array = svg_completo.split("?>");  //es el fin de la cabecera xml
                 var svg = svg_completo_array[1]; //cojo lo de ahi en adelante
                 var svg_html_array = svg.split("height"); //quito lo de xmls y version

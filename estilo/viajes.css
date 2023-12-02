@@ -23,9 +23,28 @@ h4 {
 h5 {
     font-size: 1.2em; 
 }
-
+ 
 h6 {
     font-size: 1.1em; 
+}
+
+section:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2ex;
+    padding-top: 2ex;
+}
+
+section > article {
+    width: 100%;
+    background-color: #fff;         /*Advertencia color de fondo y no de primer plano*/
+    border: 0.2ex solid #000000;
+    margin:1ex;            
+    padding: 1ex;
+    border-radius: 2ex;
+    box-sizing: border-box;
+    box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
 }
 
 
