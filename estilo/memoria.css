@@ -1,23 +1,21 @@
 /* Especificidad: (0,0,1) */
-section {
+main > section {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30em;
     height: 100vh;
 }
 
 /* Especificidad: (0,0,1) */
 h2 {
+    margin-top: 1.5ex;
     width: 100%;
     align-self: flex-start;
-    text-align: center;
-    margin: 0;
 }
 
 /* Especificidad: (0,0,1) */
-body {
+main {
     display: flex;
     align-items: center;
     justify-content: center;
