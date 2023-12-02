@@ -47,9 +47,8 @@ def xml_to_kml(archivoXML):
     print('Archivos KML creados con éxito.')
 
 def main():
-    #miArchivoXML = input('Introduzca un archivo XML = ')
-    xml_to_kml('rutasEsquema.xml')
-    #verXPath(miArchivoXML)
+    miArchivoXML = input('Introduzca un archivo XML = ')
+    xml_to_kml(miArchivoXML)
 
 if __name__ == "__main__":
     main()

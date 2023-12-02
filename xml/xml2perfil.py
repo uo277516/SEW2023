@@ -22,14 +22,13 @@ def verXPath(archivoXML):
         nombre_ruta = ruta.find('ns:nombre', namespaces=ns).text
         with open(nombre_archivo_kml, 'w', encoding='utf-8') as kml_file:
             kml_file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-            kml_file.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="1700" width="1500">\n')
+            kml_file.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="500" width="1000">\n')
             kml_file.write('<polyline points="\n')
             
             distacia_acumulada=10 #para empezar en el punto 10
             inicio = ruta.find('.//ns:inicio', namespaces=ns)
             coordenadas_inicio = inicio.find('.//ns:coordenadas', namespaces=ns)
             altitud_inicio = coordenadas_inicio.find('.//ns:altitud', namespaces=ns).text
-            print(altitud_inicio)
 
             #Linea vertical inicial
             kml_file.write(f'{distacia_acumulada},{base_altitud}\n') 
@@ -51,7 +50,7 @@ def verXPath(archivoXML):
 
             #Para unir
             kml_file.write(f'{margen},{base_altitud}\n') 
-            kml_file.write('"\nstyle="fill:white;stroke:red;stroke-width:4" />\n')
+            kml_file.write('"\nstyle="fill:#A18262;stroke:#6C3B2A;stroke-width:4" />\n')
            
             distacia_acumulada=10
 
@@ -72,9 +71,9 @@ def verXPath(archivoXML):
     print('Archivos SVG creados con éxito.')
 
 def main():
-    #miArchivoXML = input('Introduzca un archivo XML = ')
-    verXPath('rutasEsquema.xml')
-    #verXPath(miArchivoXML)
+    miArchivoXML = input('Introduzca un archivo XML = ')
+    #verXPath('rutasEsquema.xml')
+    verXPath(miArchivoXML)
 
 if __name__ == "__main__":
     main()

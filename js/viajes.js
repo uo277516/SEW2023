@@ -311,17 +311,14 @@ class Viajes {
             //Cargo las coordenadas en un array
             reader.onload = function (e) {
 
-                var parser = new DOMParser();
-                var xmlDoc = parser.parseFromString(e.target.result, 'application/xml');
-           
-                var element_svg = xmlDoc.querySelectorAll('svg')[0];
 
-                var svgString = new XMLSerializer().serializeToString(element_svg);
-
-                console.log(svgString);
-
-                var svg_html = $(svgString);
-
+                var svg_completo = e.target.result;
+                var svg_completo_array = svg_completo.split("?>");  //es el fin de la cabecera xml
+                var svg = svg_completo_array[1]; //cojo lo de ahi en adelante
+                var svg_html_array = svg.split("height"); //quito lo de xmls y version
+                var svg_html = svg_html_array[1]; //cojo a partir de height
+                svg_html = "<svg height" + svg_html;
+                
                 section.append(svg_html);
 
 
