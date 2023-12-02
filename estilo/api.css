@@ -13,7 +13,7 @@ section {
 /* especificidad: (0,0,1) */
 aside {
     display: flex;
-    background-color: #f0f0f0;      /*Advertencia color de fondo establecido y no de primer plano (lo hereda)*/
+    background-color: #f0f0f0;  /*Advertencia color de fondo establecido y no de primer plano (lo hereda)*/
     border: 1ex dashed #4caf50;
     height: 30ex;
     width: 100%;

@@ -23,6 +23,8 @@
 
     <!-- Favicon -->
     <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 
     <!-- Referencia a JQuery (opción minificada) -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -120,7 +122,38 @@
 
     ?>
 
+<header>
+        <h1>Escritorio Virtual</h1>
+
+        <!-- Menú de navegación -->
+        <nav>
+            <a title="Indice" accesskey="I" tabindex="1" href="index.html">Indice</a> 
+            <a title="Sobre mi" accesskey="S" tabindex="2" href="sobremi.html">Sobre mi</a> 
+            <a title="Noticias" accesskey="N" tabindex="3" href="noticias.html">Noticias</a> 
+            <a title="Agenda" accesskey="A" tabindex="4" href="agenda.html">Agenda</a> 
+            <a title="Meteorologia" accesskey="M" tabindex="5" href="meteorologia.html">Meteorología</a> 
+            <a title="Viajes" accesskey="V" tabindex="6" href="viajes.html">Viajes</a> 
+            <a title="Juegos" accesskey="J" tabindex="7" href="juegos.html">Juegos</a> 
+        </nav>
+    </header>
+
+
+    <article>
+        <p>Usted puede jugar a los siguientes juegos: </p>
+        <nav>
+            <a title="Juego de memoria" accesskey="U" tabindex="8" href="memoria.html">Juego de memoria</a> 
+            <a title="Sudoku" accesskey="K" tabindex="9" href="sudoku.html">Sudoku</a> 
+            <a title="Crucigrama" accesskey="C" tabindex="10" href="crucigrama.php">Crucigrama</a> 
+            <a title="API" accesskey="P" tabindex="11" href="api.html">API</a> 
+
+        </nav>
+        <h2>Crucigrama</h2>
+    </article>
+
     <main>
+        <aside>
+
+        </aside>
         
     </main>
 

@@ -61,7 +61,7 @@ class Crucigrama {
 
     
     crearParrafos() {
-        const main = $("body main");
+        const main = $("body main aside");
 
         for (let i=0; i<this.num_filas; i++) {
             for (let j=0; j<this.num_columnas; j++) {

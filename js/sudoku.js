@@ -38,12 +38,12 @@ class Sudoku {
 
     
     createStructure() {
-        const mainElement = document.querySelector('main');
+        const mainElement = document.querySelector('main aside');
 
         for (let i = 0; i < this.numFilas; i++) {
             for (let j = 0; j < this.numColumnas; j++) {
                 const p = document.createElement('p');
-                if (this.tableroArray[i][j]===0) {                    
+                if (this.tableroArray[i][j]===0) {                     
                     
                     p.addEventListener('click', this.clickHandler);
 
@@ -76,7 +76,7 @@ class Sudoku {
 
         const selectedCell = document.querySelectorAll("[data-state='clicked']")[0];
         console.log(selectedCell);
-        const allCells = document.querySelectorAll('main p');
+        const allCells = document.querySelectorAll('aside p');
 
         // Verificar si al menos una celda está seleccionada
         const posicion = Array.from(allCells).indexOf(selectedCell);
