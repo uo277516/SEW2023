@@ -4,7 +4,7 @@ main {
     align-items: center;
     justify-content: center;
     width: auto;
-    height: 60ex;
+    height: 70ex;
 }
 
 /* Especificidad: (0,0,1) */
@@ -41,6 +41,40 @@ aside > p[data-state="empty"] {
 aside > p[data-state="blocked"], aside p[data-state="empty"] {
     cursor: default; 
 }
+
+/* Botonera */
+/* Estilos para dispositivos con un ancho de pantalla de hasta 1023px (móviles y tablets) */
+@media only screen and (max-width: 1023px) {
+    section[data-type=botonera] {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  
+    section[data-type=botonera] h2 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    section[data-type=botonera] button {
+      width: calc(15% - 1em);
+      height: 4em;
+      text-align: center;
+      background-color: #000;
+      color: #FFF;
+    }
+}
+  
+  /* Ocultar la sección en pantallas más grandes (PC) */
+  @media only screen and (min-width: 1024px) {
+    section[data-type=botonera] {
+      display: none;
+    }
+}
+
+
 
 
 

@@ -269,5 +269,5 @@ class Crucigrama {
     
 }
 
-var cruci = new Crucigrama();
-cruci.start();
+var crucigrama = new Crucigrama();
+crucigrama.start();

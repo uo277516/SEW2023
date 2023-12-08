@@ -158,7 +158,7 @@
     </main>
 
     <script> 
-        cruci.paintMathword(); 
+        crucigrama.paintMathword(); 
         
         document.addEventListener('keydown', function (event) {
             const key = event.key;
@@ -171,7 +171,7 @@
             if (selectedCell) {
                 console.log(key);
                 if (array.includes(parseInt(key)) || key==='+' || key==='-' || key==='*' || key ==='/') {
-                    cruci.introduceElement(key);
+                    crucigrama.introduceElement(key);
                 } else if (key ===! 'Shift'){
                     alert('Debes introducir un número o un operador aritmetico');
                 }
@@ -182,6 +182,23 @@
     
     
     </script>
+
+    <section data-type="botonera">
+        <h2>Botonera</h2>
+        <button onclick="crucigrama.introduceElement(1)">1</button>
+        <button onclick="crucigrama.introduceElement(2)">2</button>
+        <button onclick="crucigrama.introduceElement(3)">3</button>
+        <button onclick="crucigrama.introduceElement(4)">4</button>
+        <button onclick="crucigrama.introduceElement(5)">5</button>
+        <button onclick="crucigrama.introduceElement(6)">6</button>
+        <button onclick="crucigrama.introduceElement(7)">7</button>
+        <button onclick="crucigrama.introduceElement(8)">8</button>
+        <button onclick="crucigrama.introduceElement(9)">9</button>
+        <button onclick="crucigrama.introduceElement('*')">*</button>
+        <button onclick="crucigrama.introduceElement('+')">+</button>
+        <button onclick="crucigrama.introduceElement('-')">-</button>
+        <button onclick="crucigrama.introduceElement('/')">/</button>
+    </section>
 
     <?php
         $miRecord->imprimirOutput();
