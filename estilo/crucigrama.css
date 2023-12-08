@@ -70,7 +70,7 @@ aside > p[data-state="blocked"], aside p[data-state="empty"] {
   /* Ocultar la sección en pantallas más grandes (PC) */
   @media only screen and (min-width: 1024px) {
     section[data-type=botonera] {
-      display: none;
+      display: none;             /*	Redefinición de display*/
     }
 }
 
