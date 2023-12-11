@@ -18,15 +18,18 @@ aside {
  
 /* Especificidad: (0,0,2) */
 aside p {
-    border: 0.2ex solid #000; 
+    border-style: solid;
+    border-color: #000;
+    border-right-width: 0.2ex;     
+    border-top-width: 0.2ex;
     width: 100%;
     height: 100%;
     cursor: pointer; 
     display: grid;
     align-items: center; 
     justify-content: center; 
-    border-left-width: 0ex;     /*Advertencia: Redefinición de border-left-width*/
-    border-bottom-width: 0ex;   /*Advertencia: Redefinición de border-left-width*/
+    border-left-width: 0ex;     
+    border-bottom-width: 0ex;   
 }
   
 /* Especificidad: (0,1,2) */

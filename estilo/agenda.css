@@ -10,7 +10,7 @@ main {
 /* especificidad: (0,0,1) */
 article {
     width: calc(33.33% - 2ex);
-    background-color: #fff;         /*Advertencia color de fondo y no de primer plano*/
+    background-color: #fff;         /*Advertencia color de fondo y no de primer plano (lo hereda)*/
     border: 0.2ex solid #000000;            
     padding: 1ex;
     border-radius: 2ex;
@@ -31,15 +31,15 @@ button {
 
 /* especificidad: (0,1,1) */
 button:hover {
-    background-color: #45a049;      /*Advertencia color de fondo y no de primer plano*/
+    background-color: #45a049;      /*Advertencia color de fondo y no de primer plano (lo hereda)*/
 }
 
 /* especificidad: (0,0,1) */
 h3 {
-    color: #333;                    /*Advertencia color de primer plano y no de fondo*/
+    color: #333;                    /*Advertencia color de primer plano y no de fondo (lo hereda)*/
 }
 
 /* especificidad: (0,0,1) */
 p {
-    color: #000;                    /*Advertencia color de primer plano y no de fondo*/
+    color: #000;                    /*Advertencia color de primer plano y no de fondo (lo hereda)*/
 }

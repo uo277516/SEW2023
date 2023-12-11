@@ -1,51 +1,5 @@
 
 /* especificidad {0,0,1} */
-body {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    color: #000000;
-}
-
-
-/* especificidad {0,0,1} */
-header {
-    background-color: #ddd0d0;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
-    padding:0.01em;
-}
-
-
-/* especificidad {0,0,1} */
-h1 {
-    font-size: 2em; 
-    font-weight: bold;
-}
-
-/* especificidad {0,0,1} */
-h2 {
-    font-size: 1.8em; 
-    font-weight: bold;
-    background-color: #c0c0c0;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
-}
-
-/* especificidad {0,0,1} */
-h3 {
-    font-size: 1.5em; 
-    font-weight: bold;
-    background-color: #dcc7c7;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
-}
-
-
-/* especificidad {0,0,1} */
-a{
-    color: #2d0ee0;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   
-}
-
-/* especificidad {0,1,1} */
-a:visited{ 
-    color: #7400aa;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   
-}
-
-/* especificidad {0,0,1} */
 main {
     display: grid;
     grid-template-columns: repeat(5, auto);
@@ -64,8 +18,7 @@ article {
     text-align: left;
     position: relative;
     border-radius: 2ex;
-    box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
-    
+    box-shadow: 1ex 2ex 2ex #0000001A;
 }
 
 

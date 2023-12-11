@@ -111,7 +111,7 @@ dt {
 /* especificidad {0,0,1} */
 table {
     width: 100%;
-    border-collapse: collapse; /* Elimina el espacio entre las celdas */
+    border-collapse: collapse; 
 }
 
 /* especificidad {0,0,1} */
