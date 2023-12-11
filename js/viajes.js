@@ -71,6 +71,11 @@ class Viajes {
 
 
     getMapaDinamico() {
+        var segundoArticle = $('main article:eq(1)');
+        const aside = $("<aside></aside>");
+        //Uso de id obligatorio para añadir mapa dinámico con MapBox
+        aside.attr("id", "map");
+        segundoArticle.append(aside);
         mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
         const map = new mapboxgl.Map({
             container: 'map', // container ID

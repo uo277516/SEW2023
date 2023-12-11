@@ -62,14 +62,14 @@
         <h3> Mapas basados en tu ubicación </h3>
         <article>
             <h4> Mapa estático </h4>
-            <script> viaje.getMapaEstatico();</script>
+            <button onclick = "viaje.getMapaEstatico()">Obtener mapa estático</button>
+            <!--<script> viaje.getMapaEstatico();</script>-->
         </article>
         <article>
             <h4> Mapa dinámico </h4>
             <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
             <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
-            <aside id="map"></aside>
-            <script> viaje.getMapaDinamico(); </script>
+            <button onclick = "viaje.getMapaDinamico()">Obtener mapa dinámico</button>
         </article>
     </main>
      
