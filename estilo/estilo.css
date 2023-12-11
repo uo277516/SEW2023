@@ -37,6 +37,22 @@ h3 {
 }
 
 
+/* especificidad: (0,0,1) */
+h4 {
+    font-size: 1.3em; 
+    background-color: #dddddd;
+}
+
+/* especificidad: (0,0,1) */
+h5 {
+    font-size: 1.2em; 
+}
+ 
+/* especificidad: (0,0,1) */
+h6 {
+    font-size: 1.1em; 
+}
+
 /* especificidad {0,0,1} */
 a{
     color: #2d0ee0;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   

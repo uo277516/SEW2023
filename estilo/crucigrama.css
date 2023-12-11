@@ -45,6 +45,7 @@ aside > p[data-state="blocked"], aside p[data-state="empty"] {
 /* Botonera */
 /* Estilos para dispositivos con un ancho de pantalla de hasta 1023px (móviles y tablets) */
 @media only screen and (max-width: 1023px) {
+    /* Especificidad: (0,1,1) */
     section[data-type=botonera] {
       display: flex;
       gap: 1em;
@@ -53,11 +54,13 @@ aside > p[data-state="blocked"], aside p[data-state="empty"] {
       flex-wrap: wrap;
     }
   
+    /* Especificidad: (0,1,2) */
     section[data-type=botonera] h2 {
       width: 100%;
       text-align: center;
     }
   
+    /* Especificidad: (0,1,2) */
     section[data-type=botonera] button {
       width: calc(15% - 1em);
       height: 4em;
@@ -69,8 +72,9 @@ aside > p[data-state="blocked"], aside p[data-state="empty"] {
   
   /* Ocultar la sección en pantallas más grandes (PC) */
   @media only screen and (min-width: 1024px) {
+    /* Especificidad: (0,1,1) */
     section[data-type=botonera] {
-      display: none;             /*	Redefinición de display*/
+      display: none;                              /*	Redefinición de display*/
     }
 }
 

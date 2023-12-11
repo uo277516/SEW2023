@@ -9,8 +9,6 @@ class Agenda {
     buscarCarreras() {
         this.last_api_call = new Date(); //guardo la fecha de cuando llamo a lo de buscar 
 
-        
-
         $.ajax({
             url: this.url,
             method: 'GET',
