@@ -66,10 +66,18 @@
 
     <aside>
         
-        <input type="text" id="tituloInput" placeholder="Título">
-        <input type="text" id="subtituloInput" placeholder="Subtítulo">
-        <textarea id="contenidoInput" placeholder="Contenido"></textarea>
-        <input type="text" id="autorInput" placeholder="Autor">
+        <label for="tituloInput">Título:</label>
+        <input type="text" id="tituloInput" placeholder="Escriba el título" required>
+
+        <label for="subtituloInput">Subtítulo:</label>
+        <input type="text" id="subtituloInput" placeholder="Escriba el subtítulo" required>
+
+        <label for="contenidoInput">Contenido:</label>
+        <textarea id="contenidoInput" name="contenidoInput" required></textarea>
+
+        <label for="autorInput">Autor:</label>
+        <input type="text" id="autorInput" placeholder="Escriba el autor" required>
+
         <button onclick="noticias.agregarNoticia()">Agregar Noticia</button>
     </aside>
 
