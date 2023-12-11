@@ -75,18 +75,21 @@
      
     <section>
         <h3>Leer rutas a partir de XML</h3>
-        <input type="file" accept=".xml" onchange="viaje.readXMLFile(this.files);">
+        <label for="archivoXml">Selecciona un archivo .xml:</label>
+        <input id ="archivoXml" type="file" accept=".xml" onchange="viaje.readXMLFile(this.files);">
     </section>
 
     <section>
         <h3>Leer archivos de planimetría</h3>
-        <input type="file" accept=".kml" onchange="viaje.leerKML(this.files);" multiple="">
+        <label for="archivoKml">Selecciona uno o varios archivos .kml:</label>
+        <input id="archivoKml" type="file" accept=".kml" onchange="viaje.leerKML(this.files);" multiple="">
         <!--<aside id="map_kml"></aside>-->
     </section>
 
     <section>
         <h3>Leer archivos de altimetría </h3>
-        <input type="file" accept=".svg" onchange="viaje.leerSVG(this.files);" multiple="">
+        <label for="archivoSvg">Selecciona uno o varios archivos .svg:</label>
+        <input id="archivoSvg" type="file" accept=".svg" onchange="viaje.leerSVG(this.files);" multiple="">
     </section>
 
     
