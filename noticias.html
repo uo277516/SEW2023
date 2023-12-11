@@ -54,10 +54,10 @@
     <h2>Noticias</h2>
     <script src="js/noticias.js"></script>
 
-    <p>Seleccione un archivo de texto: </p>
       
     <p>
-        <input value="Seleccionar noticias" type="file" id="archivoTexto" onchange="noticias.readInputFile(this.files);">
+        <label for="archivoTexto">Selecciona un archivo de texto:</label>
+        <input type="file" id="archivoTexto" onchange="noticias.readInputFile(this.files);">
     </p>
 
     <main>
