@@ -15,7 +15,7 @@ article {
     padding: 1ex;
     border-radius: 2ex;
     box-sizing: border-box;
-    box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
+    box-shadow: 1ex 2ex 2ex #0000001A; 
 }
 
 /* especificidad: (0,0,1) */
@@ -26,7 +26,7 @@ aside {
     padding: 1ex;
     border-radius: 2ex;
     box-sizing: border-box;
-    box-shadow: 1ex 2ex 2ex rgba(0, 0, 0, 0.1); 
+    box-shadow: 1ex 2ex 2ex #0000001A;
 }
 
 /* especificidad: (0,0,1) */

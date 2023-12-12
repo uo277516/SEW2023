@@ -211,58 +211,77 @@ class Crucigrama {
         form.attr("action", "#");
         form.attr("method", "post");
         form.attr("name", "formulario");
-
+    
         const p_nombre = $("<p></p>");
-        p_nombre.text("Nombre: ");
+        const label_nombre = $("<label></label>");
+        label_nombre.attr("for", "nombre");
+        label_nombre.text("Nombre: ");
         const input_nombre = $("<input>");
         input_nombre.attr("type", "text");
+        input_nombre.attr("id", "nombre");
         input_nombre.attr("name", "nombre");
-        input_nombre.attr("value", "");
+        input_nombre.attr("placeholder", "Escribe tu nombre");
+        input_nombre.attr("required", true);
+        p_nombre.append(label_nombre);
         p_nombre.append(input_nombre);
         form.append(p_nombre);
-
+    
         const p_apellidos = $("<p></p>");
-        p_apellidos.text("Apellidos: ");
+        const label_apellidos = $("<label></label>");
+        label_apellidos.attr("for", "apellidos");
+        label_apellidos.text("Apellidos: ");
         const input_apellidos = $("<input>");
         input_apellidos.attr("type", "text");
+        input_apellidos.attr("id", "apellidos");
         input_apellidos.attr("name", "apellidos");
-        input_apellidos.attr("value", "");
+        input_apellidos.attr("placeholder", "Escribe tus apellidos");
+        input_apellidos.attr("required", true);
+        p_apellidos.append(label_apellidos);
         p_apellidos.append(input_apellidos);
         form.append(p_apellidos);
-
+    
         const p_nivel = $("<p></p>");
-        p_nivel.text("Nivel: ");
+        const label_nivel = $("<label></label>");
+        label_nivel.attr("for", "nivel");
+        label_nivel.text("Nivel: ");
         const input_nivel = $("<input>");
         input_nivel.attr("type", "text");
+        input_nivel.attr("id", "nivel");
         input_nivel.attr("name", "nivel");
         input_nivel.attr("value", this.nivel);
         input_nivel.attr("readonly", "readonly");
+        p_nivel.append(label_nivel);
         p_nivel.append(input_nivel);
         form.append(p_nivel);
-
+    
         const p_tiempo = $("<p></p>");
-        p_tiempo.text("Tiempo en segundos: ");
+        const label_tiempo = $("<label></label>");
+        label_tiempo.attr("for", "tiempo");
+        label_tiempo.text("Tiempo en segundos: ");
         const input_tiempo = $("<input>");
         input_tiempo.attr("type", "text");
+        input_tiempo.attr("id", "tiempo");
         input_tiempo.attr("name", "tiempo");
         input_tiempo.attr("value", this.seconds_completado);
         input_tiempo.attr("readonly", "readonly");
+        p_tiempo.append(label_tiempo);
         p_tiempo.append(input_tiempo);
         form.append(p_tiempo);
-
+    
         const input_enviar = $("<input>");
         input_enviar.attr("type", "submit");
         input_enviar.attr("value", "Enviar");
-        console.log(input_enviar);
         form.append(input_enviar);
-
+    
         const aside = $("<aside></aside>");
         const body = $("body");
-        
+    
         aside.append(form);
         body.append(aside);
-
     }
+    
+
+    
 
 
 
