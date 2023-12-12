@@ -15,8 +15,6 @@ class API {
         this.rumbo            = posicion.coords.heading;
         this.velocidad        = posicion.coords.speed; 
         
-        console.log(this.longitud);
-        console.log(this.latitud);
     }
 
     getLongitud(){
@@ -82,7 +80,6 @@ class API {
                     var marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
                     markers.push(marker);
                 });
-                console.log(markers);
 
                 var p_aside = $("body section aside p");
 
@@ -117,7 +114,6 @@ class API {
                     informacionTexto += `Coordenadas Marker ${index}: ${coord1}\nCoordenadas Marker ${index+1}: ${coord2}\nDistancia: ${distancia} km\n`;
                     distancias+=distancia;
 
-                    console.log(marker0, marker1);
                 }
             }.bind(this));
 
@@ -138,7 +134,9 @@ class API {
 
     }
 
-    
+    pasarRadianes (x) {
+        return x*Math.PI/180;
+    }
 
     calcularDistancia(coord1, coord2) {
 
@@ -148,17 +146,13 @@ class API {
         var lon2 = coord2[0];
         var lat2  =coord2[1];
 
-        Number.prototype.toRad = function() {
-            return this * Math.PI / 180;
-        }
-
         var R = 6371; // km 
         var x1 = lat2-lat1;
-        var dLat = x1.toRad();  
+        var dLat = this.pasarRadianes(x1);  
         var x2 = lon2-lon1;
-        var dLon = x2.toRad();  
+        var dLon = this.pasarRadianes(x2);  
         var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
-                        Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+                        Math.cos(this.pasarRadianes(lat1)) * Math.cos(this.pasarRadianes(lat2)) * 
                         Math.sin(dLon/2) * Math.sin(dLon/2);  
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
         var d = R * c; 

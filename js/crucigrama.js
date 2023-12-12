@@ -29,27 +29,37 @@ class Crucigrama {
         let i = 0;
         let j = 0;
 
-        this.tablero_array = new Array(this.num_filas).fill(null).map(() => new Array(this.num_columnas).fill(null));
+        this.tablero_array = [];
+
+        //Inicializo el array
+        for (let i = 0; i < this.num_filas; i++) {
+            const fila = [];
+            for (let j = 0; j < this.num_columnas; j++) {
+                fila[j] = null;
+            }
+            this.tablero_array[i] = fila;
+        }
 
 
-        this.board.split(",").map((char) => {
+        let a = 0;
+        let b = 0;
 
+        // Iterar sobre los caracteres en this.board
+        for (const char of this.board.split(",")) {
             if (char === ".") {
-                this.tablero_array[i][j] = 0;
+                this.tablero_array[a][b] = 0;
             } else if (char === '#') {
-                this.tablero_array[i][j] = -1;
+                this.tablero_array[a][b] = -1;
             } else {
-                this.tablero_array[i][j] = char;
+                this.tablero_array[a][b] = char;
             }
-            j++;
-            if (j === this.num_columnas) {
-                i++;
-                j=0;
-            }
-            
-        });
-        
 
+            b++;
+            if (b === this.num_columnas) {
+                a++;
+                b = 0;
+            }
+        }
     }
 
 
@@ -74,7 +84,6 @@ class Crucigrama {
                         //Si ya tengo alguna seleccionada
                         if (selectedCell) {
                             $(selectedCell).attr("data-state", "");
-
                         }
 
                         $(this).attr("data-state", "clicked");
@@ -134,8 +143,6 @@ class Crucigrama {
 
         const selectedCell = $('p[data-state="clicked"]');
 
-        console.log(selectedCell);
-
         let fila = Math.floor(selectedCell.index() / this.num_columnas);
         let columna = selectedCell.index() % this.num_columnas;
 
@@ -171,7 +178,6 @@ class Crucigrama {
                     var second_number = this.tablero_array[f-1][columna];
                     var expression = this.tablero_array[f-2][columna];
                     var result = this.tablero_array[f+1][columna];
-                    console.log(first_number + "," + expression + "," + second_number + "," + result);
                     if (first_number !== 0 && second_number!== 0 && expression!== 0 && result !== 0) {
                         var expression_completada = [first_number, expression, second_number].join("");
                         if (eval(expression_completada) != result) {
@@ -182,7 +188,6 @@ class Crucigrama {
             }
         }
 
-        console.log("Columna:" + expression_col + ". Fila:"+ expression_row);
 
         //Una vez finalizadas las comprobaciones
         if (expression_col == true && expression_row == true) {

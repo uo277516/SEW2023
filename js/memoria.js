@@ -81,28 +81,30 @@ class Memoria {
     createElements() {
         const juegoSection = document.querySelector('section'); 
 
-        this.elements.forEach(element => {
+        for (const element of this.elements) {
             const article = document.createElement('article');
             article.dataset.element = element.element;
-
+        
             const h3 = document.createElement('h3');
             h3.textContent = 'Tarjeta de memoria';
             article.appendChild(h3);
-
+        
             const img = document.createElement('img');
             img.src = element.source;
             img.alt = element.element;
             article.appendChild(img);
-
+        
             juegoSection.appendChild(article);
-        });
+        }
 
         
     }
 
     addEventListeners() {
         const cards = document.querySelectorAll('article');
-        cards.forEach(card => card.addEventListener('click', this.flipCard.bind(card, this)));
+        for (const card of cards) {
+            card.addEventListener('click', this.flipCard.bind(card, this));
+        }
     }
 
     

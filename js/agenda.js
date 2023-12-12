@@ -31,21 +31,18 @@ class Agenda {
     }
 
     escribirEnHtml(datos) {
-
         const main = $("body main");
 
-        console.log( $(datos).find('Race'));
+        const carreras = $(datos).find('Race');
+        for (const carrera of carreras) {
+            const nombre = $(carrera).find('RaceName').text();
 
-        $(datos).find('Race').each(function() {
+            const circuito = $(carrera).find('Circuit').text();
+            const latitud = $(carrera).find('Location').attr('lat');
+            const longitud = $(carrera).find('Location').attr('long');
 
-            const nombre = $(this).find('RaceName').text();
-
-            const circuito = $(this).find('Circuit').text();
-            const latitud = $(this).find('Location').attr('lat');
-            const longitud = $(this).find('Location').attr('long');
-
-            const fecha = $(this).find('Date').first().text();
-            const hora = $(this).find('Time').first().text();
+            const fecha = $(carrera).find('Date').first().text();
+            const hora = $(carrera).find('Time').first().text();
 
             var h3 = $("<h3></h3>").text(nombre);
             var p_circuito = $("<p></p>").text("Circuito: " + circuito);
@@ -57,8 +54,7 @@ class Agenda {
 
             article.append(h3, p_circuito, p_coor, p_fecha, p_hora);
             main.append(article);
-
-        });
+        }
         
     }
 

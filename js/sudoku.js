@@ -8,7 +8,14 @@ class Sudoku {
         this.numColumnas = 9;
 
         // Inicializar el tablero 
-        this.tableroArray = Array.from({ length: this.numFilas }, () => Array(this.numColumnas).fill(null));
+        this.tableroArray = [];
+        for (let i = 0; i < this.numFilas; i++) {
+            const fila = [];
+            for (let j = 0; j < this.numColumnas; j++) {
+                fila[j] = null;
+            }
+            this.tableroArray[i] = fila;
+        }
 
         //Variable para el handle
         this.clickHandler = (event) => {
@@ -20,20 +27,20 @@ class Sudoku {
         let i = 0;
         let j = 0;
         
-        this.tableroStr.split("").map((char) => {
+        for (const char of this.tableroStr.split("")) {
             if (char === ".") {
                 this.tableroArray[i][j] = 0;
             } else {
                 this.tableroArray[i][j] = parseInt(char);
             }
-
+        
             j++;
-
+        
             if (j === this.numColumnas) {
                 i++;
-                j=0;
+                j = 0;
             }
-          }); 
+        }
     }
 
     
@@ -115,7 +122,16 @@ class Sudoku {
 
 
     sudokuCompletado(allCells) {
-        return Array.from(allCells).every((cell) => cell.textContent !== "");    
+        let todasCompletadas = true;
+
+        for (const cell of allCells) {
+            if (cell.textContent === "") {
+                todasCompletadas = false;
+                break; 
+            }
+        }
+
+        return todasCompletadas;
     }
 
     numeroEnCuadricula(numero, fila, columna) {

@@ -2,9 +2,9 @@
 class Pais {
 
     constructor (nombre, capital, poblacion) {
-            this.nombre=nombre;
-            this.capital=capital;
-            this.poblacion=poblacion;
+        this.nombre=nombre;
+        this.capital=capital;
+        this.poblacion=poblacion;
     }
 
     rellenar (forma_gobierno, coordenadas_capital, religion) {
@@ -67,7 +67,6 @@ class Pais {
 
         var apiKey = "6049eddf2521839fe5a2fdf60aaf706f";
         var apiCall = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&appid=${apiKey}`;
-        console.log(apiCall);
         
         $.ajax({
             url: apiCall,
@@ -79,7 +78,6 @@ class Pais {
             },
             success: function(datos){
 
-                console.log(datos.list);
                 var main = $("<main></main>");
                 var h3 = $("<h3></h3>").text("Tabla del tiempo para los próximos 5 días");
                 $("body").append(h3,main);

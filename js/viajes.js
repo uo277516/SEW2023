@@ -6,7 +6,6 @@ class Viajes {
 
     getPosicion(posicion){
         this.longitud         = posicion.coords.longitude; 
-        //console.log(posicion.coords.latitude);
         this.latitud          = posicion.coords.latitude;  
         this.precision        = posicion.coords.accuracy;
         this.altitud          = posicion.coords.altitude;
@@ -14,8 +13,6 @@ class Viajes {
         this.rumbo            = posicion.coords.heading;
         this.velocidad        = posicion.coords.speed; 
         
-        console.log(this.longitud);
-        console.log(this.latitud);
     }
 
     getLongitud(){
@@ -54,9 +51,6 @@ class Viajes {
         var zoom = 12;
         var bearing = 0;
         var apiKey = "pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA";
-
-        console.log(this.longitud);
-        console.log(this.altitud);
         
         var url = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${this.longitud},${this.latitud},${zoom},${bearing}/1000x600@2x?access_token=${apiKey}`;
         
@@ -219,9 +213,6 @@ class Viajes {
             });
             article.append(hitosHtml);
 
-
-            console.log(article);
-
             section.append(article);
         });
     }
@@ -244,7 +235,7 @@ class Viajes {
             zoom: 6 // starting zoom
         });
 
-        Array.from(files).forEach(file => {
+        for (const file of Array.from(files) ) {
             var reader = new FileReader();
 
             //Cargo las coordenadas en un array
@@ -262,7 +253,6 @@ class Viajes {
                     lngLatArray.push([lng, lat]);
                 }
 
-                console.log(lngLatArray);
 
                 //Cargo las coordenadas en el source del mapa
                 map.on('load', () => {
@@ -294,10 +284,9 @@ class Viajes {
 
             };
 
-
             reader.readAsText(file);
             
-        });
+        }
         
         
     }
@@ -309,7 +298,7 @@ class Viajes {
         const section = $("body section:last");
 
 
-        Array.from(files).forEach(file => {
+        for (const file of Array.from(files) ) {
 
             var reader = new FileReader();
 
@@ -329,7 +318,7 @@ class Viajes {
 
             };
             reader.readAsText(file);
-        });
+        }
     }
 
 
