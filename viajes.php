@@ -91,38 +91,34 @@
                 $json = json_decode($rsp);
 
                 # Verificar si hay errores en la respuesta JSON
-                if (json_last_error() !== JSON_ERROR_NONE) {
-                    echo "<h3>Error en el archivo JSON recibido</h3>";
-                } else {
-                    echo "<h3>JSON decodificado correctamente</h3>";
-                }
-
-                // Visualiza el archivo JSON
-                print ("<pre>");
-                print_r($json->photos->photo);
-                print ("</pre>");
-
-                $i=0;
-                foreach($json->photos->photo as $foto) {
-                    if ($i<10) {
-                        print ("<pre>");
-                        print_r($foto->title);
-                        
-                        $imageUrl = 'https://farm' . $foto->farm . '.staticflickr.com/' . $foto->server . '/' . $foto->id . '_' . $foto->secret . '_b.jpg';
-                        print_r($imageUrl);
-                        print ("</pre>");
-
-                        print "<img alt='".$tituloImagen."' src=' ".$imageUrl." '>" ;
-                    }
-                    $i++;
+                if (json_last_error() == JSON_ERROR_NONE || $json !== null) {
                     
+                    /* Visualiza el archivo JSON
+                    print ("<pre>");
+                    print_r($json->photos->photo);
+                    print ("</pre>");*/
+
+                    echo "<h3>Carrusel de imágenes</h3>";
+                    $i=0;
+                    foreach($json->photos->photo as $foto) {
+                        if ($i<10) {
+                           // print ("<pre>");
+                           //print_r($foto->title);
+                            
+                            $imageUrl = 'https://farm' . $foto->farm . '.staticflickr.com/' . $foto->server . '/' . $foto->id . '_' . $foto->secret . '_b.jpg';
+                            //print_r($imageUrl);
+                            // print ("</pre>");
+
+                            echo "<img alt='".$foto->title."' src=' ".$imageUrl." '>" ;
+                        }
+                        $i++; 
+                    }
                 }
 
             }
         }
 
-        $c = new Carrusel("Camboya", "Phnom Penh");
-        $c -> getCarrusel();
+        
 
     ?>
     <header>
@@ -143,13 +139,20 @@
     </header>
     
     <h2>Viajes</h2>
+
+    <article>
+        <?php 
+            $c = new Carrusel("Camboya", "Phnom Penh");
+            $c -> getCarrusel();
+        ?>
+        <script> viaje.crearBotonesCarrusel(); </script>
+    </article>
     
     <main>
         <h3> Mapas basados en tu ubicación </h3>
         <article>
             <h4> Mapa estático </h4>
             <button onclick = "viaje.getMapaEstatico()">Obtener mapa estático</button>
-            <!--<script> viaje.getMapaEstatico();</script>-->
         </article>
         <article>
             <h4> Mapa dinámico </h4>
@@ -169,7 +172,6 @@
         <h3>Leer archivos de planimetría</h3>
         <label for="archivoKml">Selecciona uno o varios archivos .kml:</label>
         <input id="archivoKml" type="file" accept=".kml" onchange="viaje.leerKML(this.files);" multiple="">
-        <!--<aside id="map_kml"></aside>-->
     </section>
 
     <section>

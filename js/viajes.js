@@ -4,6 +4,71 @@ class Viajes {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this));
     }
 
+    
+
+
+    crearBotonesCarrusel() {
+
+        var articleCarrusel = $('body article:eq(0)');
+
+        let nextSlide = $("<button></button>");
+        nextSlide.attr("data-action", "next");
+        articleCarrusel.append(nextSlide);
+
+        console.log(nextSlide);
+        console.log(articleCarrusel);
+
+        const slides = document.querySelectorAll("img");
+
+        // select next slide button
+        //const nextSlide = document.querySelector("button[data-action='next']");
+
+        // current slide counter
+        let curSlide = 9;
+        // maximum number of slides
+        let maxSlide = slides.length - 1;
+
+        // add event listener and navigation functionality
+        nextSlide.on("click", function () {
+        // check if current slide is the last and reset current slide
+        if (curSlide === maxSlide) {
+            curSlide = 0;
+        } else {
+            curSlide++;
+        }
+
+        //   move slide by -100%
+        slides.forEach((slide, indx) => {
+            var trans = 100 * (indx - curSlide);
+            $(slide).css('transform', 'translateX(' + trans + '%)')
+        });
+        });
+
+        // select next slide button
+        //const prevSlide = document.querySelector("button[data-action='prev']");
+
+        let prevSlide = $("<button></button>");
+        prevSlide.attr("data-action", "prev");
+        articleCarrusel.append(prevSlide);
+
+
+        // add event listener and navigation functionality
+        prevSlide.on("click", function () {
+        // check if current slide is the first and reset current slide to last
+        if (curSlide === 0) {
+            curSlide = maxSlide;
+        } else {
+            curSlide--;
+        }
+
+        //   move slide by 100%
+        slides.forEach((slide, indx) => {
+            var trans = 100 * (indx - curSlide);
+            $(slide).css('transform', 'translateX(' + trans + '%)')
+        });
+        });
+    }
+
     getPosicion(posicion){
         this.longitud         = posicion.coords.longitude; 
         this.latitud          = posicion.coords.latitude;  

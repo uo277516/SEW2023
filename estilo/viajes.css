@@ -38,6 +38,61 @@ section > article {
 }
 
 
+/*Carrusel de imágenes*/
+body > article {
+    width: 100%;
+    max-width: 100vh;
+    height: 70vh;
+    position: relative;
+    overflow: hidden; /* <===  */
+    border-radius: 1em;
+}
+  
+body > article h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+
+img {
+    width: 100%;
+    max-width: 100vh;
+    height: 60vh;
+    position: absolute;
+    transition: all 0.5s;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+button[data-action=prev], button[data-action=next] {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1em;
+}
+button:active {
+    transform: scale(1.1);
+}
+
+button[data-action=prev] {
+    top: 50%;
+    left: 2%;
+}
+
+button[data-action=next] {
+    content: "\2192";
+    top: 50%;
+    right: 2%;
+}
+
 
 
 
