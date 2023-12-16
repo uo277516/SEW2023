@@ -122,7 +122,7 @@
 
     ?>
 
-<header>
+    <header>
         <h1>Escritorio Virtual</h1>
 
         <!-- Menú de navegación -->
