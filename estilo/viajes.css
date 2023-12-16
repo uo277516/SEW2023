@@ -78,7 +78,7 @@ button[data-action=prev], button[data-action=next] {
     border-radius: 50%;
     z-index: 10;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #fff;     /*Advertencia: color de fondo establecido y no de primer plano*/
     font-size: 1em;
 }
 
