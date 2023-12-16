@@ -120,7 +120,62 @@
             }
         }
 
-        
+
+        class Moneda {
+
+            private $moneda_local;
+            private $moneda_euro;
+            private $conversion;
+
+            public function __construct($moneda_local, $moneda_euro) {
+                $this->moneda_local = $moneda_local;
+                $this->moneda_euro = $moneda_euro;
+            }
+
+            public function getMonedaLocal(){
+                return $this->moneda_local;
+            }
+            
+            public function getMonedaEuros(){
+                return $this->moneda_euro;
+            }
+
+            public function cambiarMoneda() {
+                $price = "No se pudo convertir";
+                $req_url = 'https://v6.exchangerate-api.com/v6/7452271d9926b339059f4ed4/latest/' . $this->moneda_euro;
+                $response_json = file_get_contents($req_url);
+
+                // Continuing if we got a result
+                if(false !== $response_json) {
+
+                    // Try/catch for json_decode operation
+                    try {
+
+                        // Decoding
+                        $response = json_decode($response_json);
+
+                        // Check for success
+                        if('success' === $response->result) {
+                            // YOUR APPLICATION CODE HERE, e.g.
+                            $base_price = 1; // un euro
+                            $local = $this->getMonedaLocal();
+                            $price = round(($base_price * $response->conversion_rates->$local), 2);
+                            
+                        }
+
+                    }
+                    catch(Exception $e) {
+                        print ("<pre>");
+                        print_r($e);
+                        print ("</pre>");
+                    }
+
+                }
+
+                echo '<p> Esta es la conversión de euros (EUR) a rieles (KHR), moneda local de Cambodia: 1 EUR = ' . $price . ' KHR, aproximadamente. </p>';
+
+            }
+        }
 
     ?>
     <header>
@@ -180,6 +235,14 @@
         <h3>Leer archivos de altimetría </h3>
         <label for="archivoSvg">Selecciona uno o varios archivos .svg:</label>
         <input id="archivoSvg" type="file" accept=".svg" onchange="viaje.leerSVG(this.files);" multiple="">
+    </section>
+
+    <section>
+        <h3>Conversión de moneda</h3>
+        <?php 
+            $moneda = new Moneda('KHR', 'EUR');
+            $moneda -> cambiarMoneda(); 
+        ?>
     </section>
 
     
