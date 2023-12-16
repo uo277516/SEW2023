@@ -21,9 +21,9 @@
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <!-- Hoja de estilo -->
+    <link rel="stylesheet" type="text/css" href="estilo/viajes.css" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/viajes.css" />
 
     
     <!-- Favicon -->
@@ -93,7 +93,8 @@
                 # Verificar si hay errores en la respuesta JSON
                 if (json_last_error() == JSON_ERROR_NONE || $json !== null) {
                     
-                    /* Visualiza el archivo JSON
+                     //Visualiza el archivo JSON
+                     /*
                     print ("<pre>");
                     print_r($json->photos->photo);
                     print ("</pre>");*/
@@ -109,7 +110,8 @@
                             //print_r($imageUrl);
                             // print ("</pre>");
 
-                            echo "<img alt='".$foto->title."' src=' ".$imageUrl." '>" ;
+                            echo "<img alt='" . htmlspecialchars($foto->title, ENT_QUOTES, 'UTF-8') . "' src='" . $imageUrl . "'>";
+
                         }
                         $i++; 
                     }

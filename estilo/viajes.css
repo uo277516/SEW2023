@@ -39,6 +39,7 @@ section > article {
 
 
 /*Carrusel de imágenes*/
+/* especificidad: (0,0,2) */
 body > article {
     width: 100%;
     max-width: 100vh;
@@ -48,6 +49,7 @@ body > article {
     border-radius: 1em;
 }
   
+/* especificidad: (0,0,3) */
 body > article h3 {
     width: 100%;
     text-align: center;
@@ -55,8 +57,8 @@ body > article h3 {
     font-size: 2em;
 }
 
-
-img {
+/* especificidad: (0,0,3) */
+body > article > img {
     width: 100%;
     max-width: 100vh;
     height: 60vh;
@@ -66,6 +68,7 @@ img {
     border-radius: 0.5em;
 }
 
+/* especificidad: (0,1,1) */
 button[data-action=prev], button[data-action=next] {
     position: absolute;
     width: 2em;
@@ -78,17 +81,20 @@ button[data-action=prev], button[data-action=next] {
     background-color: #fff;
     font-size: 1em;
 }
+
+/* especificidad: (0,1,1) */
 button:active {
     transform: scale(1.1);
 }
 
+/* especificidad: (0,1,1) */
 button[data-action=prev] {
     top: 50%;
     left: 2%;
 }
 
+/* especificidad: (0,1,1) */
 button[data-action=next] {
-    content: "\2192";
     top: 50%;
     right: 2%;
 }

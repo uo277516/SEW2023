@@ -20,8 +20,6 @@ class Viajes {
 
         const slides = document.querySelectorAll("img");
 
-        // select next slide button
-        //const nextSlide = document.querySelector("button[data-action='next']");
 
         // current slide counter
         let curSlide = 9;
@@ -43,9 +41,6 @@ class Viajes {
             $(slide).css('transform', 'translateX(' + trans + '%)')
         });
         });
-
-        // select next slide button
-        //const prevSlide = document.querySelector("button[data-action='prev']");
 
         let prevSlide = $("<button></button>");
         prevSlide.attr("data-action", "prev");
@@ -175,14 +170,14 @@ class Viajes {
             var article = $("<article></article>");
 
             //Info de cada hito
-            var rutaNombre = $(this).find('nombre').text();
+            var rutaNombre = $(this).children('nombre').text();
             var rutaTipo = $(this).find('tipo').text();
             var rutaMedio = $(this).find('medio').text();
             var rutaFechaInicio = $(this).find('fecha_inicio').text();
             var rutaHoraInicio = $(this).find('hora_inicio').text();
             var rutaDuracion = $(this).find('duracion').text();
             var rutaAgencia = $(this).find('agencia').text();
-            var rutaDescripcion = $(this).find('descripcion').text();
+            var rutaDescripcion = $(this).children('descripcion').text();
 
             var inicioLugar = $(this).find('inicio > lugar').text();
             var inicioDireccion = $(this).find('inicio > direccion').text();
@@ -234,50 +229,60 @@ class Viajes {
             });
 
             //Creo html para cada hito un article con todo
-            article.append('<h4>' + rutaNombre + '</h4>');
-            article.append('<p>Tipo: ' + rutaTipo + '</p>');
-            article.append('<p>Medio: ' + rutaMedio + '</p>');
-            article.append('<p>Fecha de Inicio: ' + rutaFechaInicio + '</p>');
-            article.append('<p>Hora de Inicio: ' + rutaHoraInicio + '</p>');
-            article.append('<p>Duración: ' + rutaDuracion + '</p>');
-            article.append('<p>Agencia: ' + rutaAgencia + '</p>');
-            article.append('<p>Descripción: ' + rutaDescripcion + '</p>');
-            article.append('<p>Inicio: Lugar: ' + inicioLugar + ', Dirección: ' + inicioDireccion + ', Coordenadas: (' + inicioAltitud + ', ' + inicioLongitud + ', ' + inicioLatitud + ')</p>');
+            console.log(rutaNombre);
+            article.append($('<h4>').text(rutaNombre));
+            article.append($('<p>').text('Tipo: ' + rutaTipo));
+            article.append($('<p>').text('Medio: ' + rutaMedio));
+            article.append($('<p>').text('Fecha de Inicio: ' + rutaFechaInicio));
+            article.append($('<p>').text('Hora de Inicio: ' + rutaHoraInicio));
+            article.append($('<p>').text('Duración: ' + rutaDuracion));
+            article.append($('<p>').text('Agencia: ' + rutaAgencia));
+            article.append($('<p>').text('Descripción: ' + rutaDescripcion));
+            article.append($('<p>').text('Inicio: Lugar: ' + inicioLugar + ', Dirección: ' + inicioDireccion + ', Coordenadas: (' + inicioAltitud + ', ' + inicioLongitud + ', ' + inicioLatitud + ')'));
 
-            //Referencias en una lista
-            var referenciasHtml = '<h5>Referencias:</h5><ul>';
+            // Referencias en una lista
+            var referenciasList = $('<ul>');
             referencias.forEach(function (referencia) {
-                referenciasHtml += '<li>' + referencia.titulo + ' - ' + referencia.bibliografia + '</li>';
+                var listItem = $('<li>').text(referencia.titulo + ' - ' + referencia.bibliografia);
+                referenciasList.append(listItem);
             });
-            referenciasHtml += '</ul>';
-            article.append(referenciasHtml);
+            article.append($('<h5>').text('Referencias:')).append(referenciasList);
 
-            //Hitos en otra lista
-            var hitosHtml = '<h5>Hitos:</h5>';
+            // Hitos en otra lista
+            var hitosList = $('<ul>');
             hitos.forEach(function (hito) {
-                hitosHtml += '<h6>' + hito.nombre + '</h6>'
-                hitosHtml += '<p>' + hito.nombre + ': ' + hito.descripcion +
+                var hitoItem = $('<li>');
+                hitoItem.append($('<h6>').text(hito.nombre));
+                hitoItem.append($('<p>').text(hito.nombre + ': ' + hito.descripcion +
                     ', Coordenadas: (' + hito.coordenadas.latitud + ', ' + hito.coordenadas.longitud + ', ' + hito.coordenadas.altitud + ')' +
-                    ', Distancia: ' + hito.distancia + ' km</p>';
-                
+                    ', Distancia: ' + hito.distancia + ' km'));
 
-                hitosHtml+= '<p> Fotos y videos (si los hubiera) </p>';
-                hitosHtml += '<ul>';
+                hitoItem.append($('<p>').text('Fotos y videos (si los hubiera)'));
+                var galeriaList = $('<ul>');
                 hito.galeriaFotos.forEach(function (foto) {
-                    hitosHtml += '<li>Foto: ' + foto.foto + '</li>';
+                    var img = $('<img>').attr('src', './xml/'+foto.foto).attr('alt', hito.nombre).attr('width', 300).attr('height', 400);
+                    galeriaList.append($('<li>').append(img));
                 });
-                
 
                 if (hito.galeriaVideos.length > 0) {
                     hito.galeriaVideos.forEach(function (video) {
-                        hitosHtml += '<li>Video: ' + video.video + '</li>';
+                        /*<video controls width="600" height="400">
+                        <source src="tu_video.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                        </video>*/
+                        var video = $('<video>').attr('controls', 'controls').attr('preload', 'auto');
+                        var source = $('<source>').attr('src', './xml/'+video.video).attr('type', "video/mp4");
+                        video.append(source);
+                        galeriaList.append($('<li>').append(video));
                     });
                 }
-                hitosHtml += '</ul>';
+                hitoItem.append(galeriaList);
 
+                hitosList.append(hitoItem);
             });
-            article.append(hitosHtml);
 
+            // Agregar todo al artículo y luego al section
+            article.append($('<h5>').text('Hitos:')).append(hitosList);
             section.append(article);
         });
     }
