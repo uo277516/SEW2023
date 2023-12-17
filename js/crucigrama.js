@@ -6,7 +6,7 @@ class Crucigrama {
         this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
         
         //Nivel medio
-        //this.nivel="Medio";
+        //.nivel="Medio";
         //this.board = "12,*,.,=,36,#,#,#,15,#,#,*,#,/,#,#,#,*,.,-,.,=,.,#,55,#,.,*,#,=,#,=,#,/,#,=,.,#,15,#,9,*,.,=,45,=,#,#,#,#,#,=,#,#,72,#,20,-,.,=,11,#,.,#,#,-,#,+,#,#,#,*,56,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,12,#,16,*,.,=,32"
         
         //Nivel díficil
@@ -131,8 +131,13 @@ class Crucigrama {
 
         let minutes = Math.floor(seconds / 60);
         let hours = Math.floor(minutes / 60);
+        
 
-        let strTiempo = hours + ":" + minutes + ":" + seconds;
+        let segundos_calculado = seconds -minutes*60;
+        let minutos_calculado = minutes - hours*60;
+        
+
+        let strTiempo = hours + ":" + minutos_calculado + ":" + segundos_calculado;
         return strTiempo;
     }
 
@@ -203,7 +208,8 @@ class Crucigrama {
 
         if (this.check_win_condition()) {
             this.end_time = new Date();
-            alert("Enhorabuena, haz finalizado el crucigrama en un tiempo de: " + this.calculate_date_difference());
+            alert("Enhorabuena, haz finalizado el crucigrama en un tiempo de: " + this.calculate_date_difference()
+            + ".\nPor favor, ahora rellena el formulario que se encuentra al final de la página");
             this.createRecordForm(); //formulario
         }
 

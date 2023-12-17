@@ -79,7 +79,7 @@ class Memoria {
 
 
     createElements() {
-        const juegoSection = document.querySelector('section'); 
+        const juegoSection = document.querySelector('aside'); 
 
         for (const element of this.elements) {
             const article = document.createElement('article');

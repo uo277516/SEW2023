@@ -1,10 +1,9 @@
 /* Especificidad: (0,0,1) */
-main > section {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+main > aside {
+    display:grid;
     justify-content: center;
     height: 100vh;
+    grid-template-columns: repeat(4, auto);
 }
 
 /* Especificidad: (0,0,1) */
@@ -16,7 +15,7 @@ h2 {
 
 /* Especificidad: (0,0,1) */
 main {
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -33,7 +32,8 @@ article {
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform .5s;
-    box-shadow: 1ex 1ex 1ex rgba(0,0,0,.3);
+    width: 23vw;
+    height: 30vh;
 }
 
 /* Especificidad: (0,1,1) */

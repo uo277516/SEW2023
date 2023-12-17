@@ -138,17 +138,31 @@
     </header>
 
 
-    <article>
-        <p>Usted puede jugar a los siguientes juegos: </p>
-        <nav>
-            <a title="Juego de memoria" accesskey="U" tabindex="8" href="memoria.html">Juego de memoria</a> 
-            <a title="Sudoku" accesskey="K" tabindex="9" href="sudoku.html">Sudoku</a> 
-            <a title="Crucigrama" accesskey="C" tabindex="10" href="crucigrama.php">Crucigrama</a> 
-            <a title="API" accesskey="P" tabindex="11" href="api.html">API</a> 
-
-        </nav>
+   
+    <nav>
+        <a title="Juego de memoria" accesskey="U" tabindex="8" href="memoria.html">Juego de memoria</a> 
+        <a title="Sudoku" accesskey="K" tabindex="9" href="sudoku.html">Sudoku</a> 
+        <a title="Crucigrama" accesskey="C" tabindex="10" href="crucigrama.php">Crucigrama</a> 
+        <a title="API" accesskey="P" tabindex="11" href="api.html">API</a> 
+        <a title="APP sobre música" accesskey="G" tabindex="12" href="grupos.php">APP sobre música</a> 
+    </nav>
+        
+    <section>
         <h2>Crucigrama</h2>
-    </article>
+        <p>A continuación, se muestran indicaciones y consejos par jugar al crucigrama: </p>
+        <ol>
+            <li>El objetivo es rellenar todas las celdas de manera que todas las operaciones matemáticas 
+                sean correctas, tanto de manea vertical como de manera horizontal. </li>
+            <li>Hay 3 niveles: fácil, medio y avanzado. </li>
+            <li>Para introducir un valor, primero tienes que hacer click (o tocar) la celda correspondiente. </li>
+            <li>Si seleccionas una celda y pones un valor e inmediatamente después deseas cambiarlo, tienes que
+                volver a hacer click en la celda. </li>
+            <li>Los valores admitidos son números (0-9) y en el nivel avanzado, símbolos. </li>
+            <li>No es posible poner números de más de una cifra. </li>
+            <li>En el nivel difícil, hay que poner símbolos. Los admitidos son multiplicación (*), suma y resta (+,-) y división (/). </li>
+            <li>Se finaliza una vez se han completado todas las celdas correctamente, el mismo programa te avisa. </li>
+        </ol>
+    </section>
 
     <main>
         <aside>
