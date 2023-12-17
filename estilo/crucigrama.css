@@ -14,9 +14,10 @@ aside {
     
 }
 
+
 /* Especificidad: (0,0,1) */
 form {
-    color: black;                   /*Advertencia: Hay un color de primer plano establecido y no hay color de fondo (lo hereda)*/
+    color: black;                   /*Advertencia: Hay un color de primer plano establecido y no hay color de fondo (lo hereda). Comprobada y verificada*/
 }
  
 /* Especificidad: (0,0,2) */
@@ -32,7 +33,7 @@ aside > p {
 
 /* Especificidad: (0,1,2) */
 aside > p[data-state="empty"] {
-    background-color: #000;         /*Advertencia: Hay un color de fondo establecido y no hay color de primer plano (lo hereda)*/
+    background-color: #000;         /*Advertencia: Hay un color de fondo establecido y no hay color de primer plano (lo hereda). Comprobada y verificada*/
 }
 
 /* Especificidad: (0,1,2) */
@@ -40,7 +41,7 @@ aside > p[data-state="blocked"], aside p[data-state="empty"] {
     cursor: default; 
 }
 
-@media only screen and (max-device-width: 500px){
+@media only screen and (max-width: 500px){
   /* Especificidad 001 */
   main{
       width: 95vw;
@@ -81,10 +82,11 @@ aside > p[data-state="blocked"], aside p[data-state="empty"] {
   @media only screen and (min-width: 1024px) {
     /* Especificidad: (0,1,1) */
     section[data-type=botonera] {
-      display: none;                              /*	Redefinición de display*/
+      display: none;                              /*	Redefinición de display. Comprobada y verificada */
     }
 }
 
+/* Especificidad: (0,0,1) */
 li {
   font-size: 1.1em;
 }

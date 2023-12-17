@@ -15,8 +15,8 @@ header {
     /* Especificidad: (0,0,1) */
     header {
         flex-flow: column wrap;
-        justify-content: space-around;  /*Redefinicion de justify-content de header */ 
-        align-items: stretch;           /*Redefinicion de align-items; de header */ 
+        justify-content: space-around;  /*Redefinicion de justify-content de header. Comprobada y verificada */ 
+        align-items: stretch;           /*Redefinicion de align-items; de header. Comprobada y verificada */ 
         align-content: flex-start;
     } 
     /* Especificidad: (0,0,1) */

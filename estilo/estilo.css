@@ -11,7 +11,7 @@ body {
 
 /* especificidad {0,0,1} */
 header {
-    background-color: #ddd0d0;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
+    background-color: #ddd0d0;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
     padding:0.01em;
 }
 
@@ -26,21 +26,21 @@ h1 {
 h2 {
     font-size: 1.8em; 
     font-weight: bold;
-    background-color: #c0c0c0;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
+    background-color: #c0c0c0;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
 }
 
 /* especificidad {0,0,1} */
 h3 {
     font-size: 1.5em; 
     font-weight: bold;
-    background-color: #dcc7c7;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
+    background-color: #dcc7c7;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
 }
 
 
 /* especificidad: (0,0,1) */
 h4 {
     font-size: 1.3em; 
-    background-color: #dddddd;
+    background-color: #dddddd; /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
 }
 
 /* especificidad: (0,0,1) */
@@ -55,12 +55,12 @@ h6 {
 
 /* especificidad {0,0,1} */
 a{
-    color: #2d0ee0;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   
+    color: #2d0ee0;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body. Comprobada y verificada*/   
 }
 
 /* especificidad {0,1,1} */
 a:visited{ 
-    color: #7400aa;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body*/   
+    color: #7400aa;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #ddd0d0 cuando hereda de header y #f4f4f4; cuando hereda de body. Comprobada y verificada*/   
 }
 
 /* Estilo lista no ordenada */
@@ -85,7 +85,7 @@ ul ul {
 /* Destacar el tercer elemento de la lista no ordenada de aficiones */
 /* especificidad {0,2,2} */
 ul li:nth-child(3) {
-    color: #ac5454;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #f4f4f4; de body*/   
+    color: #ac5454;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #f4f4f4; de body. Comprobada y verificada*/   
     font-weight: bold; 
 }
 
@@ -102,7 +102,7 @@ ul li, ol li {
 /* especificidad {0,0,1} */
 dt {
     font-weight: bold; 
-    color: #ac5454;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #f4f4f4; de body*/   
+    color: #ac5454;  /*Advertencia color de primer plano y no color de fondo. Hereda "background-color: #f4f4f4; de body. Comprobada y verificada*/   
 }
 
 
@@ -123,7 +123,7 @@ caption {
 /* Estilo para las celdas de encabezado */
 /* especificidad {0,0,1} */
 th {
-    background-color: #c58a8a;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
+    background-color: #c58a8a;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
     font-weight: bold; 
     text-align: center; 
     padding: 0.8em; 
@@ -132,7 +132,7 @@ th {
 /* Estilo para las celdas de datos */
 /* especificidad {0,0,1} */
 td {
-    background-color: #f4f4f4;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
+    background-color: #f4f4f4;   /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
     text-align: center; 
     padding: 0.2em; 
 }

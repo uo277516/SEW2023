@@ -31,19 +31,19 @@ article ul {
 
 /* especificidad {0,1,3} */
 article ul li:nth-child(2) {
-    color:#900000;              /*Advertencia primer plano establecido y no hay color de fondo. Hereda de body*/
+    color:#900000;              /*Advertencia primer plano establecido y no hay color de fondo. Hereda de body. Comprobada y verificada*/
 }
 
 /* especificidad {0,1,3} */
 article ul li:nth-child(3) {
-    color:#08007f;              /*Advertencia primer plano establecido y no hay color de fondo. Hereda de body*/
+    color:#08007f;              /*Advertencia primer plano establecido y no hay color de fondo. Hereda de body. Comprobada y verificada*/
 }
 
 /* especificidad {0,0,1} */
 img {
     max-width: 6.3ex;
     max-height: 6.3ex;
-    background-color: #82b8ff;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body*/
+    background-color: #82b8ff;  /*Advertencia color de fondo y no color de primer plano. Hereda "color: #000000; de body. Comprobada y verificada*/
     position: absolute; 
     top: 0;
     right: 0;

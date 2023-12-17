@@ -28,7 +28,7 @@ section:first-child {
 /* especificidad: (0,0,2) */
 section > article {
     width: 100%;
-    background-color: #fff;         /*Advertencia color de fondo y no de primer plano*/
+    background-color: #fff;         /*Advertencia color de fondo y no de primer plano. Comprobada y verificada*/
     border: 0.2ex solid #000000;
     margin:1ex;            
     padding: 1ex;
@@ -78,7 +78,7 @@ button[data-action=prev], button[data-action=next] {
     border-radius: 50%;
     z-index: 10;
     cursor: pointer;
-    background-color: #fff;     /*Advertencia: color de fondo establecido y no de primer plano*/
+    background-color: #fff;     /*Advertencia: color de fondo establecido y no de primer plano. Comprobada y verificada. Sale dos veces por los dos selectores*/
     font-size: 1em;
 }
 

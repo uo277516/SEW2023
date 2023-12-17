@@ -10,7 +10,7 @@ main {
 /* especificidad: (0,0,1) */
 article {
     width: calc(33.33% - 2ex);
-    background-color: #fff;         /*Advertencia color de fondo y no de primer plano*/
+    background-color: #fff;         /*Advertencia color de fondo y no de primer plano. Comprobada y verificada*/
     border: 0.2ex solid #000000;            
     padding: 1ex;
     border-radius: 2ex;

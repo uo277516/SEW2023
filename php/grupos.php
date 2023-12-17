@@ -353,22 +353,22 @@
 
         <!-- Menú de navegación -->
         <nav>
-            <a title="Indice" accesskey="I" tabindex="1" href="index.html">Indice</a> 
-            <a title="Sobre mi" accesskey="S" tabindex="2" href="sobremi.html">Sobre mi</a> 
-            <a title="Noticias" accesskey="N" tabindex="3" href="noticias.html">Noticias</a> 
-            <a title="Agenda" accesskey="A" tabindex="4" href="agenda.html">Agenda</a> 
-            <a title="Meteorologia" accesskey="M" tabindex="5" href="meteorologia.html">Meteorología</a> 
-            <a title="Viajes" accesskey="V" tabindex="6" href="viajes.php">Viajes</a> 
-            <a title="Juegos" accesskey="J" tabindex="7" href="juegos.html">Juegos</a> 
+            <a title="Indice" accesskey="I" tabindex="1" href="../index.html">Indice</a> 
+            <a title="Sobre mi" accesskey="S" tabindex="2" href="../sobremi.html">Sobre mi</a> 
+            <a title="Noticias" accesskey="N" tabindex="3" href="../noticias.html">Noticias</a> 
+            <a title="Agenda" accesskey="A" tabindex="4" href="../agenda.html">Agenda</a> 
+            <a title="Meteorologia" accesskey="M" tabindex="5" href="../meteorologia.html">Meteorología</a> 
+            <a title="Viajes" accesskey="V" tabindex="6" href="../viajes.php">Viajes</a> 
+            <a title="Juegos" accesskey="J" tabindex="7" href="../juegos.html">Juegos</a> 
         </nav>
     </header>
 
 
     <nav>
-        <a title="Juego de memoria" accesskey="U" tabindex="8" href="memoria.html">Juego de memoria</a> 
-        <a title="Sudoku" accesskey="K" tabindex="9" href="sudoku.html">Sudoku</a> 
-        <a title="Crucigrama" accesskey="C" tabindex="10" href="crucigrama.php">Crucigrama</a> 
-        <a title="API" accesskey="P" tabindex="11" href="api.html">API</a> 
+        <a title="Juego de memoria" accesskey="U" tabindex="8" href="../memoria.html">Juego de memoria</a> 
+        <a title="Sudoku" accesskey="K" tabindex="9" href="../sudoku.html">Sudoku</a> 
+        <a title="Crucigrama" accesskey="C" tabindex="10" href="../crucigrama.php">Crucigrama</a> 
+        <a title="API" accesskey="P" tabindex="11" href="../api.html">API</a> 
         <a title="APP sobre música" accesskey="G" tabindex="12" href="grupos.php">APP sobre música</a> 
 
 
