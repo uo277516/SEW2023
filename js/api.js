@@ -9,6 +9,8 @@ class API {
     //El uso de id en los contenedores de los mapas está justificado (funcionamiento de MapBox) para despues
     //acceder a el en la creación del mapa. No se utiliza id en CSS
 
+    //Se incluye en la carpeta JS un archivo "api.txt" como ejemplo de formato para el input de drag and drop
+
     constructor (){
         //API GEOLOCATION
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this));
