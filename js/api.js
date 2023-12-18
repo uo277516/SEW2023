@@ -47,39 +47,30 @@ class API {
     }
 
 
+    
 
     metodo() {
-        mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
+    
+        const mainElement = $("<aside></aside>");
+        mainElement.attr("id", "map");
 
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v12',
-            center: [-3.667, 40.500], //coordenadas para q aparezca "centrado" en españa
-            zoom: 4
-        });
-        const marker = new mapboxgl.Marker().setLngLat([this.longitud, this.latitud]).addTo(map);
+        const e = $("body").children().eq(4);
 
-        var markers = [];
-        markers.push(marker);
+        e.after(mainElement);
 
         var areaSoltarArchivos = $("body section aside");
-        
 
-        //API DRAG AND DROP
+        var longitud = this.longitud;
+        var latitud = this.latitud;
+        var lngLatArray=[];
 
-        areaSoltarArchivos.on("drop", function(e) {
+        // API DRAG AND DROP
+        areaSoltarArchivos.on("drop", function (e) {
             e.preventDefault();
             var archivo = e.originalEvent.dataTransfer.files[0];
-            
+           
             var lector = new FileReader();
             lector.onload = function (evento) {
-                var coordenadas = evento.target.result.split('\n');
-
-                coordenadas.forEach(coordenada => {
-                    var [lng, lat] = coordenada.split(',').map(parseFloat);
-                    var marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
-                    markers.push(marker);
-                });
 
                 var p_aside = $("body section aside p");
 
@@ -88,40 +79,86 @@ class API {
                 mensaje += `Tipo: ${archivo.type}`;
 
                 p_aside.text(mensaje);
+
+                // Crear el mapa y añadir marcador inicial
+                mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
+            
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v12',
+                    center: [-3.667, 40.500],
+                    zoom: 4
+                });
+            
+                
+
+                new mapboxgl.Marker().setLngLat([longitud, latitud]).addTo(map);
+            
+
+                lngLatArray.push([longitud, latitud]);
+                var coordenadas = evento.target.result.split('\n');
+                var index = 0;
+
+                coordenadas.forEach(coordenada => {
+                    var [lng, lat] = coordenada.split(',').map(parseFloat);
+                    lngLatArray.push([lng, lat]);
+                    index++;
+                });
+    
+                map.on('load', () => {
+                    map.addLayer({
+                        id: 'lineString-' + Math.random(),
+                        type: 'line',
+                        source: {
+                            type: 'geojson',
+                            data: {
+                                type: 'Feature',
+                                properties: {},
+                                geometry: {
+                                    type: 'LineString',
+                                    coordinates: lngLatArray
+                                }
+                            }
+                        },
+                        layout: {
+                            'line-join': 'round',
+                            'line-cap': 'round'
+                        },
+                        paint: {
+                            'line-color': '#ff0000',
+                            'line-width': 5
+                        }
+                    });
+                });
+    
             };
             lector.readAsText(archivo);
         });
-
-        areaSoltarArchivos.on("dragover", function(e) {
+    
+        areaSoltarArchivos.on("dragover", function (e) {
             e.preventDefault();
-            
         });
-
+    
         var button = $("button");
-
-        button.on("click", function() {
-
+    
+        button.on("click", function () {
             var informacionTexto = '';
-            var distancias= 0;
-            markers.forEach(function (elemento, index, array) {
-                if (index < array.length - 1) {
-                    var marker0 = elemento;
-                    var marker1 = array[index + 1];
-
-                    var coord1 = marker0.getLngLat().toArray();
-                    var coord2 = marker1.getLngLat().toArray();
-                    var distancia = this.calcularDistancia(coord1, coord2);
-                    informacionTexto += `Coordenadas Marker ${index}: ${coord1}\nCoordenadas Marker ${index+1}: ${coord2}\nDistancia: ${distancia} km\n`;
-                    distancias+=distancia;
-
-                }
-            }.bind(this));
-
-            informacionTexto+=`Distancia total entre los puntos recorriendolos en orden: ${distancias} km`;
-
-            //API FILE
+            var distancias = 0;
+    
+    
+            for (var i = 0; i < lngLatArray.length - 1; i++) {
+                var coord1 = lngLatArray[i];
+                var coord2 = lngLatArray[i + 1];
+                var distancia = this.calcularDistancia(coord1, coord2);
+                informacionTexto += `Coordenadas Punto ${i + 1}: ${coord1}\nCoordenadas Punto ${i + 2}: ${coord2}\nDistancia: ${distancia} km\n`;
+                distancias += distancia;
+            }
+    
+            informacionTexto += `Distancia total entre los puntos recorriéndolos en orden: ${distancias} km`;
+    
+            // API FILE
             var file = new File([informacionTexto], 'informacion_distancia.txt', { type: 'text/plain' });
-
+    
             var enlace = document.createElement('a');
             enlace.href = URL.createObjectURL(file);
             enlace.download = file.name;
@@ -129,10 +166,11 @@ class API {
             enlace.click();
             document.body.removeChild(enlace);
 
-            
         }.bind(this));
-
     }
+    
+    
+    
 
     pasarRadianes (x) {
         return x*Math.PI/180;

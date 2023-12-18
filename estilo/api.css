@@ -1,30 +1,27 @@
-/* especificidad: (0,0,1) */
-main {
-    width: 100%;
-    height: 85ex;
-    margin-top: 5ex;
-}
-
-/* especificidad: (0,0,1) */
-section {
-    padding-top: 5ex;
-}
-
-/* especificidad: (0,0,1) */
-aside {
+/* especificidad: (0,0,2) */
+section aside {
     display: flex;
     background-color: #f0f0f0;      /*Advertencia color de fondo establecido y no de primer plano (lo hereda). Comprobada y verificada*/
     border: 1ex dashed #254b26;
     height: 30ex;
-    width: 100%;
     justify-content: center; 
     align-items: center;
     margin-bottom: 1ex;
 }
 
+/* especificidad: (0,0,2) */
+body > aside {
+    width: 100%;
+    height: 85ex;
+    margin-top: 5ex;
+}
+
+
+
 /* especificidad: (0,0,1) */
 button {
-    height: 50px; 
+    padding: 2ex;
+    height: 8ex; 
     background-color: #254b26; 
     color: white; 
     border: none;

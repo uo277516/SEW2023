@@ -31,6 +31,7 @@
 
     <!-- Referencia a JQuery (opción minificada) -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Opera mete un style aquí y da un warning en el validador de HTML -->
     <script src="js/api.js"></script>
 
     <!-- Mapa dinámico MapBox-->
@@ -69,27 +70,25 @@
         
     
 
-    <h2>Aplicación para calcular distancias con marcadores</h2>
-    <h3>Mapa</h3>
-    
-    <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
-    <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
-    <main id="map"></main>  
-    
+    <h2>Aplicación para calcular distancias con puntos</h2>
+     
 
     <section>
-        <h3>Introducir marcadores</h3>
-        <p>En el siguiente bloque puedes arrastrar un archivo con coordenadas. A partir de ellas, se crearán diferentes marcadores
-            en el mapa anterior, y con el botón "Generar Información" podrás descargar un archivo .txt el cual te informara
-            de las distancias entre los marcadores.
+        <h3>Introducir coordenadas</h3>
+        <p>En el siguiente bloque puedes arrastrar un archivo con coordenadas. A partir de ellas, se creará un mapa con un marcador con tu ubicación,
+            unido con una línea a las coordenadas proporcionadas. Una vez con las coordenadas en el mapa, con el botón "Generar Información" podrás descargar un archivo .txt el cual te informará
+            de las distancias entre los puntos.
         </p>
         <aside>
             <p>
                 Arrastra y suelta un archivo con coordenadas aquí
             </p>
         </aside>
-        <button>Generar Información</button>
+        <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
+        <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
     </section>
+
+    <button>Generar Información</button>
 
     
 
