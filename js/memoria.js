@@ -1,7 +1,7 @@
 "use strict";
 class Memoria {
     
-    // Objeto JSON con la información de las tarjetas del juego
+    //Objeto JSON con la información de las tarjetas del juego
     elements = [
         { "element": "HTML5", "source": "https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" },
         { "element": "HTML5", "source": "https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" },
@@ -111,20 +111,18 @@ class Memoria {
     flipCard(game) { 
 
         if (this.dataset.state === 'revealed') return;
-        if (game.lockBoard) return; // Evitar clics adicionales mientras se procesa
-        if (this === game.firstCard) return; // Evitar clic en la misma tarjeta
+        if (game.lockBoard) return; //Evitar clics adicionales
+        if (this === game.firstCard) return; //Evitar clic en la misma tarjeta
         
         this.dataset.state = 'flip';
 
         if (!game.hasFlippedCard) {
-            // Primera tarjeta volteada
-            console.log("primera tarjeta");
+            //Primera tarjeta volteada
             game.hasFlippedCard = true;
             game.firstCard = this;
             this.firstCard=game.firstCard;  
         } else {
-            console.log("segunda tarjeta");
-            // Segunda tarjeta volteada
+            //Segunda tarjeta volteada
             game.secondCard = this;
             this.secondCard=game.secondCard; 
             game.checkForMatch();

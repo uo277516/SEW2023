@@ -2,12 +2,12 @@
 class Sudoku {
 
     constructor() {
-        // Atributos
+        //Atributos
         this.tableroStr = "3.4.69.5....27...49.2..4....2..85.198.9...2.551.39..6....8..5.32...46....4.75.9.6"; 
         this.numFilas = 9;    
         this.numColumnas = 9;
 
-        // Inicializar el tablero 
+        //Inicializar el tablero 
         this.tableroArray = [];
         for (let i = 0; i < this.numFilas; i++) {
             const fila = [];
@@ -82,7 +82,6 @@ class Sudoku {
     introduceNumber(numero) {
 
         const selectedCell = document.querySelectorAll("[data-state='clicked']")[0];
-        console.log(selectedCell);
         const allCells = document.querySelectorAll('aside p');
 
         // Verificar si al menos una celda está seleccionada

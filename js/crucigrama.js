@@ -44,7 +44,7 @@ class Crucigrama {
         let a = 0;
         let b = 0;
 
-        // Iterar sobre los caracteres en this.board
+        //Iterar sobre los caracteres en this.board
         for (const char of this.board.split(",")) {
             if (char === ".") {
                 this.tablero_array[a][b] = 0;

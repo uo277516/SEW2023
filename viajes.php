@@ -10,12 +10,11 @@
     <meta name ="author" content ="Natalia Fernández Riego" />
     
     <!-- Descripción del contenido -->
-    <meta name ="description" content ="aquí cada documento debe tener la 
-    descripción del contenido concreto del mismo" />
+    <meta name ="description" content ="En esta página se ofrecen diferentes aspectos para informase de los viajes
+    realizados en el país Cambodia y sobre el país en si" />
 
     <!-- Palabras claves -->
-    <meta name ="keywords" content ="aquí cada documento debe tener la lista 
-    de las palabras clave del mismo separadas por comas" />
+    <meta name ="keywords" content ="rutas, imagenes, mapa, moneda" />
 
     <!-- Ventana gráfica -->
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />

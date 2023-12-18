@@ -17,12 +17,8 @@ class Agenda {
                 lang: "es"
             },
             success: (datos) => {
-
                 this.last_api_result = datos;
-
                 this.escribirEnHtml(datos);
-
-                
             },
             error: () => {
                 $("h3").html("¡Tenemos problemas! No puedo obtener XML de <a href='https://ergast.com'>Eargast</a>");

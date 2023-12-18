@@ -1,9 +1,19 @@
 "use strict";
 class API {
 
+    //Esta clase utiliza las siguientes 3 APIS:
+    //-API Geolocation (coger ubicacion y mostrar el mapa)
+    //-API Drag and Drop (arrastrar un archivo con coordenadas)
+    //-API File (descargar un archivo con informacion)
+
+    //El uso de id en los contenedores de los mapas está justificado (funcionamiento de MapBox) para despues
+    //acceder a el en la creación del mapa. No se utiliza id en CSS
+
     constructor (){
         //API GEOLOCATION
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this));
+        this.lngLatArray=[];
+        this.map=null;
     }
 
     getPosicion(posicion){
@@ -47,22 +57,67 @@ class API {
     }
 
 
-    
+    lngLatArray;
+    map;
 
-    metodo() {
-    
+    generarMapa() {
         const mainElement = $("<aside></aside>");
         mainElement.attr("id", "map");
 
-        const e = $("body").children().eq(4);
+        const e = $("body").children().eq(3);
 
         e.after(mainElement);
 
+        // Crear el mapa y añadir marcador inicial
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
+            
+        this.map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [-3.667, 40.500],
+            zoom: 4
+        });
+    
+        
+
+        new mapboxgl.Marker().setLngLat([this.longitud, this.latitud]).addTo(this.map);
+        this.lngLatArray.push([this.longitud, this.latitud]);
+    }
+
+
+
+    generarLineas() {
+        var lngLatArray=this.lngLatArray;
+        var map = this.map;
+        map.addLayer({
+            id: 'lineString-' + Math.random(),
+            type: 'line',
+            source: {
+                type: 'geojson',
+                data: {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: {
+                        type: 'LineString',
+                        coordinates: lngLatArray
+                    }
+                }
+            },
+            layout: {
+                'line-join': 'round',
+                'line-cap': 'round'
+            },
+            paint: {
+                'line-color': '#ff0000',
+                'line-width': 5
+            }
+        });
+    }
+
+    metodo() {
         var areaSoltarArchivos = $("body section aside");
 
-        var longitud = this.longitud;
-        var latitud = this.latitud;
-        var lngLatArray=[];
+        var lngLatArray=this.lngLatArray
 
         // API DRAG AND DROP
         areaSoltarArchivos.on("drop", function (e) {
@@ -79,56 +134,12 @@ class API {
                 mensaje += `Tipo: ${archivo.type}`;
 
                 p_aside.text(mensaje);
-
-                // Crear el mapa y añadir marcador inicial
-                mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
-            
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v12',
-                    center: [-3.667, 40.500],
-                    zoom: 4
-                });
-            
                 
-
-                new mapboxgl.Marker().setLngLat([longitud, latitud]).addTo(map);
-            
-
-                lngLatArray.push([longitud, latitud]);
                 var coordenadas = evento.target.result.split('\n');
-                var index = 0;
 
                 coordenadas.forEach(coordenada => {
                     var [lng, lat] = coordenada.split(',').map(parseFloat);
                     lngLatArray.push([lng, lat]);
-                    index++;
-                });
-    
-                map.on('load', () => {
-                    map.addLayer({
-                        id: 'lineString-' + Math.random(),
-                        type: 'line',
-                        source: {
-                            type: 'geojson',
-                            data: {
-                                type: 'Feature',
-                                properties: {},
-                                geometry: {
-                                    type: 'LineString',
-                                    coordinates: lngLatArray
-                                }
-                            }
-                        },
-                        layout: {
-                            'line-join': 'round',
-                            'line-cap': 'round'
-                        },
-                        paint: {
-                            'line-color': '#ff0000',
-                            'line-width': 5
-                        }
-                    });
                 });
     
             };
@@ -139,7 +150,7 @@ class API {
             e.preventDefault();
         });
     
-        var button = $("button");
+        var button = $("button:eq(2)");
     
         button.on("click", function () {
             var informacionTexto = '';

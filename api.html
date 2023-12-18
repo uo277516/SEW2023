@@ -10,12 +10,11 @@
     <meta name ="author" content ="Natalia Fernández Riego" />
     
     <!-- Descripción del contenido -->
-    <meta name ="description" content ="aquí cada documento debe tener la 
-    descripción del contenido concreto del mismo" />
+    <meta name ="description" content ="Aplicación para generar informacion y mostrar en un mapa a partir
+    de unas coordenadas y el marcador de tu ubicación" />
 
     <!-- Palabras claves -->
-    <meta name ="keywords" content ="aquí cada documento debe tener la lista 
-    de las palabras clave del mismo separadas por comas" />
+    <meta name ="keywords" content ="aplicacion, mapa, coordenadas, informe" />
 
     <!-- Ventana gráfica -->
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
@@ -72,22 +71,28 @@
 
     <h2>Aplicación para calcular distancias con puntos</h2>
      
+    <h3>
+        Generar el mapa para situar los puntos
+    </h3>
+    <button onclick = "api.generarMapa()">Obtener mapa</button>
 
     <section>
         <h3>Introducir coordenadas</h3>
-        <p>En el siguiente bloque puedes arrastrar un archivo con coordenadas. A partir de ellas, se creará un mapa con un marcador con tu ubicación,
-            unido con una línea a las coordenadas proporcionadas. Una vez con las coordenadas en el mapa, con el botón "Generar Información" podrás descargar un archivo .txt el cual te informará
-            de las distancias entre los puntos.
+        <p>En el siguiente bloque puedes arrastrar un archivo con coordenadas. 
+            Para verlas representadas en el mapa anterior, haz click en el botón "Generar lineas". 
         </p>
         <aside>
             <p>
                 Arrastra y suelta un archivo con coordenadas aquí
             </p>
         </aside>
+        <button onclick = "api.generarLineas()">Generar lineas</button>
         <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
         <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
     </section>
 
+    <p>Descarga aquí un archivo .txt el cual te informará
+        de las distancias reales entre los puntos.</p>
     <button>Generar Información</button>
 
     

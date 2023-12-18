@@ -13,7 +13,7 @@
     <meta name ="description" content ="Grupos de música y sus relaciones" />
 
     <!-- Palabras claves -->
-    <meta name ="keywords" content ="grupos, musica, mysql, tablas" />
+    <meta name ="keywords" content ="grupos, musica, bbdd" />
 
     <!-- Ventana gráfica -->
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
@@ -51,6 +51,10 @@
         }
 
         public function crearBaseDatos(){
+
+            //crea la base de datos si no existe ya
+            //elimina todas las tablas (con sus filas)
+            //las crea de 0 (vacias)
             
             $cadenaSQL = "CREATE DATABASE IF NOT EXISTS musicadb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;";
             if($this->db->query($cadenaSQL) === TRUE){
@@ -60,13 +64,6 @@
             }  
             $this->db->select_db($this->dbname);
             $this->db->query("DROP TABLE IF EXISTS Cancion, Album, Integrante, Grupo, Productora"); 
-            $this->db->close();  
-        }
-
-        public function crearTablas(){
-            $this->db->select_db($this->dbname);
-            //Eliminar tablas si existen
-            $this->db->query("DROP TABLE IF EXISTS Cancion, Album, Integrante, Grupo, Productora");
 
             $queryProductora = "CREATE TABLE Productora (
                 productora_id VARCHAR(255) NOT NULL,
@@ -118,10 +115,11 @@
             $this->db->query($queryAlbumes);
             $this->db->query($queryCanciones);
 
-            $this->db->close();    
 
 
+            $this->db->close();  
         }
+        
 
 
         public function importarProductoras(){
@@ -286,12 +284,10 @@
         public function exportarDatos() {
             $this->db->select_db($this->dbname);
         
-            // Array de tablas en tu base de datos
             $tablas = array('Productora', 'Grupo', 'Integrante', 'Album', 'Cancion');
         
-            // Iterar sobre cada tabla
             foreach ($tablas as $tabla) {
-                // Nombre del archivo CSV
+                //Nombre del archivo CSV
                 $archivoCSV = $tabla . '_exportado.csv';
                 $encabezados = array();
         
@@ -329,7 +325,6 @@
     if (count($_POST)>0) {
         $musica = new Musica();
         if(isset($_POST['crearBase'])) $musica -> crearBaseDatos();
-        if(isset($_POST['crearTabla'])) $musica -> crearTablas();
 
         if(isset($_POST['importarProductoras'])) {
             $musica -> importarProductoras();
@@ -378,17 +373,10 @@
 
     <main>
         <h3>
-            Creación de la Base de Datos:
+            Creación de la Base de Datos y las tablas:
         </h3>
         <form action='#' method='post' name='CrearBase'>
             <input type='submit' value='CrearBase' name='crearBase'>
-        </form>
-
-        <h3>
-            Creación de las tablas:
-        </h3>
-        <form action='#' method='post' name='CrearTabla'>
-            <input type='submit' value='CrearTabla' name='crearTabla'>
         </form>
 
         <h3>

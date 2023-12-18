@@ -2,7 +2,7 @@
 section aside {
     display: flex;
     background-color: #f0f0f0;      /*Advertencia color de fondo establecido y no de primer plano (lo hereda). Comprobada y verificada*/
-    border: 1ex dashed #254b26;
+    border: 1ex dashed #684186;
     height: 30ex;
     justify-content: center; 
     align-items: center;
@@ -17,13 +17,12 @@ body > aside {
 }
 
 
-
 /* especificidad: (0,0,1) */
 button {
+    background-color: #B29CDC;
+    color: #000000;
     padding: 2ex;
-    height: 8ex; 
-    background-color: #254b26; 
-    color: white; 
-    border: none;
-    cursor: pointer; 
+    border-color: #000000;
+    border-radius: 2ex;
+    cursor: pointer;
 }

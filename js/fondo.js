@@ -27,6 +27,7 @@ class Fondo {
             if (data.photos && data.photos.photo.length > 0) {
                 const photo = data.photos.photo[5];
                 const imageUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`;
+                //Permitido excepcionalmente
                 $("body").css("background-image", "url(" + imageUrl+ ")") 
                     .css("background-size","cover")
                     .css("background-repeat","no-repeat")

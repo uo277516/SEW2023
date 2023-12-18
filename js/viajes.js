@@ -1,12 +1,15 @@
 "use strict";
 class Viajes {
+
+    //El uso de id en los contenedores de los mapas está justificado (funcionamiento de MapBox) para despues
+    //acceder a el en la creación del mapa. No se utiliza id en CSS
     constructor (){
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this));
     }
 
     
 
-
+    //CODIGO PROPORCIONADO PROFESORES (LOGICA CARRUSEL)
     crearBotonesCarrusel() {
 
         var articleCarrusel = $('body article:eq(0)');
@@ -240,7 +243,7 @@ class Viajes {
             article.append($('<p>').text('Descripción: ' + rutaDescripcion));
             article.append($('<p>').text('Inicio: Lugar: ' + inicioLugar + ', Dirección: ' + inicioDireccion + ', Coordenadas: (' + inicioAltitud + ', ' + inicioLongitud + ', ' + inicioLatitud + ')'));
 
-            // Referencias en una lista
+            //Referencias en una lista
             var referenciasList = $('<ul>');
             referencias.forEach(function (referencia) {
                 var listItem = $('<li>').text(referencia.titulo + ' - ' + referencia.bibliografia);
@@ -248,7 +251,7 @@ class Viajes {
             });
             article.append($('<h5>').text('Referencias:')).append(referenciasList);
 
-            // Hitos en otra lista
+            //Hitos en otra lista
             var hitosList = $('<ul>');
             hitos.forEach(function (hito) {
                 var hitoItem = $('<li>');
@@ -266,10 +269,6 @@ class Viajes {
 
                 if (hito.galeriaVideos.length > 0) {
                     hito.galeriaVideos.forEach(function (video) {
-                        /*<video controls width="600" height="400">
-                        <source src="tu_video.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
-                        </video>*/
                         var video = $('<video>').attr('controls', 'controls').attr('preload', 'auto');
                         var source = $('<source>').attr('src', './xml/'+video.video).attr('type', "video/mp4");
                         video.append(source);
@@ -281,7 +280,7 @@ class Viajes {
                 hitosList.append(hitoItem);
             });
 
-            // Agregar todo al artículo y luego al section
+            //Agregar todo al artículo y luego al section
             article.append($('<h5>').text('Hitos:')).append(hitosList);
             section.append(article);
         });
