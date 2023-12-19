@@ -203,7 +203,10 @@
             $c = new Carrusel("Camboya", "Phnom Penh");
             $c -> getCarrusel();
         ?>
-        <script> viaje.crearBotonesCarrusel(); </script>
+        <!-- Control buttons -->
+        <button data-action="next"> > </button>
+        <button data-action="prev"> < </button>
+        <script> viaje.crearLogicaBotonesCarrusel(); </script>
     </article>
     
     <main>
