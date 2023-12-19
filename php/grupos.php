@@ -1,33 +1,3 @@
-<!DOCTYPE HTML>
-
-<html lang="es">
-<head>
-    <!-- Datos que describen el documento -->
-    <meta charset="UTF-8" />
-    <title>Escritorio Virtual</title>
-
-    <!-- Autor -->
-    <meta name ="author" content ="Natalia Fernández Riego" />
-    
-    <!-- Descripción del contenido -->
-    <meta name ="description" content ="Grupos de música y sus relaciones" />
-
-    <!-- Palabras claves -->
-    <meta name ="keywords" content ="grupos, musica, bbdd" />
-
-    <!-- Ventana gráfica -->
-    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
-    
-    <!-- Favicon -->
-    <link rel="icon" href="../multimedia/imagenes/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
-
-    
-</head>
-
-<body>
-
 <?php 
 
     class Musica {
@@ -279,45 +249,55 @@
             }
             $this->db->close(); 
         }
+        
 
 
         public function exportarDatos() {
             $this->db->select_db($this->dbname);
-        
             $tablas = array('Productora', 'Grupo', 'Integrante', 'Album', 'Cancion');
-        
+    
+            $contenidoTotalCSV = '';
+    
             foreach ($tablas as $tabla) {
-                //Nombre del archivo CSV
-                $archivoCSV = $tabla . '_exportado.csv';
-                $encabezados = array();
-        
-                //Consultar los nombres de las columnass
-                $consultaEncabezados = $this->db->query("SHOW COLUMNS FROM $tabla");
-                while ($fila = $consultaEncabezados->fetch_assoc()) {
-                    $encabezados[] = $fila['Field'];
-                }
-        
-                //Crear y abrir el archivo CSV
-                $archivo = fopen($archivoCSV, 'w');
-        
-                $consultaDatos = $this->db->query("SELECT * FROM $tabla");
-        
-                while ($fila = $consultaDatos->fetch_assoc()) {
-                    fputcsv($archivo, $fila);
-                }
-        
-                fclose($archivo);
+                $contenidoCSV = $this->obtenerContenidoCSV($tabla);
+    
+                $contenidoTotalCSV .= $contenidoCSV;
             }
-        
-            $this->db->close();
+    
+            //Cabeceras
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="exportacion_total.csv"');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+    
+            //Salida
+            echo $contenidoTotalCSV;
+    
+            //Finalizar
+            exit();
         }
-
-
-
+    
+        private function obtenerContenidoCSV($tabla) {
+            $query = "SELECT * FROM $tabla";
+            $result = $this->db->query($query);
+    
+            $contenidoCSV = '';
+    
+            //Encabezados
+            $encabezados = array();
+            while ($columna = $result->fetch_field()) {
+                $encabezados[] = $columna->name;
+            }
+            $contenidoCSV .= implode(',', $encabezados) . "\n";
+    
+            //filas
+            while ($fila = $result->fetch_assoc()) {
+                $contenidoCSV .= implode(',', $fila) . "\n";
+            }
+    
+            return $contenidoCSV;
+        }
         
-        
-
-
     }   
 
     
@@ -342,6 +322,36 @@
 
 ?>
 
+
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>Escritorio Virtual</title>
+
+    <!-- Autor -->
+    <meta name ="author" content ="Natalia Fernández Riego" />
+    
+    <!-- Descripción del contenido -->
+    <meta name ="description" content ="Grupos de música y sus relaciones" />
+
+    <!-- Palabras claves -->
+    <meta name ="keywords" content ="grupos, musica, bbdd" />
+
+    <!-- Ventana gráfica -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../multimedia/imagenes/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
+
+    
+</head>
+
+<body>
 
     <header>
         <h1>Escritorio Virtual</h1>

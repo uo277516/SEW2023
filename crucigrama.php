@@ -1,3 +1,91 @@
+<?php
+    
+    class Record {
+
+        protected $server;
+        protected $user;
+        protected $pass;
+        protected $dbname;
+        protected $output = ''; 
+
+
+        public function __construct() {
+            $this->server = "localhost";
+            $this->user = "DBUSER2023";
+            $this->pass = "DBPSWD2023";
+            $this->dbname = "records";
+        }
+
+        public function tryConnection() {
+            try {
+                $conn = new PDO("mysql:host=$this->server;dbname=$this->dbname",$this->user, $this->pass);
+                // set the PDO error mode to exception
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->insertData($conn);
+            } catch(PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
+            }
+        }
+
+        public function insertData($conn) {
+            $nombre_i = $_POST["nombre"];
+            $apellidos_i = $_POST["apellidos"];
+            $nivel_i = $_POST["nivel"];
+            $tiempo_i = $_POST["tiempo"];
+
+            $sql = "INSERT INTO registro (nombre, apellidos, nivel, tiempo) VALUES (:nombre, :apellidos, :nivel, :tiempo)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':nombre', $nombre_i, PDO::PARAM_STR);
+            $stmt->bindParam(':apellidos', $apellidos_i, PDO::PARAM_STR);
+            $stmt->bindParam(':nivel', $nivel_i, PDO::PARAM_STR); 
+            $stmt->bindParam(':tiempo', $tiempo_i, PDO::PARAM_STR); 
+            $stmt->execute();
+
+            $this->createList($conn);
+        }
+
+        public function createList($conn) {
+            $sql = "SELECT * FROM registro ORDER BY tiempo ASC LIMIT 10";
+            $stmt = $conn->query($sql);
+
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $this->output .= "<h4> Clasificación </h4>";
+            $this->output .= "<ol>";
+            foreach ($results as $row) {
+                $tiempoCalculado = $this->calcularTiempo($row['tiempo']);
+                $this->output .= "<li>Nombre: " . $row['nombre'] . " " . $row['apellidos'] . ". -- Nivel: " . $row['nivel'] . ". -- Tiempo: " . $tiempoCalculado . ".</li>";
+            }
+            $this->output .= "</ol>";
+        }
+
+        public function imprimirOutput() {
+            echo $this->output;
+        }
+
+        public function calcularTiempo($seconds) {
+            $minutes = floor($seconds / 60);
+            $hours = floor($minutes / 60);
+
+            $strTiempo = $hours . ":" . $minutes . ":" . $seconds;
+            
+            return $strTiempo;
+        }
+
+        
+    }
+
+
+    $miRecord = new Record();
+
+    if (count($_POST) > 0) {
+        $miRecord->tryConnection();
+    }
+
+    
+
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="es">
@@ -33,94 +121,6 @@
 </head>
 
 <body>
-    
-    <?php
-    
-        class Record {
-
-            protected $server;
-            protected $user;
-            protected $pass;
-            protected $dbname;
-            protected $output = ''; 
-
-
-            public function __construct() {
-                $this->server = "localhost";
-                $this->user = "DBUSER2023";
-                $this->pass = "DBPSWD2023";
-                $this->dbname = "records";
-            }
-
-            public function tryConnection() {
-                try {
-                    $conn = new PDO("mysql:host=$this->server;dbname=$this->dbname",$this->user, $this->pass);
-                    // set the PDO error mode to exception
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $this->insertData($conn);
-                } catch(PDOException $e) {
-                    echo "Connection failed: " . $e->getMessage();
-                }
-            }
-
-            public function insertData($conn) {
-                $nombre_i = $_POST["nombre"];
-                $apellidos_i = $_POST["apellidos"];
-                $nivel_i = $_POST["nivel"];
-                $tiempo_i = $_POST["tiempo"];
-
-                $sql = "INSERT INTO registro (nombre, apellidos, nivel, tiempo) VALUES (:nombre, :apellidos, :nivel, :tiempo)";
-                $stmt = $conn->prepare($sql);
-                $stmt->bindParam(':nombre', $nombre_i, PDO::PARAM_STR);
-                $stmt->bindParam(':apellidos', $apellidos_i, PDO::PARAM_STR);
-                $stmt->bindParam(':nivel', $nivel_i, PDO::PARAM_STR); 
-                $stmt->bindParam(':tiempo', $tiempo_i, PDO::PARAM_STR); 
-                $stmt->execute();
-
-                $this->createList($conn);
-            }
-
-            public function createList($conn) {
-                $sql = "SELECT * FROM registro ORDER BY tiempo ASC LIMIT 10";
-                $stmt = $conn->query($sql);
-
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                $this->output .= "<h4> Clasificación </h4>";
-                $this->output .= "<ol>";
-                foreach ($results as $row) {
-                    $tiempoCalculado = $this->calcularTiempo($row['tiempo']);
-                    $this->output .= "<li>Nombre: " . $row['nombre'] . " " . $row['apellidos'] . ". -- Nivel: " . $row['nivel'] . ". -- Tiempo: " . $tiempoCalculado . ".</li>";
-                }
-                $this->output .= "</ol>";
-            }
-
-            public function imprimirOutput() {
-                echo $this->output;
-            }
-
-            public function calcularTiempo($seconds) {
-                $minutes = floor($seconds / 60);
-                $hours = floor($minutes / 60);
-
-                $strTiempo = $hours . ":" . $minutes . ":" . $seconds;
-                
-                return $strTiempo;
-            }
-
-            
-        }
-
-
-        $miRecord = new Record();
-
-        if (count($_POST) > 0) {
-            $miRecord->tryConnection();
-        }
-
-        
-
-    ?>
 
     <header>
         <h1>Escritorio Virtual</h1>

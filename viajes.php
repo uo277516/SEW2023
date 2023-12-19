@@ -1,3 +1,141 @@
+<?php
+
+    class Carrusel {
+        private $pais;
+        private $capital;
+
+        public function __construct($pais, $capital) {
+            $this->pais = $pais;
+            $this->capital = $capital;
+        }
+
+        public function getPais(){
+            return $this->pais;
+        }
+        
+        public function getCapital(){
+            return $this->capital;
+        }
+
+        //Hacer la llamada a flickr
+        public function getCarrusel() {
+
+            $params = array(
+                'api_key'	=> '7ea9c232e677033d7c7fe0fbc5f8887b',
+                'method'	=> 'flickr.photos.search',
+                'tags'      => $this->pais . "," . $this->capital . ",landscape",
+                'format'	=> 'json',
+                'nojsoncallback' => 1  
+            );
+            
+            $encoded_params = array();
+            
+            foreach ($params as $k => $v){
+            
+                $encoded_params[] = urlencode($k).'='.urlencode($v);
+            }
+            
+            #
+            # llamar a la API y decodificar la respuesta
+            #
+            
+            
+            $url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
+            
+            $rsp = file_get_contents($url);
+            
+            # Decodificar la respuesta JSON
+            $json = json_decode($rsp);
+
+            # Verificar si hay errores en la respuesta JSON
+            if (json_last_error() == JSON_ERROR_NONE || $json !== null) {
+                
+                    //Visualiza el archivo JSON
+                    /*
+                print ("<pre>");
+                print_r($json->photos->photo);
+                print ("</pre>");*/
+
+                echo "<h3>Carrusel de imágenes</h3>";
+                $i=0;
+                foreach($json->photos->photo as $foto) {
+                    if ($i<10) {
+                        // print ("<pre>");
+                        //print_r($foto->title);
+                        
+                        $imageUrl = 'https://farm' . $foto->farm . '.staticflickr.com/' . $foto->server . '/' . $foto->id . '_' . $foto->secret . '_b.jpg';
+                        //print_r($imageUrl);
+                        // print ("</pre>");
+
+                        echo "<img alt='" . htmlspecialchars($foto->title, ENT_QUOTES, 'UTF-8') . "' src='" . $imageUrl . "'>";
+
+                    }
+                    $i++; 
+                }
+            }
+
+        }
+    }
+
+
+    class Moneda {
+
+        private $moneda_local;
+        private $moneda_euro;
+        private $conversion;
+
+        public function __construct($moneda_local, $moneda_euro) {
+            $this->moneda_local = $moneda_local;
+            $this->moneda_euro = $moneda_euro;
+        }
+
+        public function getMonedaLocal(){
+            return $this->moneda_local;
+        }
+        
+        public function getMonedaEuros(){
+            return $this->moneda_euro;
+        }
+
+        public function cambiarMoneda() {
+            $price = "No se pudo convertir";
+            $req_url = 'https://v6.exchangerate-api.com/v6/7452271d9926b339059f4ed4/latest/' . $this->moneda_euro;
+            $response_json = file_get_contents($req_url);
+
+            // Continuing if we got a result
+            if(false !== $response_json) {
+
+                // Try/catch for json_decode operation
+                try {
+
+                    // Decoding
+                    $response = json_decode($response_json);
+
+                    // Check for success
+                    if('success' === $response->result) {
+                        // YOUR APPLICATION CODE HERE, e.g.
+                        $base_price = 1; // un euro
+                        $local = $this->getMonedaLocal();
+                        $price = round(($base_price * $response->conversion_rates->$local), 2);
+                        
+                    }
+
+                }
+                catch(Exception $e) {
+                    print ("<pre>");
+                    print_r($e);
+                    print ("</pre>");
+                }
+
+            }
+
+            echo '<p> Esta es la conversión de euros (EUR) a rieles (KHR), moneda local de Cambodia: 1 EUR = ' . $price . ' KHR, aproximadamente. </p>';
+
+        }
+    }
+
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="es">
@@ -40,143 +178,7 @@
 </head>
 
 <body>
-    <?php
-
-        class Carrusel {
-            private $pais;
-            private $capital;
-
-            public function __construct($pais, $capital) {
-                $this->pais = $pais;
-                $this->capital = $capital;
-            }
-
-            public function getPais(){
-                return $this->pais;
-            }
-            
-            public function getCapital(){
-                return $this->capital;
-            }
-
-            //Hacer la llamada a flickr
-            public function getCarrusel() {
-
-                $params = array(
-                    'api_key'	=> '7ea9c232e677033d7c7fe0fbc5f8887b',
-                    'method'	=> 'flickr.photos.search',
-                    'tags'      => $this->pais . "," . $this->capital . ",landscape",
-                    'format'	=> 'json',
-                    'nojsoncallback' => 1  
-                );
-                
-                $encoded_params = array();
-                
-                foreach ($params as $k => $v){
-                
-                    $encoded_params[] = urlencode($k).'='.urlencode($v);
-                }
-                
-                #
-                # llamar a la API y decodificar la respuesta
-                #
-                
-                
-                $url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
-                
-                $rsp = file_get_contents($url);
-                
-                # Decodificar la respuesta JSON
-                $json = json_decode($rsp);
-
-                # Verificar si hay errores en la respuesta JSON
-                if (json_last_error() == JSON_ERROR_NONE || $json !== null) {
-                    
-                     //Visualiza el archivo JSON
-                     /*
-                    print ("<pre>");
-                    print_r($json->photos->photo);
-                    print ("</pre>");*/
-
-                    echo "<h3>Carrusel de imágenes</h3>";
-                    $i=0;
-                    foreach($json->photos->photo as $foto) {
-                        if ($i<10) {
-                           // print ("<pre>");
-                           //print_r($foto->title);
-                            
-                            $imageUrl = 'https://farm' . $foto->farm . '.staticflickr.com/' . $foto->server . '/' . $foto->id . '_' . $foto->secret . '_b.jpg';
-                            //print_r($imageUrl);
-                            // print ("</pre>");
-
-                            echo "<img alt='" . htmlspecialchars($foto->title, ENT_QUOTES, 'UTF-8') . "' src='" . $imageUrl . "'>";
-
-                        }
-                        $i++; 
-                    }
-                }
-
-            }
-        }
-
-
-        class Moneda {
-
-            private $moneda_local;
-            private $moneda_euro;
-            private $conversion;
-
-            public function __construct($moneda_local, $moneda_euro) {
-                $this->moneda_local = $moneda_local;
-                $this->moneda_euro = $moneda_euro;
-            }
-
-            public function getMonedaLocal(){
-                return $this->moneda_local;
-            }
-            
-            public function getMonedaEuros(){
-                return $this->moneda_euro;
-            }
-
-            public function cambiarMoneda() {
-                $price = "No se pudo convertir";
-                $req_url = 'https://v6.exchangerate-api.com/v6/7452271d9926b339059f4ed4/latest/' . $this->moneda_euro;
-                $response_json = file_get_contents($req_url);
-
-                // Continuing if we got a result
-                if(false !== $response_json) {
-
-                    // Try/catch for json_decode operation
-                    try {
-
-                        // Decoding
-                        $response = json_decode($response_json);
-
-                        // Check for success
-                        if('success' === $response->result) {
-                            // YOUR APPLICATION CODE HERE, e.g.
-                            $base_price = 1; // un euro
-                            $local = $this->getMonedaLocal();
-                            $price = round(($base_price * $response->conversion_rates->$local), 2);
-                            
-                        }
-
-                    }
-                    catch(Exception $e) {
-                        print ("<pre>");
-                        print_r($e);
-                        print ("</pre>");
-                    }
-
-                }
-
-                echo '<p> Esta es la conversión de euros (EUR) a rieles (KHR), moneda local de Cambodia: 1 EUR = ' . $price . ' KHR, aproximadamente. </p>';
-
-            }
-        }
-
-    ?>
+    
     <header>
 
 
