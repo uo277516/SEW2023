@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <title>Escritorio Virtual</title>
+
+    <!-- Autor -->
+    <meta name="author" content="Natalia Fernández Riego">
+    
+    <!-- Descripción del contenido -->
+    <meta name="description" content="Aplicación para generar informacion y mostrar en un mapa a partir
+    de unas coordenadas y el marcador de tu ubicación">
+
+    <!-- Palabras claves -->
+    <meta name="keywords" content="aplicacion, mapa, coordenadas, informe">
+
+    <!-- Ventana gráfica -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/api.css">
+
+    
+    <!-- Favicon -->
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+
+    <!-- Referencia a JQuery (opción minificada) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Opera mete un style aquí y da un warning en el validador de HTML -->
+    <script src="js/api.js"></script>
+
+    <!-- Mapa dinámico MapBox-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Escritorio Virtual</h1>
+
+        <!-- Menú de navegación -->
+        <nav>
+            <a title="Indice" accesskey="I" tabindex="1" href="index.html">Indice</a> 
+            <a title="Sobre mi" accesskey="S" tabindex="2" href="sobremi.html">Sobre mi</a> 
+            <a title="Noticias" accesskey="N" tabindex="3" href="noticias.html">Noticias</a> 
+            <a title="Agenda" accesskey="A" tabindex="4" href="agenda.html">Agenda</a> 
+            <a title="Meteorologia" accesskey="M" tabindex="5" href="meteorologia.html">Meteorología</a> 
+            <a title="Viajes" accesskey="V" tabindex="6" href="viajes.php">Viajes</a> 
+            <a title="Juegos" accesskey="J" tabindex="7" href="juegos.html">Juegos</a> 
+        </nav>
+    </header>
+
+
+   
+        
+    <nav>
+        <a title="Juego de memoria" accesskey="U" tabindex="8" href="memoria.html">Juego de memoria</a> 
+        <a title="Sudoku" accesskey="K" tabindex="9" href="sudoku.html">Sudoku</a> 
+        <a title="Crucigrama" accesskey="C" tabindex="10" href="crucigrama.php">Crucigrama</a> 
+        <a title="API" accesskey="P" tabindex="11" href="api.html">API</a> 
+        <a title="APP sobre música" accesskey="G" tabindex="12" href="php/grupos.php">APP sobre música</a> 
+
+
+    </nav>
+        
+    
+
+    <h2>Aplicación para calcular distancias con puntos</h2>
+     
+    <h3>
+        Generar el mapa para situar los puntos
+    </h3><aside id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="825" height="661" style="width: 660px; height: 528.925px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><button class="mapboxgl-ctrl-attrib-button" type="button" aria-label="Toggle attribution"><span class="mapboxgl-ctrl-icon" aria-hidden="true" title="Toggle attribution"></span></button><div class="mapboxgl-ctrl-attrib-inner" role="list"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=streets-v12&amp;access_token=pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA#/-4.63/46.58/2.72" target="_blank" aria-label="Map feedback" rel="noopener nofollow">Improve this map</a></div></div></div></div></aside>
+    <button onclick="api.generarMapa()">Obtener mapa</button>
+
+    <section>
+        <h3>Introducir coordenadas</h3>
+        <p>En el siguiente bloque puedes arrastrar un archivo con coordenadas. 
+            Para verlas representadas en el mapa anterior, haz click en el botón "Generar lineas". 
+        </p>
+        <aside>
+            <p>
+                Arrastra y suelta un archivo con coordenadas aquí
+            </p>
+        </aside>
+        <button onclick="api.generarLineas()">Generar lineas</button>
+        <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
+        <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
+    </section>
+
+    <p>Descarga aquí un archivo .txt el cual te informará
+        de las distancias reales entre los puntos.</p>
+    <button>Generar Información</button>
+
+    
+
+    <script>api.metodo();</script>
+
+    
+
+
+</body></html>
