@@ -223,7 +223,6 @@ class Viajes {
             });
 
             //Creo html para cada hito un article con todo
-            console.log(rutaNombre);
             article.append($('<h4>').text(rutaNombre));
             article.append($('<p>').text('Tipo: ' + rutaTipo));
             article.append($('<p>').text('Medio: ' + rutaMedio));
@@ -290,6 +289,8 @@ class Viajes {
         section.append(aside);
 
         mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
+        //Las coordenadas del mapa dinamico estan puestas asi para que sea un punto medio entre los diferentes kml ya que si no
+        //no se ven en el mapa
         const map = new mapboxgl.Map({
             container: 'map_kml', // container ID
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -359,9 +360,6 @@ class Viajes {
     leerSVG(files) {
 
         const section = $("body section:eq(-2)");
-       // const aside = $("<aside></aside>");
-     //   section.append(aside);
-
 
         for (const file of Array.from(files) ) {
 

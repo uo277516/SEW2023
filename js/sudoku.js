@@ -84,10 +84,10 @@ class Sudoku {
         const selectedCell = document.querySelectorAll("[data-state='clicked']")[0];
         const allCells = document.querySelectorAll('aside p');
 
-        // Verificar si al menos una celda está seleccionada
+        //Verificar celda seleccionada
         const posicion = Array.from(allCells).indexOf(selectedCell);
 
-        // Calcular fila y columna según la posición
+        //Fila y col
         const fila = Math.floor(posicion / 9);  
         const columna = (posicion % 9) ; 
         
@@ -100,7 +100,7 @@ class Sudoku {
                        
                         selectedCell.removeEventListener('click', this.clickHandler);                      
 
-                        // Comprobar si el sudoku se ha completado
+                        //Sudoku completo
                         if (this.sudokuCompletado(allCells))                         
                             alert('¡Felicidades! Sudoku completado.');
                 } else  {

@@ -70,7 +70,7 @@ class API {
 
         e.after(mainElement);
 
-        // Crear el mapa y añadir marcador inicial
+        //Crear el mapa y marcador inicial
         mapboxgl.accessToken = 'pk.eyJ1IjoibmF0YWxpYWZkciIsImEiOiJjbDJpcGF3OTIwMDhoM2lxbmdieTVqZmNtIn0.yCtVKd9uXBygbocekG0RqA';
             
         this.map = new mapboxgl.Map({
