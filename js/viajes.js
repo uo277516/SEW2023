@@ -356,6 +356,8 @@ class Viajes {
     leerSVG(files) {
 
         const section = $("body section:eq(-2)");
+       // const aside = $("<aside></aside>");
+     //   section.append(aside);
 
 
         for (const file of Array.from(files) ) {
