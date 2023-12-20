@@ -12,4 +12,10 @@ de comentarios, me gustaría reflejar aquí también:
 2. En la carpeta /js, existe un archivo de texto llamado "api.txt". Este sirve como prueba para "api.html", a la hora de meter un archivo
 con coordenadas.
 3. El css hecho para el ejercicio 3 de PHP sesión 10 está en la carpeta /estilo.
+   En este ejercicio, las 3 funcionalidades que se citan en el guión están incluidas de la siguiente manera:
+    - Boton crear base (crea base de 0 y crea las tablas (las elimina y las vuelve a crear)). Obligatorio pulsar antes de importar nada.
+    - Botones importar (uno para cada tabla, uno para csv).
+    - Boton exportar. Descarga un solo archivo csv. En el, para cada tabla incluye: 
+        - fila de los nombres de los atibutos separados por comentarios
+        - filas con las filas de la base de datos
 4. El navegador Opera a veces añade un atributo style al <body>
