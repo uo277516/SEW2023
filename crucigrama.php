@@ -50,7 +50,7 @@
 
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            $this->output .= "<h4> Clasificación </h4>";
+            $this->output .= "<h3> Clasificación </h3>";
             $this->output .= "<ol>";
             foreach ($results as $row) {
                 $tiempoCalculado = $this->calcularTiempo($row['tiempo']);

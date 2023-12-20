@@ -347,6 +347,7 @@
     <link rel="icon" href="../multimedia/imagenes/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../estilo/grupos.css" />
 
     
 </head>

@@ -219,6 +219,7 @@
             <h4> Mapa dinámico </h4>
             <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
             <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
+            <!-- Da un aviso de accesibilidad en Lighthouse. Aceptado porque es por el propio codigo que se genera con el mapa-->
             <button onclick = "viaje.getMapaDinamico()">Obtener mapa dinámico</button>
         </article>
     </main>
@@ -232,6 +233,8 @@
     <section>
         <h3>Leer archivos de planimetría</h3>
         <label for="archivoKml">Selecciona uno o varios archivos .kml:</label>
+        <!-- Da un aviso el validadpr de html, por el codigo que se genera al hacer el mapa dinamico-->
+        <!-- Warning: Possible misuse of aria-label. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)-->
         <input id="archivoKml" type="file" accept=".kml" onchange="viaje.leerKML(this.files);" multiple="">
     </section>
 

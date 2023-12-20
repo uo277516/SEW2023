@@ -19,6 +19,7 @@ body > aside {
 
 /* especificidad: (0,0,1) */
 button {
+    margin-top: 2em;
     background-color: #B29CDC;
     color: #000000;
     padding: 2ex;
