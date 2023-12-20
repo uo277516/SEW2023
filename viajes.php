@@ -35,37 +35,23 @@
                 $encoded_params[] = urlencode($k).'='.urlencode($v);
             }
             
-            #
-            # llamar a la API y decodificar la respuesta
-            #
-            
             
             $url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
             
             $rsp = file_get_contents($url);
             
-            # Decodificar la respuesta JSON
             $json = json_decode($rsp);
 
-            # Verificar si hay errores en la respuesta JSON
             if (json_last_error() == JSON_ERROR_NONE || $json !== null) {
                 
-                    //Visualiza el archivo JSON
-                    /*
-                print ("<pre>");
-                print_r($json->photos->photo);
-                print ("</pre>");*/
 
                 echo "<h3>Carrusel de imágenes</h3>";
                 $i=0;
                 foreach($json->photos->photo as $foto) {
                     if ($i<10) {
-                        // print ("<pre>");
-                        //print_r($foto->title);
                         
                         $imageUrl = 'https://farm' . $foto->farm . '.staticflickr.com/' . $foto->server . '/' . $foto->id . '_' . $foto->secret . '_b.jpg';
-                        //print_r($imageUrl);
-                        // print ("</pre>");
+
 
                         echo "<img alt='" . htmlspecialchars($foto->title, ENT_QUOTES, 'UTF-8') . "' src='" . $imageUrl . "'>";
 
