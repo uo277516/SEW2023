@@ -22,7 +22,7 @@ def verXPath(archivoXML):
         nombre_ruta = ruta.find('ns:nombre', namespaces=ns).text
         with open(nombre_archivo_kml, 'w', encoding='utf-8') as kml_file:
             kml_file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-            kml_file.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="500" width="1000">\n')
+            kml_file.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0" height="500" width="412">\n')
             kml_file.write('<polyline points="\n')
             
             distacia_acumulada=10 #para empezar en el punto 10

@@ -16,6 +16,7 @@ article {
     border-radius: 2ex;
     box-sizing: border-box;
     box-shadow: 1ex 2ex 2ex #0000001A; 
+    margin-bottom: 2em;
 }
 
 /* especificidad: (0,0,1) */
@@ -42,6 +43,7 @@ textarea {
 
 /* especificidad: (0,0,1) */
 button {
+    margin-top: 1.5em;
     background-color: #B29CDC;
     color: rgb(0, 0, 0);
     padding: 1ex;

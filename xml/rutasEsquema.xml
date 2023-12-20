@@ -227,7 +227,7 @@ xsi:schemaLocation="https://www.uniovi.es rutas.xsd">
           <latitud>103.69416666666667</latitud>
           <altitud>28</altitud>
         </coordenadas>
-        <distancia unidades="km">25.7</distancia>
+        <distancia unidades="km">5.4</distancia>
         <galeria_fotos>
           <foto>Ream.jpeg</foto>
         </galeria_fotos>
@@ -241,7 +241,7 @@ xsi:schemaLocation="https://www.uniovi.es rutas.xsd">
           <latitud>104.16388888888889</latitud>
           <altitud>5</altitud>
         </coordenadas>
-        <distancia unidades="km">91.6</distancia>
+        <distancia unidades="km">6.1</distancia>
         <galeria_fotos>
           <foto>Kampot.jpg</foto>
         </galeria_fotos>
@@ -255,7 +255,7 @@ xsi:schemaLocation="https://www.uniovi.es rutas.xsd">
           <latitud>104.31888888888888</latitud>
           <altitud>18</altitud>
         </coordenadas>
-        <distancia unidades="km">30</distancia>
+        <distancia unidades="km">3</distancia>
         <galeria_fotos>
           <foto>kep.jpg</foto>
         </galeria_fotos>
