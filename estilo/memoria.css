@@ -2,8 +2,9 @@
 main > aside {
     display:grid;
     justify-content: center;
-    height: 100vh;
+    height: 90vh;
     grid-template-columns: repeat(4, auto);
+    width: 70vw;
 }
 
 /* Especificidad: (0,0,1) */
@@ -25,15 +26,12 @@ main {
 /* Especificidad: (0,0,1) */
 article {
     flex-basis: calc(25% - 4em);  
-    width: 70em;
-    height: calc(30%);
     margin: 0.3em;
     transform: scale(1);
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform .5s;
-    width: 23vw;
-    height: 30vh;
+    width: 21vw;
 }
 
 /* Especificidad: (0,1,1) */
@@ -65,4 +63,12 @@ article h3 {
 /* Especificidad: (0,0,2) */
 article img {
     transform: rotateY(180deg);
+}
+
+/*MediaQuery para moviles reducir tamaño texto titulo y subtitulo noticia*/
+@media (max-width: 767px) {
+    /* Especificidad: (0,0,2) */
+    article h3{
+        font-size: 1.2em;
+    }
 }

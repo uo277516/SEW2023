@@ -5,6 +5,7 @@ main {
     justify-content: space-between;
     gap: 2ex;
     padding-top: 2ex;
+    width: 90vw;
 }
 
 /* especificidad: (0,0,1) */

@@ -49,3 +49,8 @@ img {
     right: 0;
     border-radius: 2ex;
 }
+
+/* especificidad {0,0,1} */
+h4 {
+    margin-top: 3em;
+}

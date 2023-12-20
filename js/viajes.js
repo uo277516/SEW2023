@@ -237,7 +237,10 @@ class Viajes {
             //Referencias en una lista
             var referenciasList = $('<ul>');
             referencias.forEach(function (referencia) {
-                var listItem = $('<li>').text(referencia.titulo + ' - ' + referencia.bibliografia);
+                var enlace = $('<a>').attr('href', referencia.bibliografia).attr('title', referencia.titulo.replace(/\s+/g, "_"));
+                enlace.text(referencia.titulo);
+                var listItem = $('<li>');
+                listItem.append(enlace);
                 referenciasList.append(listItem);
             });
             article.append($('<h5>').text('Referencias:')).append(referenciasList);
