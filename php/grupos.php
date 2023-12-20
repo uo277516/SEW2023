@@ -17,7 +17,6 @@
             $this->pass = "DBPSWD2023";
             $this->dbname = "musicadb";
             $this->db=new mysqli($this->server,$this->user,$this->pass);
-           
         }
 
         public function crearBaseDatos(){
@@ -84,18 +83,15 @@
             $this->db->query($queryIntegrante);
             $this->db->query($queryAlbumes);
             $this->db->query($queryCanciones);
-
-
-
-            $this->db->close();  
         }
         
 
 
         public function importarProductoras(){
+            $i = 0;
             $this->db->select_db($this->dbname);
             if ($_FILES['csv_pro']['tmp_name'] == null) {
-
+                return "No hay ningún archivo seleccionado.";
             } else if ($_FILES['csv_pro']['type'] == "text/csv"  || $_FILES['csv_pro']['type'] == "application/vnd.ms-excel") {
                 $file = fopen($_FILES['csv_pro']['tmp_name'], "r");
                 while (!feof($file)) {
@@ -104,37 +100,39 @@
                         $productora_id=$datos[0];
                         $nombre=$datos[1];
                         $pais=$datos[2];
-                        $consultaPre = $this->db->prepare("INSERT INTO Productora (productora_id, nombre, pais) 
-                            VALUES (?,?,?)");
-                        $consultaPre->bind_param('sss', 
-                            $productora_id,$nombre,$pais);    
-                        
+                        //Verificar si ya hay ese id
+                        $consultaVerificacion = $this->db->prepare("SELECT COUNT(*) as count FROM Productora WHERE productora_id = ?");
+                        $consultaVerificacion->bind_param('s', $productora_id);
+                        $consultaVerificacion->execute();
+                        $resultadoVerificacion = $consultaVerificacion->get_result();
+                        $fila = $resultadoVerificacion->fetch_assoc();
 
-                        $pre = $consultaPre->execute();
-                        $consultaPre->close();
+                        //Si no lo hay la meto
+                        if ($fila['count'] == 0) {
+                            $i++;
+                            $consultaPre = $this->db->prepare("INSERT INTO Productora (productora_id, nombre, pais) VALUES (?,?,?)");
+                            $consultaPre->bind_param('sss', $productora_id, $nombre, $pais);
+                            $pre = $consultaPre->execute();
+                            $consultaPre->close();
+                        }
                     }
                     
                 }
-
-
-                $consulta = "SELECT * FROM Productora";
-                
-                $resultadoConsulta = $this->db->query($consulta);
-
                 fclose($file);
-
             }else{
-
             }
+            $this->db->close(); 
+            return "Se han añadido " . $i . " filas. Las filas con id repetido se han ignorado. ";
             
         }
 
 
 
         public function importarGrupos(){
+            $i=0;
             $this->db->select_db($this->dbname);
             if ($_FILES['csv_gru']['tmp_name'] == null) {
-
+                return "No hay ningún archivo seleccionado.";
             } else if ($_FILES['csv_gru']['type'] == "text/csv"  || $_FILES['csv_gru']['type'] == "application/vnd.ms-excel") {
                 $file = fopen($_FILES['csv_gru']['tmp_name'], "r");
                 while (!feof($file)) {
@@ -144,12 +142,27 @@
                         $nombre=$datos[1];
                         $genero=$datos[2];
                         $productora_id=$datos[3];
-                        $consultaPre = $this->db->prepare("INSERT INTO Grupo (grupo_id, nombre, genero, productora_id) 
-                            VALUES (?,?,?,?)");
-                        $consultaPre->bind_param('ssss', 
-                            $grupo_id, $nombre, $genero, $productora_id);    
-                        $consultaPre->execute();
-                        $consultaPre->close();
+                        //Verificar id
+                        $consultaVerificacion = $this->db->prepare("SELECT COUNT(*) as count FROM Grupo WHERE grupo_id = ?");
+                        $consultaVerificacion->bind_param('s', $grupo_id);
+                        $consultaVerificacion->execute();
+                        $resultadoVerificacion = $consultaVerificacion->get_result();
+                        $fila = $resultadoVerificacion->fetch_assoc();
+
+                        if ($fila['count'] == 0) {
+                            $i++;
+                            $consultaPre = $this->db->prepare("INSERT INTO Grupo (grupo_id, nombre, genero, productora_id) 
+                                VALUES (?,?,?,?)");
+                            $consultaPre->bind_param('ssss', 
+                                $grupo_id, $nombre, $genero, $productora_id); 
+                            try {
+                                $consultaPre->execute();
+                                $consultaPre->close();
+                            } catch (mysqli_sql_exception $e) {
+                                return "Para insertar esta tabla, primero debes haber insertado las productoras.";
+                            }
+                            
+                        }
                     }
                     
                 }
@@ -157,12 +170,16 @@
             }else{
             }
             $this->db->close(); 
+            return "Se han añadido " . $i . " filas. Las filas con id repetido se han ignorado. ";
+            
         }
 
 
         public function importarIntegrantes(){
+            $i = 0;
             $this->db->select_db($this->dbname);
             if ($_FILES['csv_int']['tmp_name'] == null) {
+                return "No hay ningún archivo seleccionado.";
             } else if ($_FILES['csv_int']['type'] == "text/csv"  || $_FILES['csv_int']['type'] == "application/vnd.ms-excel") {
                 $file = fopen($_FILES['csv_int']['tmp_name'], "r");
                 while (!feof($file)) {
@@ -171,13 +188,27 @@
                         $integrante_id=$datos[0];
                         $nombre=$datos[1];
                         $grupo_id=$datos[2];
-                        $consultaPre = $this->db->prepare("INSERT INTO Integrante (integrante_id, nombre, grupo_id) 
-                            VALUES (?,?,?)");
-                        $consultaPre->bind_param('sss', 
-                        $integrante_id, $nombre, $grupo_id);    
-    
-                        $consultaPre->execute();
-                        $consultaPre->close();
+                        //verifcar id
+                        $consultaVerificacion = $this->db->prepare("SELECT COUNT(*) as count FROM Integrante WHERE integrante_id = ?");
+                        $consultaVerificacion->bind_param('s', $integrante_id);
+                        $consultaVerificacion->execute();
+                        $resultadoVerificacion = $consultaVerificacion->get_result();
+                        $fila = $resultadoVerificacion->fetch_assoc();
+
+                        if ($fila['count'] == 0) {
+                            $i++;
+                            $consultaPre = $this->db->prepare("INSERT INTO Integrante (integrante_id, nombre, grupo_id) 
+                                VALUES (?,?,?)");
+                            $consultaPre->bind_param('sss', 
+                            $integrante_id, $nombre, $grupo_id);    
+        
+                            try {
+                                $consultaPre->execute();
+                                $consultaPre->close();
+                            } catch (mysqli_sql_exception $e) {
+                                return "Para insertar esta tabla, primero debes haber insertado los grupos y las productoras.";
+                            }
+                        }
                     }
                     
                 }
@@ -185,12 +216,15 @@
             }else{
             }
             $this->db->close(); 
+            return "Se han añadido " . $i . " filas. Las filas con id repetido se han ignorado. ";
         }
 
 
         public function importarAlbumes(){
+            $i = 0;
             $this->db->select_db($this->dbname);
             if ($_FILES['csv_alb']['tmp_name'] == null) {
+                return "No hay ningún archivo seleccionado.";
             } else if ($_FILES['csv_alb']['type'] == "text/csv"  || $_FILES['csv_alb']['type'] == "application/vnd.ms-excel") {
                 $file = fopen($_FILES['csv_alb']['tmp_name'], "r");
                 while (!feof($file)) {
@@ -200,15 +234,28 @@
                         $titulo=$datos[1];
                         $año=$datos[2];
                         $grupo_id=$datos[3];
-                        $consultaPre = $this->db->prepare("INSERT INTO Album (album_id, titulo, año, grupo_id) 
-                            VALUES (?,?,?,?)");
-                        $consultaPre->bind_param('ssss', 
-                        $album_id, $titulo, $año, $grupo_id);   
+
+                        $consultaVerificacion = $this->db->prepare("SELECT COUNT(*) as count FROM Album WHERE album_id = ?");
+                        $consultaVerificacion->bind_param('s', $album_id);
+                        $consultaVerificacion->execute();
+                        $resultadoVerificacion = $consultaVerificacion->get_result();
+                        $fila = $resultadoVerificacion->fetch_assoc();
+
+                        if ($fila['count'] == 0) {
+                            $i++;
+                            $consultaPre = $this->db->prepare("INSERT INTO Album (album_id, titulo, año, grupo_id) 
+                                VALUES (?,?,?,?)");
+                            $consultaPre->bind_param('ssss', 
+                            $album_id, $titulo, $año, $grupo_id);  
+                            try {
+                                $consultaPre->execute();
+                                $consultaPre->close();
+                            } catch (mysqli_sql_exception $e) {
+                                return "Para insertar esta tabla, primero debes haber insertado las productoras y los grupos.";
+                            }
+                        }
                         
                         
-    
-                        $consultaPre->execute();
-                        $consultaPre->close();
                     }
                     
                 }
@@ -218,12 +265,16 @@
 
             }
             $this->db->close(); 
+            return "Se han añadido " . $i . " filas. Las filas con id repetido se han ignorado. ";
+
         }
 
 
         public function importarCanciones(){
+            $i = 0;
             $this->db->select_db($this->dbname);
             if ($_FILES['csv_can']['tmp_name'] == null) {
+                return "No hay ningún archivo seleccionado.";
             } else if ($_FILES['csv_can']['type'] == "text/csv"  || $_FILES['csv_can']['type'] == "application/vnd.ms-excel") {
                 $file = fopen($_FILES['csv_can']['tmp_name'], "r");
                 while (!feof($file)) {
@@ -232,13 +283,27 @@
                         $cancion_id=$datos[0];
                         $nombre=$datos[1];
                         $album_id=$datos[2];
-                        $consultaPre = $this->db->prepare("INSERT INTO Cancion (cancion_id, nombre, album_id) 
-                            VALUES (?,?,?)");
-                        $consultaPre->bind_param('sss', 
-                        $cancion_id, $nombre, $album_id);    
-    
-                        $consultaPre->execute();
-                        $consultaPre->close();
+
+                        $consultaVerificacion = $this->db->prepare("SELECT COUNT(*) as count FROM Cancion WHERE cancion_id = ?");
+                        $consultaVerificacion->bind_param('s', $cancion_id);
+                        $consultaVerificacion->execute();
+                        $resultadoVerificacion = $consultaVerificacion->get_result();
+                        $fila = $resultadoVerificacion->fetch_assoc();
+
+                        if ($fila['count'] == 0) {
+                            $i++;
+                            $consultaPre = $this->db->prepare("INSERT INTO Cancion (cancion_id, nombre, album_id) 
+                                VALUES (?,?,?)");
+                            $consultaPre->bind_param('sss', 
+                            $cancion_id, $nombre, $album_id);    
+        
+                            try {
+                                $consultaPre->execute();
+                                $consultaPre->close();
+                            } catch (mysqli_sql_exception $e) {
+                                return "Para insertar esta tabla, primero debes haber insertado las productoras, grupos y álbumes.";
+                            }
+                        }
                     }
                     
                 }
@@ -248,6 +313,8 @@
 
             }
             $this->db->close(); 
+            return "Se han añadido " . $i . " filas. Las filas con id repetido se han ignorado. ";
+
         }
         
 
@@ -300,19 +367,13 @@
         
     }   
 
-    
+    //lo hago siempre crearla para que asi se me resetee la base de datos
+    $musica = new Musica();
+    $musica->crearBaseDatos();
 
     if (count($_POST)>0) {
-        $musica = new Musica();
+        
         if(isset($_POST['crearBase'])) $musica -> crearBaseDatos();
-
-        if(isset($_POST['importarProductoras'])) {
-            $musica -> importarProductoras();
-        }
-        if(isset($_POST['importarGrupos'])) $musica -> importarGrupos();
-        if(isset($_POST['importarIntegrantes'])) $musica -> importarIntegrantes();
-        if(isset($_POST['importarAlbumes'])) $musica -> importarAlbumes();
-        if(isset($_POST['importarCanciones'])) $musica -> importarCanciones();
         
         if(isset($_POST['exportarDatos'])) $musica -> exportarDatos();
     }
@@ -401,7 +462,7 @@
         <?php 
         if (count($_POST)>0) {
             if(isset($_POST['importarProductoras'])) {
-                echo "Se han añadido las productoras correctamente. ";
+                echo $musica -> importarProductoras();
             }
         }
         ?>
@@ -418,7 +479,7 @@
         <?php 
         if (count($_POST)>0) {
             if(isset($_POST['importarGrupos'])) {
-                echo "Se han añadido los grupos correctamente. ";
+                echo $musica -> importarGrupos();
 
             }
         }
@@ -435,7 +496,7 @@
         <?php 
         if (count($_POST)>0) {
             if(isset($_POST['importarIntegrantes'])) {
-                echo "Se han añadido los integrantes correctamente. ";
+                echo $musica -> importarIntegrantes();
 
             }
         }
@@ -452,7 +513,7 @@
         <?php 
         if (count($_POST)>0) {
             if(isset($_POST['importarAlbumes'])) {
-                echo "Se han añadido los álbumes correctamente. ";
+                echo $musica -> importarAlbumes();
 
             }
         }
@@ -469,7 +530,7 @@
         <?php 
         if (count($_POST)>0) {
             if(isset($_POST['importarCanciones'])) {
-                echo "Se han añadido las canciones correctamente. ";
+                echo $musica -> importarCanciones();
 
             }
         }
